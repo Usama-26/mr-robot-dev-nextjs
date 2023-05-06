@@ -115,7 +115,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 py-32">
+      <div className="mx-auto desktop:px-32 lg:px-20 px-5 pt-32">
         <h4 className="desktop:text-xl text-lg font-medium text-white text-center">
           Popular Services
         </h4>
@@ -158,6 +158,106 @@ export default function Home() {
             </Splide>
           </div>
         )}
+
+        <div className="flex flex-col lg:flex-row item-center">
+          <div className="basis-1/2 desktop:py-52 py-40 lg:text-left text-center ">
+            <h1 className="text-primary-red desktop:text-6xl lg:text-4xl text-2xl font-bold desktop:leading-snug">
+              Build Your Brand With Us
+            </h1>
+            <p
+              className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white font-me
+            dium tracking-wide lg:text-justify text-center"
+            >
+              {`Building a strong brand is essential for success in today's competitive market. At our company, we understand the importance of brand building and are dedicated to helping our clients achieve their goals. Our team of experts will work closely with you to understand your vision and craft a branding strategy that effectively communicates your unique value proposition to your target audience. Whether it's through comprehensive market research, innovative design, or effective marketing campaigns, we have the tools and expertise to help you build a brand that resonates with your customers. `}
+              <br />
+              <br />
+
+              {`
+              We understand that a strong brand can lead to increased recognition, loyalty, and customer trust. By choosing to build your brand with us, you can be confident that you're making a strategic investment in your future success.
+`}
+            </p>
+            <button className="desktop:px-5 desktop:py-4 px-8 py-3 text-xl font-medium text-white bg-primary-red  rounded-full transition duration-200">
+              Read More
+            </button>
+          </div>
+          <div className="lg:basis-1/2 hidden lg:block basis-full self-center">
+            <Image
+              src={"/images/commons/build-your-brand.png"}
+              alt="Hero Image"
+              width={950}
+              height={945}
+              className=" desktop:h-full desktop:w-full lg:w-[500px] lg:h-[500px] mx-auto"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto desktop:px-32 lg:px-20 px-5 flex lg:flex-row flex-col justify-between desktop:h-[750px] ">
+        <div className="text-white desktop:w-[400px] w-[350px]">
+          <div>
+            <Image
+              src={"/images/commons/strategy.png"}
+              width={200}
+              height={200}
+              alt="Planning"
+              className="mx-auto desktop:w-48 w-28"
+            />
+          </div>
+          <h1 className="desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6">
+            Strategy
+          </h1>
+          <p className="text-center desktop:text-lg text-base desktop:leading-9 leading-8 desktop:font-medium">
+            We have a strategic approach to client projects. We start by
+            understanding their needs, goals, and constraints, and use this to
+            analyze the market and industry. We work closely with clients to
+            identify business drivers and success metrics.
+          </p>
+        </div>
+        <div className="text-white desktop:w-[400px] w-[350px] lg:self-end self-center">
+          <div>
+            <Image
+              src={"/images/commons/planning.png"}
+              width={200}
+              height={200}
+              alt="Planning"
+              className="mx-auto desktop:w-48 w-28"
+            />
+          </div>
+          <h1 className="desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6">
+            Planning
+          </h1>
+          <p className="text-center desktop:text-lg text-base desktop:leading-9 leading-8 desktop:font-medium">
+            We plan client projects meticulously by analyzing requirements,
+            collaborating with experts, and creating a detailed project plan
+            aligned with client objectives. Our planning process delivers
+            software solutions that exceed expectations and provide tangible
+            business value.
+          </p>
+        </div>
+        <div className="text-white desktop:w-[400px] w-[350px]">
+          <div>
+            <Image
+              src={"/images/commons/building.png"}
+              width={200}
+              height={200}
+              alt="Planning"
+              className="mx-auto desktop:w-48 w-28"
+            />
+          </div>
+          <h1 className="desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6">
+            Building
+          </h1>
+          <p className="text-center desktop:text-lg text-base desktop:leading-9 leading-8 desktop:font-medium">
+            {`We build high-quality software solutions that meet our client\'s
+            needs and deliver measurable business value. Our team of experts
+            collaborates to ensure robust and scalable solutions using industry
+            best practices and the latest technologies.`}
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div className="flex"></div>
       </div>
     </main>
   );
