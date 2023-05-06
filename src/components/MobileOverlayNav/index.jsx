@@ -6,7 +6,7 @@ export default function MobileOverlayNav({ isVisible, setIsVisible }) {
   };
   return (
     <div
-      className={`absolute top-0 left-0 w-screen h-screen flex justify-center text-white lg:hidden bg-primary-red transition-all duration-200 ${
+      className={`absolute top-0 left-0 w-screen h-screen flex justify-center text-white lg:hidden bg-primary-red transition-[opacity] duration-200 ${
         isVisible ? "opacity-full visible" : "opacity-0 invisible"
       }`}
     >
