@@ -6,14 +6,23 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        primary: "url('/images/commons/background-primary.png')",
       },
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],
+      },
+      screens: { desktop: { min: "1536px", max: "1920px" } },
+      maxWidth: {
+        desktop: "1920px",
+      },
+      colors: {
+        primary: "#171717",
+        "primary-red": "#F32845",
       },
     },
   },
