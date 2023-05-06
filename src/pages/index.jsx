@@ -1,18 +1,47 @@
 import Navbar from "@/components/Navbar";
+import ServiceCard from "@/components/ServiceCard";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Image from "next/image";
-
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+const services = [
+  {
+    service_name: "Web Development",
+    service_short_desc:
+      "We convert your business ideas into a impressive web application to streamline your business productivity.",
+    service_image: "web-development.png",
+  },
+  {
+    service_name: "Game Development",
+    service_short_desc:
+      "Mr.Robot Dev creates visually stunning & immersive games that meet client preferences and attract a wider audience.",
+    service_image: "game-development.png",
+  },
+  {
+    service_name: "App Development",
+    service_short_desc:
+      "We make engaging apps for mobile & web using the latest tech. We keep clients updated, focus on interactivity to boost their brand .",
+    service_image: "app-development.png",
+  },
+  {
+    service_name: "Custom Software",
+    service_short_desc:
+      "We make engaging apps for mobile & web using the latest tech. We keep clients updated, focus on interactivity to boost their brand .",
+    service_image: "custom-software.png",
+  },
+];
 export default function Home() {
   const isSmallScreen = useMediaQuery("(max-width: 1024px)");
 
   const styles = {
     stats_number:
-      "desktop:text-[80px] lg:text-5xl text-5xl font-bold mb-4 text-center",
-    stats_name: "desktop:text-xl lg:text-lg text-base font-medium text-center",
+      "desktop:text-[80px] lg:text-5xl text-5xl font-bold mb-4 text-center drop-shadow-md",
+    stats_name:
+      "desktop:text-xl lg:text-lg text-base font-medium text-center drop-shadow-md",
   };
 
   return (
-    <main className="bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat">
+    <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat">
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
         <Navbar />
       </div>
@@ -84,6 +113,52 @@ export default function Home() {
           <h1 className={styles.stats_number}>10</h1>
           <h5 className={styles.stats_name}>Brands</h5>
         </div>
+      </div>
+
+      <div className="mx-auto desktop:px-32 lg:px-20 px-5 py-32">
+        <h4 className="desktop:text-xl text-lg font-medium text-white text-center">
+          Popular Services
+        </h4>
+        <h1 className="text-center desktop:text-6xl text-5xl font-bold text-primary-red my-4">
+          Do More With Mr. Robot Dev
+        </h1>
+        {isSmallScreen ? (
+          <div className="flex flex-col items-center gap-8">
+            {services.map((service, index) => (
+              <ServiceCard
+                key={index}
+                name={service.service_name}
+                image={service.service_image}
+                desc={service.service_short_desc}
+                smallScreen={isSmallScreen}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-12">
+            <Splide
+              options={{
+                arrows: false,
+                type: "loop",
+                perPage: 3,
+                perMove: 1,
+                height: isSmallScreen ? "650px" : "750px",
+                focus: "center",
+              }}
+            >
+              {services.map((service, index) => (
+                <SplideSlide key={index}>
+                  <ServiceCard
+                    name={service.service_name}
+                    image={service.service_image}
+                    desc={service.service_short_desc}
+                    smallScreen={isSmallScreen}
+                  />
+                </SplideSlide>
+              ))}
+            </Splide>
+          </div>
+        )}
       </div>
     </main>
   );
