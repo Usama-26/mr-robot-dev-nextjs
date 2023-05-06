@@ -119,7 +119,7 @@ export default function Home() {
         <h4 className="desktop:text-xl text-lg font-medium text-white text-center">
           Popular Services
         </h4>
-        <h1 className="text-center desktop:text-6xl text-5xl font-bold text-primary-red my-4">
+        <h1 className="text-center desktop:text-6xl text-2xl font-bold text-primary-red my-4">
           Do More With Mr. Robot Dev
         </h1>
         {isSmallScreen ? (
@@ -139,7 +139,6 @@ export default function Home() {
             <Splide
               options={{
                 arrows: false,
-                type: "loop",
                 perPage: 3,
                 perMove: 1,
                 height: isSmallScreen ? "650px" : "750px",

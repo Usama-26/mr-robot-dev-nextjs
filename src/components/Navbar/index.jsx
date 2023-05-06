@@ -58,7 +58,7 @@ export default function Navbar() {
           Contact Us
         </Link>
       </div>
-      <div className="lg:hidden z-10">
+      <div className="lg:hidden z-20">
         <button onClick={isMobileNavVisible ? closeMobileNav : openMobileNav}>
           <Image
             src={"/images/mobile/menu-btn.svg"}
