@@ -10,7 +10,7 @@ export default function NewsletterCTA() {
             placeholder="Your Email..."
           />
 
-          <button className="px-4 desktop:py-3 py-2 rounded-full text-white bg-primary-red absolute right-0 drop-shadow-md">
+          <button className="px-4 desktop:py-3 py-2 rounded-full text-white bg-primary-red absolute right-0 ">
             Submit
           </button>
         </span>
