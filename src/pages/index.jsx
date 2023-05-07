@@ -2,8 +2,12 @@ import Navbar from "@/components/Navbar";
 import ServiceCard from "@/components/ServiceCard";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Image from "next/image";
+
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { HomeProvisionCard } from "@/components/HomeProvisionCard";
+import NewsletterCTA from "@/components/NewsletterCTA";
+import Footer from "@/components/Footer";
 const services = [
   {
     service_name: "Web Development",
@@ -30,6 +34,7 @@ const services = [
     service_image: "custom-software.png",
   },
 ];
+
 export default function Home() {
   const isSmallScreen = useMediaQuery("(max-width: 1024px)");
 
@@ -38,6 +43,11 @@ export default function Home() {
       "desktop:text-[80px] lg:text-5xl text-5xl font-bold mb-4 text-center drop-shadow-md",
     stats_name:
       "desktop:text-xl lg:text-lg text-base font-medium text-center drop-shadow-md",
+    process_name:
+      "desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6",
+    process_desc:
+      "desktop:text-lg desktop:leading-9 leading-7 text-center desktop:font-medium max-w-[400px] mx-auto",
+    process_img: "mx-auto desktop:w-48 w-28",
   };
 
   return (
@@ -143,6 +153,11 @@ export default function Home() {
                 perMove: 1,
                 height: isSmallScreen ? "650px" : "750px",
                 focus: "center",
+                autoplay: true,
+                // type: "loop",
+                rewind: true,
+                gap: "1rem",
+                interval: 2000,
               }}
             >
               {services.map((service, index) => (
@@ -159,7 +174,7 @@ export default function Home() {
           </div>
         )}
 
-        <div className="flex flex-col lg:flex-row item-center">
+        <div className="flex flex-col lg:flex-row item-center justify-between">
           <div className="basis-1/2 desktop:py-52 py-40 lg:text-left text-center ">
             <h1 className="text-primary-red desktop:text-6xl lg:text-4xl text-2xl font-bold desktop:leading-snug">
               Build Your Brand With Us
@@ -192,41 +207,37 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 flex lg:flex-row flex-col justify-between desktop:h-[750px] ">
-        <div className="text-white desktop:w-[400px] w-[350px]">
+      <div className="mx-auto desktop:px-32 lg:px-20 px-5 flex lg:flex-row flex-col gap-8 justify-between desktop:h-[750px] lg:h-[550px] ">
+        <div className="text-white desktop:w-[400px] lg:w-[350px]">
           <div>
             <Image
               src={"/images/commons/strategy.png"}
               width={200}
               height={200}
               alt="Planning"
-              className="mx-auto desktop:w-48 w-28"
+              className={styles.process_img}
             />
           </div>
-          <h1 className="desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6">
-            Strategy
-          </h1>
-          <p className="text-center desktop:text-lg text-base desktop:leading-9 leading-8 desktop:font-medium">
+          <h1 className={styles.process_name}>Strategy</h1>
+          <p className={styles.process_desc}>
             We have a strategic approach to client projects. We start by
             understanding their needs, goals, and constraints, and use this to
             analyze the market and industry. We work closely with clients to
             identify business drivers and success metrics.
           </p>
         </div>
-        <div className="text-white desktop:w-[400px] w-[350px] lg:self-end self-center">
+        <div className="text-white desktop:w-[400px] lg:w-[350px] lg:self-end">
           <div>
             <Image
               src={"/images/commons/planning.png"}
               width={200}
               height={200}
               alt="Planning"
-              className="mx-auto desktop:w-48 w-28"
+              className={styles.process_img}
             />
           </div>
-          <h1 className="desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6">
-            Planning
-          </h1>
-          <p className="text-center desktop:text-lg text-base desktop:leading-9 leading-8 desktop:font-medium">
+          <h1 className={styles.process_name}>Planning</h1>
+          <p className={styles.process_desc}>
             We plan client projects meticulously by analyzing requirements,
             collaborating with experts, and creating a detailed project plan
             aligned with client objectives. Our planning process delivers
@@ -234,21 +245,19 @@ export default function Home() {
             business value.
           </p>
         </div>
-        <div className="text-white desktop:w-[400px] w-[350px]">
+        <div className="text-white desktop:w-[400px] lg:w-[350px]">
           <div>
             <Image
               src={"/images/commons/building.png"}
               width={200}
               height={200}
               alt="Planning"
-              className="mx-auto desktop:w-48 w-28"
+              className={styles.process_img}
             />
           </div>
-          <h1 className="desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6">
-            Building
-          </h1>
-          <p className="text-center desktop:text-lg text-base desktop:leading-9 leading-8 desktop:font-medium">
-            {`We build high-quality software solutions that meet our client\'s
+          <h1 className={styles.process_name}>Building</h1>
+          <p className={styles.process_desc}>
+            {`We build high-quality software solutions that meet our client's
             needs and deliver measurable business value. Our team of experts
             collaborates to ensure robust and scalable solutions using industry
             best practices and the latest technologies.`}
@@ -256,9 +265,96 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-        <div className="flex"></div>
+      <div className="mx-auto desktop:px-32 lg:px-20 px-5 py-20">
+        <div className="flex xl:flex-row flex-col items-center justify-between xl:gap-6">
+          <div className="xl:flex xl:basis-7/12 lg:order-1 order-2">
+            <div>
+              <div className="mb-6 desktop:mb-12">
+                <HomeProvisionCard
+                  name={"Analytics"}
+                  image={"analytics"}
+                  desc={
+                    "We offers custom analytics and dashboards by utilizing user data to gain valuable insights which helps you to optimize your operations, improve customer experiences & drive growth."
+                  }
+                />
+              </div>
+              <div className="mb-6 desktop:mb-12">
+                <HomeProvisionCard
+                  name={"Quality Products"}
+                  image={"good-quality"}
+                  desc={
+                    "We ensure high-quality products through rigorous quality assurance processes to make ensure that our solution meets the highest standards of reliability, user experience & performance."
+                  }
+                />
+              </div>
+            </div>
+            <div className="xl:self-center xl:ml-6 desktop:ml-12">
+              <HomeProvisionCard
+                name={"Latest Technology"}
+                image={"technology"}
+                desc={
+                  "We leverage the most advanced and cutting-edge technologies to deliver innovative solutions that meet the unique needs of our clients."
+                }
+              />
+            </div>
+          </div>
+
+          <div className="xl:basis-5/12 desktop:py-52 lg:py-40 py-10 xl:text-left text-center xl:order-2 order-1">
+            <h1 className="text-white desktop:text-6xl xl:text-4xl text-2xl font-bold desktop:leading-snug">
+              We Build Lasting <br />
+              <span className="text-primary-red-dark">Relationship </span>
+              With Our
+              <span className="text-primary-red-dark"> Customers...</span>
+            </h1>
+            <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white desktop:font-medium desktop:tracking-wide lg:text-justify text-center">
+              {`At our company, we understand that building lasting relationships with our customers is a key factor in our success. That's why we make it a priority to create a positive and productive partnership with each and every one of our clients. From the start of a project, we take the time to fully understand the unique needs and goals of our customers. `}
+              <br />
+              <br />
+              {`
+             We provide personalized service, regular updates, and open communication to ensure that our clients are always informed and satisfied with the progress of their project. Our commitment to excellence extends beyond the delivery of the final product, as we work closely with our customers to ensure their long-term success. By establishing a strong and trusting relationship, we are able to consistently deliver exceptional software solutions that meet and exceed our customers' expectations.`}
+            </p>
+            <button className="desktop:px-5 desktop:py-4 px-8 py-3 text-xl font-medium text-white bg-primary-red  rounded-full transition duration-200">
+              Our Work
+            </button>
+          </div>
+        </div>
       </div>
+      <div className="mx-auto desktop:px-32 lg:px-20 px-5 py-20">
+        <h1 className="text-center desktop:text-6xl lg:text-4xl text-xl font-bold text-white mb-10">
+          What Our <span className="text-primary-red">Clients</span> Say
+        </h1>
+        <div className="flex items-center justify-between">
+          <div className="basis-1/2 lg:block hidden">
+            <Image
+              src={`/images/desktop/testimonials-img.png`}
+              width={400}
+              height={400}
+              alt="Analytics Image"
+              className="mx-auto"
+            />
+          </div>
+          <div className="lg:basis-1/2 basis-full lg:text-left text-center">
+            <h4 className="uppercase lg:text-xl font-bold lg:text-primary-red text-white">
+              Testimonials
+            </h4>
+            <p className="text-white my-6">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
+              ducimus ullam dignissimos optio, quas asperiores quos magnam ut
+              vero. Dolorem eaque nobis repudiandae tenetur harum tempore
+              inventore perferendis, facilis aperiam.
+            </p>
+            <h2 className="text-2xl font-bold text-primary-red">Andrew Tate</h2>
+            <h4 className="text-white">CEO, Founder</h4>
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto desktop:px-32 lg:px-20 px-5 py-20">
+        <h1 className="text-center desktop:text-6xl lg:text-4xl text-xl font-bold text-white mb-10">
+          <span className="text-primary-red">Our</span> Newsletter
+        </h1>
+        <NewsletterCTA />
+      </div>
+      <Footer />
     </main>
   );
 }
