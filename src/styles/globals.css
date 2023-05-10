@@ -2,8 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
-  .bg-primary {
-    background-image: url("/images/commons/background-primary.png");
-  }
-} */
+@layer components {
+}

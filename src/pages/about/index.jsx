@@ -179,11 +179,11 @@ export default function About() {
                 Dedicated <span className="text-primary-red">Team</span>
               </h1>
               <p className="text-justify  desktop:text-xl w-4/5">
-                we have a dedicated team of developers, designers, and project
+                {`we have a dedicated team of developers, designers, and project
                 managers who work together smartly to ensure the success of our
                 clients' projects. Our team is committed to delivering
                 high-quality software solutions that meet our clients' needs and
-                exceed their expectations
+                exceed their expectations`}
               </p>
             </div>
           </div>
@@ -193,11 +193,11 @@ export default function About() {
                 Best <span className="text-primary-red">Solutions</span>
               </h1>
               <p className="text-justify desktop:text-xl w-4/5">
-                we have a dedicated team of developers, designers, and project
+                {/* we have a dedicated team of developers, designers, and project
                 managers who work together smartly to ensure the success of our
                 clients' projects. Our team is committed to delivering
                 high-quality software solutions that meet our clients' needs and
-                exceed their expectations
+                exceed their expectations */}
               </p>
             </div>
             <div className="basis-1/2">
@@ -225,11 +225,11 @@ export default function About() {
                 <span className="text-primary-red">Accountability</span>
               </h1>
               <p className="text-justify  desktop:text-xl w-4/5">
-                we understand that accountability is critical to delivering
+                {` we understand that accountability is critical to delivering
                 quality solutions to our clients, that’ why we take full
                 responsibility for every aspect of the development process, from
                 ideation to deployment, ensuring that our clients' expectations
-                are met with the highest level of excellence.
+                are met with the highest level of excellence.`}
               </p>
             </div>
           </div>
@@ -241,7 +241,7 @@ export default function About() {
           <span className="text-primary-red">Our</span> Work
         </h1>
 
-        <div className="py-20 grid lg:grid-cols-4 grid-cols-1 lg:gap-10 gap-5">
+        <div className="py-20 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-10 gap-5">
           {works.map((work, index) => (
             <div
               key={index}

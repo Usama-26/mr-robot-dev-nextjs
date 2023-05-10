@@ -21,7 +21,7 @@ module.exports = {
         desktop: "1920px",
       },
       colors: {
-        primary: "#171717",
+        "primary-dark": "#171717",
         "primary-red": "#F32845",
         "primary-red-dark": "#D32A3D",
       },
