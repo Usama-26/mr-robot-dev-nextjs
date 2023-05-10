@@ -17,27 +17,27 @@ export default function MobileOverlayNav({ isVisible, setIsVisible }) {
           </Link>
         </li>
         <li className={styles["nav-link"]}>
-          <Link href="/" onClick={() => setIsVisible(false)}>
+          <Link href="/services" onClick={() => setIsVisible(false)}>
             Services
           </Link>
         </li>
         <li className={styles["nav-link"]}>
-          <Link href="/" onClick={() => setIsVisible(false)}>
+          <Link href="/pricing" onClick={() => setIsVisible(false)}>
             App Pricing
           </Link>
         </li>
         <li className={styles["nav-link"]}>
-          <Link href="/" onClick={() => setIsVisible(false)}>
+          <Link href="/blog" onClick={() => setIsVisible(false)}>
             Blog
           </Link>
         </li>
         <li className={styles["nav-link"]}>
-          <Link href="/" onClick={() => setIsVisible(false)}>
+          <Link href="/about" onClick={() => setIsVisible(false)}>
             About
           </Link>
         </li>
         <li className={styles["nav-link"]}>
-          <Link href="/" onClick={() => setIsVisible(false)}>
+          <Link href="/contact" onClick={() => setIsVisible(false)}>
             Contact
           </Link>
         </li>
