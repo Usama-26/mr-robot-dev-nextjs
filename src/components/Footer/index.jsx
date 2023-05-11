@@ -49,16 +49,18 @@ export default function Footer() {
             <h5 className="desktop:text-xl mb-4 font-semibold">Services</h5>
             <ul className="list-none">
               <li className={styles.footer_links_li}>
-                <Link href={"/web_development"}>Web Development</Link>
+                <Link href={"/services/web_development"}>Web Development</Link>
               </li>
               <li className={styles.footer_links_li}>
-                <Link href={"/app_development"}>App Development</Link>
+                <Link href={"/services/app_development"}>App Development</Link>
               </li>
               <li className={styles.footer_links_li}>
-                <Link href={"/custom_software"}>Custom Software</Link>
+                <Link href={"/services/custom_software"}>Custom Software</Link>
               </li>
               <li className={styles.footer_links_li}>
-                <Link href={"/game_development"}>Game Development</Link>
+                <Link href={"/services/game_development"}>
+                  Game Development
+                </Link>
               </li>
             </ul>
           </div>
@@ -66,13 +68,13 @@ export default function Footer() {
             <h5 className="desktop:text-xl mb-4 font-semibold">Social Media</h5>
             <ul className="list-none">
               <li className={styles.footer_links_li}>
-                <Link href={"/web_development"}>Twitter</Link>
+                <Link href={"/"}>Twitter</Link>
               </li>
               <li className={styles.footer_links_li}>
-                <Link href={"/app_development"}>Facebook</Link>
+                <Link href={"/"}>Facebook</Link>
               </li>
               <li className={styles.footer_links_li}>
-                <Link href={"/custom_software"}>LinkedIn</Link>
+                <Link href={"/"}>LinkedIn</Link>
               </li>
             </ul>
           </div>
@@ -81,13 +83,11 @@ export default function Footer() {
             <ul className="list-none">
               <li className={styles.footer_links_li + " inline-flex gap-2"}>
                 <MdMail className="w-5 h-5" />
-                <Link href={"/web_development"}>
-                  thanhthanh@merakigroup.asia
-                </Link>
+                <Link href={"/"}>thanhthanh@merakigroup.asia</Link>
               </li>
               <li className={styles.footer_links_li + " inline-flex gap-2"}>
                 <MdPhone className="w-5 h-5" />
-                <Link href={"/app_development"}>+84 3 28 99 49 49</Link>
+                <Link href={"/"}>+84 3 28 99 49 49</Link>
               </li>
               <li className={" mb-8"}>
                 <h5 className="text-xl font-semibold">

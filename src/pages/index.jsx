@@ -114,10 +114,10 @@ export default function Home() {
         <h4 className="desktop:text-xl text-lg font-medium text-white text-center">
           Popular Services
         </h4>
-        <h1 className="text-center desktop:text-6xl text-2xl font-bold text-primary-red my-4">
+        <h1 className="text-center desktop:text-5xl lg:text-3xl text-2xl font-bold text-primary-red my-4">
           Do More With Mr. Robot Dev
         </h1>
-        {isSmallScreen ? (
+        {isMobileScreen ? (
           <div className="flex flex-col items-center gap-8">
             {services.map((service, index) => (
               <ServiceCard
@@ -133,16 +133,18 @@ export default function Home() {
           <div className="mt-12">
             <Splide
               options={{
-                arrows: false,
-                perMove: 1,
-                height: isSmallScreen ? "650px" : "750px",
-                focus: "center",
-                autoplay: true,
                 perPage: 3,
-                // type: "loop",
+                perMove: 1,
+                arrows: false,
                 rewind: true,
-                gap: "1rem",
-                interval: 2000,
+                autoplay: true,
+                gap: 50,
+                height: "700px",
+                breakpoints: {
+                  1280: {
+                    perPage: 2,
+                  },
+                },
               }}
             >
               {services.map((service, index) => (

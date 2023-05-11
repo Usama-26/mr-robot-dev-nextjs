@@ -52,18 +52,35 @@ export default function MobileFooter() {
             <h1 className="font-bold text-lg mb-6">What we do</h1>
             <ul>
               <li className="mb-2">
-                <Link href={"/"} className="hover:text-primary-red">
+                <Link
+                  href={"/services/web_development"}
+                  className="hover:text-primary-red"
+                >
                   Web Development
                 </Link>
               </li>
               <li className="mb-2">
-                <Link href={"/services"} className="hover:text-primary-red">
+                <Link
+                  href={"/services/app_development"}
+                  className="hover:text-primary-red"
+                >
                   App Development
                 </Link>
               </li>
               <li className="mb-2">
-                <Link href={"/pricing"} className="hover:text-primary-red">
+                <Link
+                  href={"/services/custom_software"}
+                  className="hover:text-primary-red"
+                >
                   Custom Software
+                </Link>
+              </li>
+              <li className="mb-2">
+                <Link
+                  href={"/services/game_development"}
+                  className="hover:text-primary-red"
+                >
+                  Game Development
                 </Link>
               </li>
             </ul>

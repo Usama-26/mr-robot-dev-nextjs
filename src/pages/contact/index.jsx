@@ -92,15 +92,17 @@ export default function Contact() {
             </div>
             <div className="flex items-center gap-10">
               <MdLocalPhone className="w-12 h-12 fill-primary-red" />
-              <h1 className="text-2xl">+27 79 957 7606</h1>
+              <h1 className="desktop:text-2xl text-xl">+27 79 957 7606</h1>
             </div>
             <div className="flex items-center gap-10">
               <MdEmail className="w-12 h-12 fill-primary-red" />
-              <h1 className="text-2xl">sales@mrrobot.com</h1>
+              <h1 className="desktop:text-2xl text-xl">sales@mrrobot.com</h1>
             </div>
             <div className="flex items-center gap-10">
               <MdLocationOn className="w-12 h-12 fill-primary-red" />
-              <h1 className="text-2xl">Cape town, South Africa</h1>
+              <h1 className="desktop:text-2xl text-xl">
+                Cape town, South Africa
+              </h1>
             </div>
           </div>
           <iframe
