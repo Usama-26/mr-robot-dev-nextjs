@@ -8,9 +8,9 @@ export default function Footer() {
     footer_links_li: "relative mb-4 hover:text-primary-red",
   };
   return (
-    <footer className="bg-primary-red-dark/25">
+    <footer className="lg:bg-primary-red-dark/25 bg-[#3F3637]">
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 border-b desktop:text-xl text-sm text-white">
-        <div className="grid lg:grid-cols-5 pt-20 pb-10">
+        <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-10 pt-20 pb-10">
           <div>
             <div>
               <Image
@@ -46,7 +46,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h5 className="desktop:text-xl mb-4 font-semibold">Pages</h5>
+            <h5 className="desktop:text-xl mb-4 font-semibold">Services</h5>
             <ul className="list-none">
               <li className={styles.footer_links_li}>
                 <Link href={"/web_development"}>Web Development</Link>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function GlassCard({ image, name }) {
   return (
-    <div className="glass-card flex justify-center items-center p-10 rounded-md lg:bg-white/10 bg-white border border-gray-400">
+    <div className="glass-card flex justify-center items-center p-10 rounded-md lg:bg-white/10 bg-white border border-zinc-600">
       <div>
         <Image
           src={`/images/commons/${image}.svg`}

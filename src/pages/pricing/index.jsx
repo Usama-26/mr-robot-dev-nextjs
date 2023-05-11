@@ -1,6 +1,8 @@
 import Footer from "@/components/Footer";
 import GlassCard from "@/components/GlassCard";
+import MobileFooter from "@/components/MobileFooter";
 import Navbar from "@/components/Navbar";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 const services = [
   {
@@ -91,13 +93,14 @@ const functionalities = [
   },
 ];
 export default function AppPricing() {
+  const isMobileScreen = useMediaQuery("(max-width: 640px");
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
         <Navbar />
       </div>
       <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
-        <h1 className="text-center  font-bold lg:text-7xl text-3xl desktop:text-[100px]">
+        <h1 className="text-center  font-bold lg:text-7xl text-3xl">
           <span className="text-primary-red">App </span>
           Pricing
         </h1>
@@ -112,7 +115,7 @@ export default function AppPricing() {
           <span className="text-primary-red">What</span> Do You Want To Build ?
         </h1>
         <div className="flex desktop:gap-28 gap-10 justify-between items-center">
-          <div className="md:w-1/2 w-full grid md:grid-cols-2 grid-cols-1 gap-10 justify-between">
+          <div className="md:w-1/2 w-full grid sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
             {services.map((service, index) => (
               <GlassCard
                 key={index}
@@ -147,7 +150,7 @@ export default function AppPricing() {
           <span className="text-primary-red">What</span> Device Features Does It
           Need?
         </h1>
-        <div className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10 justify-between">
+        <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
           {device_features.map((feature, index) => (
             <GlassCard
               key={index}
@@ -162,7 +165,7 @@ export default function AppPricing() {
           <span className="text-primary-red">What</span> Functionality Should It
           Have?
         </h1>
-        <div className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10 justify-between">
+        <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
           {functionalities.map((functionality, index) => (
             <GlassCard
               key={index}
@@ -172,7 +175,7 @@ export default function AppPricing() {
           ))}
         </div>
       </div>
-      {/* <Footer />  */}
+      {isMobileScreen ? <MobileFooter /> : <Footer />}
     </main>
   );
 }

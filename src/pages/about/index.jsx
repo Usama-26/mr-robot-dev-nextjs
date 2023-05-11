@@ -1,5 +1,6 @@
 import { FeatureAbout } from "@/components/FeatureAbout";
 import Footer from "@/components/Footer";
+import MobileFooter from "@/components/MobileFooter";
 import Navbar from "@/components/Navbar";
 import NewsletterCTA from "@/components/NewsletterCTA";
 import Statistics from "@/components/Statistics";
@@ -74,13 +75,14 @@ const works = [
 
 export default function About() {
   const isSmallScreen = useMediaQuery("(max-width: 1024px)");
+  const isMobileScreen = useMediaQuery("(max-width: 640px");
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
         <Navbar />
       </div>
       <div className=" mx-auto desktop:px-32 lg:px-20 px-5 py-20">
-        <h1 className="text-center  font-bold lg:text-7xl text-3xl desktop:text-[100px]">
+        <h1 className="text-center  font-bold lg:text-6xl text-3xl">
           <span className="text-primary-red">About </span>
           us
         </h1>
@@ -99,7 +101,7 @@ export default function About() {
             delivering superior services.
           </p>
         </div>
-        <div className="py-20 grid lg:grid-cols-3 grid-cols-1 lg:gap-28 gap-10">
+        <div className="py-20 grid lg:grid-cols-3 sm:grid-cols-2 lg:gap-28 gap-10">
           {features.map((feature, index) => (
             <FeatureAbout
               key={index}
@@ -116,7 +118,7 @@ export default function About() {
             <span className="text-primary-red"> We </span>
             Are
           </h1>
-          <div className="flex flex-col lg:flex-row desktop:gap-28 gap-10 py-20">
+          <div className="flex flex-col md:flex-row desktop:gap-28 gap-10 py-20">
             <div className="basis-1/2">
               <p className="text-justify">
                 With years of experience in the industry, Mr. Robot Dev has
@@ -164,7 +166,7 @@ export default function About() {
           </h1>
         </div>
         <div className="py-20">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
             <div className="basis-1/2">
               <Image
                 src={"/images/commons/team.svg"}
@@ -174,11 +176,11 @@ export default function About() {
                 className="desktop:w-[600px] w-[500px]"
               />
             </div>
-            <div className="basis-1/2">
-              <h1 className="desktop:text-4xl lg:text-2xl text-xl font-semibold mb-6">
+            <div className="basis-1/2 md:text-left text-center">
+              <h1 className="desktop:text-4xl lg:text-2xl text-xl font-semibold mb-6 md:text-left text-center">
                 Dedicated <span className="text-primary-red">Team</span>
               </h1>
-              <p className="text-justify  desktop:text-xl w-4/5">
+              <p className="text-justify  desktop:text-xl w-4/5 md:mx-0 mx-auto">
                 {`we have a dedicated team of developers, designers, and project
                 managers who work together smartly to ensure the success of our
                 clients' projects. Our team is committed to delivering
@@ -187,20 +189,20 @@ export default function About() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-10">
-            <div className="basis-1/2">
-              <h1 className="desktop:text-4xl lg:text-2xl text-xl font-semibold mb-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
+            <div className="basis-1/2 md:order-1 order-2">
+              <h1 className="desktop:text-4xl lg:text-2xl text-xl font-semibold mb-6 md:text-left text-center">
                 Best <span className="text-primary-red">Solutions</span>
               </h1>
-              <p className="text-justify desktop:text-xl w-4/5">
-                {/* we have a dedicated team of developers, designers, and project
+              <p className="text-justify desktop:text-xl w-4/5 md:mx-0 mx-auto">
+                {`we have a dedicated team of developers, designers, and project
                 managers who work together smartly to ensure the success of our
                 clients' projects. Our team is committed to delivering
                 high-quality software solutions that meet our clients' needs and
-                exceed their expectations */}
+                exceed their expectations`}
               </p>
             </div>
-            <div className="basis-1/2">
+            <div className="basis-1/2 md:order-2 order-1">
               <Image
                 src={"/images/commons/solutions.svg"}
                 width={700}
@@ -210,8 +212,8 @@ export default function About() {
               />
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-10">
-            <div className="basis-1/2">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
+            <div className="basis-1/2 md:text-left text-center">
               <Image
                 src={"/images/commons/accountability.svg"}
                 width={700}
@@ -220,13 +222,13 @@ export default function About() {
                 className="desktop:w-[600px] w-[500px]"
               />
             </div>
-            <div className="basis-1/2">
-              <h1 className="desktop:text-4xl lg:text-2xl text-xl font-semibold mb-6">
+            <div className="basis-1/2 ">
+              <h1 className="desktop:text-4xl lg:text-2xl text-xl font-semibold mb-6 md:text-left text-center">
                 <span className="text-primary-red">Accountability</span>
               </h1>
-              <p className="text-justify  desktop:text-xl w-4/5">
+              <p className="text-justify  desktop:text-xl w-4/5 md:mx-0 mx-auto">
                 {` we understand that accountability is critical to delivering
-                quality solutions to our clients, that’ why we take full
+                quality solutions to our clients, that’s why we take full
                 responsibility for every aspect of the development process, from
                 ideation to deployment, ensuring that our clients' expectations
                 are met with the highest level of excellence.`}
@@ -241,7 +243,7 @@ export default function About() {
           <span className="text-primary-red">Our</span> Work
         </h1>
 
-        <div className="py-20 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-10 gap-5">
+        <div className="py-20 grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-10 gap-5">
           {works.map((work, index) => (
             <div
               key={index}
@@ -257,13 +259,10 @@ export default function About() {
           ))}
         </div>
       </div>
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 py-20">
-        <h1 className="text-center desktop:text-6xl lg:text-4xl text-xl font-bold text-white mb-10">
-          <span className="text-primary-red">Our</span> Newsletter
-        </h1>
-        <NewsletterCTA />
-      </div>
-      <Footer />
+
+      <NewsletterCTA />
+
+      {isMobileScreen ? <MobileFooter /> : <Footer />}
     </main>
   );
 }

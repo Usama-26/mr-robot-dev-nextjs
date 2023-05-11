@@ -10,6 +10,7 @@ import { HomeProvisionCard } from "@/components/HomeProvisionCard";
 import NewsletterCTA from "@/components/NewsletterCTA";
 import Footer from "@/components/Footer";
 import Statistics from "@/components/Statistics";
+import MobileFooter from "@/components/MobileFooter";
 const services = [
   {
     service_name: "Web Development",
@@ -50,6 +51,7 @@ export const styles = {
 
 export default function Home() {
   const isSmallScreen = useMediaQuery("(max-width: 1024px)");
+  const isMobileScreen = useMediaQuery("(max-width: 640px");
 
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat">
@@ -132,11 +134,11 @@ export default function Home() {
             <Splide
               options={{
                 arrows: false,
-                perPage: 3,
                 perMove: 1,
                 height: isSmallScreen ? "650px" : "750px",
                 focus: "center",
                 autoplay: true,
+                perPage: 3,
                 // type: "loop",
                 rewind: true,
                 gap: "1rem",
@@ -331,13 +333,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 py-20">
-        <h1 className="text-center desktop:text-6xl lg:text-4xl text-xl font-bold text-white mb-10">
-          <span className="text-primary-red">Our</span> Newsletter
-        </h1>
-        <NewsletterCTA />
-      </div>
-      <Footer />
+      <NewsletterCTA />
+      {isMobileScreen ? <MobileFooter /> : <Footer />}
     </main>
   );
 }

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ServiceCard({ name, desc, image, smallScreen }) {
   return (
-    <div className="rounded-xl bg-white shadow-md lg:p-8 px-8 py-4 desktop:w-[500px] desktop:h-[700px] lg:h-[600px] lg:w-96">
+    <div className="rounded-xl bg-white shadow-md lg:p-8 px-8 py-4 desktop:h-[700px] lg:h-[600px] lg:w-96">
       <div>
         <Image
           src={`/images/commons/${image}`}
