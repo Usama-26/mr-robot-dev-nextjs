@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import MobileOverlayNav from "../MobileOverlayNav";
+import { Popover } from "@headlessui/react";
+import { MdArrowDropDown } from "react-icons/md";
 
 export default function Navbar() {
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
@@ -16,7 +18,7 @@ export default function Navbar() {
 
   const styles = {
     "nav-link":
-      "text-white font-semibold desktop:text-2xl text-lg hover:text-primary-red",
+      "relative text-white font-semibold desktop:text-2xl text-lg hover:text-primary-red",
   };
   return (
     <div className="flex items-center justify-between">
@@ -37,7 +39,41 @@ export default function Navbar() {
             <Link href={"/"}>Home</Link>
           </li>
           <li className={styles["nav-link"]}>
-            <Link href={"/services"}>Services</Link>
+            <Popover className="relative">
+              <Popover.Button className={"inline-flex items-center"}>
+                Services
+                <MdArrowDropDown />
+              </Popover.Button>
+
+              <Popover.Panel className="absolute top-10 right-0 z-10 font-normal text-black desktop:text-base text-xs bg-white rounded-xl desktop:w-72 w-56">
+                <div className="flex flex-col text-center">
+                  <Link
+                    className="py-2 hover:bg-gray-200 rounded-t-xl"
+                    href="/services/web_development"
+                  >
+                    Website Development
+                  </Link>
+                  <Link
+                    className="py-2 hover:bg-gray-200"
+                    href="/services/app_development"
+                  >
+                    App Development
+                  </Link>
+                  <Link
+                    className="py-2 hover:bg-gray-200"
+                    href="/services/custom_software"
+                  >
+                    Custom Software Development
+                  </Link>
+                  <Link
+                    className="py-2 hover:bg-gray-200 rounded-b-xl"
+                    href="/services/game_development"
+                  >
+                    Game Development
+                  </Link>
+                </div>
+              </Popover.Panel>
+            </Popover>
           </li>
           <li className={styles["nav-link"]}>
             <Link href={"/pricing"}>App Pricing</Link>

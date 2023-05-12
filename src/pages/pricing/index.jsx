@@ -160,7 +160,7 @@ export default function AppPricing() {
           ))}
         </div>
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 ">
+      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
         <h1 className="desktop:text-4xl text-2xl lg:text-left text-center font-semibold mb-16">
           <span className="text-primary-red">What</span> Functionality Should It
           Have?

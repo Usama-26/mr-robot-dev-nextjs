@@ -35,7 +35,7 @@ export default function WebDevelopment() {
           </div>
           <div className="basis-1/2">
             <Image
-              src={"/images/commons/team.svg"}
+              src={"/images/commons/game-development-1.png"}
               width={700}
               height={400}
               alt="Team Image"
@@ -46,7 +46,7 @@ export default function WebDevelopment() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
           <div className="basis-1/2">
             <Image
-              src={"/images/commons/team.svg"}
+              src={"/images/commons/game-development-2.png"}
               width={700}
               height={400}
               alt="Team Image"
@@ -96,7 +96,7 @@ export default function WebDevelopment() {
           </div>
           <div className="basis-1/2">
             <Image
-              src={"/images/commons/team.svg"}
+              src={"/images/commons/game-development-3.png"}
               width={700}
               height={400}
               alt="Team Image"

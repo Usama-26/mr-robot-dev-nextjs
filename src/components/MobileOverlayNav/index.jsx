@@ -1,4 +1,6 @@
+import { Popover } from "@headlessui/react";
 import Link from "next/link";
+import { MdArrowDropDown } from "react-icons/md";
 
 export default function MobileOverlayNav({ isVisible, setIsVisible }) {
   const styles = {
@@ -17,9 +19,29 @@ export default function MobileOverlayNav({ isVisible, setIsVisible }) {
           </Link>
         </li>
         <li className={styles["nav-link"]}>
-          <Link href="/services" onClick={() => setIsVisible(false)}>
-            Services
-          </Link>
+          <Popover className="relative">
+            <Popover.Button className={"inline-flex items-center"}>
+              Services
+              <MdArrowDropDown />
+            </Popover.Button>
+
+            <Popover.Panel className="font-normal text-xs mt-4 w-56">
+              <div className="flex flex-col text-center">
+                <Link className="py-2" href="/services/web_development">
+                  Website Development
+                </Link>
+                <Link className="py-2" href="/services/app_development">
+                  App Development
+                </Link>
+                <Link className="py-2" href="/services/custom_software">
+                  Custom Software Development
+                </Link>
+                <Link className="py-2 " href="/services/game_development">
+                  Game Development
+                </Link>
+              </div>
+            </Popover.Panel>
+          </Popover>
         </li>
         <li className={styles["nav-link"]}>
           <Link href="/pricing" onClick={() => setIsVisible(false)}>

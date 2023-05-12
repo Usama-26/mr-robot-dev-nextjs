@@ -24,7 +24,7 @@ that enhance your productivity and efficiency.`}
       </div>
       <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10 flex flex-col gap-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
-          <div className="basis-1/2 md:text-left text-center">
+          <div className="basis-1/2 md:text-left text-center order-2 md:order-1">
             <h1 className="desktop:text-5xl lg:text-3xl text-xl font-bold mb-6 md:text-left text-center">
               <span className="text-primary-red"> Custom </span>
               Website
@@ -33,9 +33,9 @@ that enhance your productivity and efficiency.`}
               {`We specialize in custom web development services that are tailored to meet the unique needs of businesses. Our focus is on creating high-performance, visually appealing, and user-friendly websites that drive business success. Trust us to deliver a web solution that meets your needs and those of your customers.`}
             </p>
           </div>
-          <div className="basis-1/2">
+          <div className="basis-1/2 order-1 md:order-2">
             <Image
-              src={"/images/commons/team.svg"}
+              src={"/images/commons/web-development-1.png"}
               width={700}
               height={400}
               alt="Team Image"
@@ -46,7 +46,7 @@ that enhance your productivity and efficiency.`}
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
           <div className="basis-1/2">
             <Image
-              src={"/images/commons/team.svg"}
+              src={"/images/commons/web-development-2.png"}
               width={700}
               height={400}
               alt="Team Image"
@@ -68,7 +68,7 @@ that enhance your productivity and efficiency.`}
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
-          <div className="basis-1/2 md:text-left text-center">
+          <div className="basis-1/2 md:text-left text-center order-2 md:order-1">
             <h1 className="desktop:text-5xl lg:text-5xl text-xl font-bold mb-6 md:text-left text-center">
               <span className="text-primary-red"> Modern </span>
               responsive design
@@ -80,9 +80,9 @@ that enhance your productivity and efficiency.`}
               {` Responsive design improves the user experience, search engine visibility, and conversion rates. Our expert web development team is experienced in creating visually appealing, easy-to-navigate, and modern responsive designs that cater to all users, irrespective of the device they use.`}
             </p>
           </div>
-          <div className="basis-1/2">
+          <div className="basis-1/2 order-1 md:order-2">
             <Image
-              src={"/images/commons/team.svg"}
+              src={"/images/commons/web-development-3.png"}
               width={700}
               height={400}
               alt="Team Image"
