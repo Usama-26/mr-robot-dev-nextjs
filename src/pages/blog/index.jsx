@@ -70,7 +70,7 @@ export default function Blog() {
           alt="Blog hero img"
           className="mx-auto"
         />
-        <hr className="border-t-4 border-primary-red mx-auto w-96 mt-10 " />
+        <hr className="border-t-4 border-primary-red mx-auto desktop:w-96 lg:w-72 md:w-60 sm:w-48 w-36 mt-10 " />
       </div>
       <div className=" mx-auto desktop:px-32 lg:px-20 px-5 ">
         <h1 className="desktop:text-4xl text-2xl text-center font-semibold mb-16">

@@ -1,6 +1,8 @@
 import Image from "next/image";
 
+import sprite from "./sprite.svg";
 export default function GlassCard({ image, name }) {
+  console.log(sprite);
   return (
     <div className="glass-card flex justify-center items-center p-10 rounded-md lg:bg-white/10 bg-white border border-zinc-600">
       <div>
