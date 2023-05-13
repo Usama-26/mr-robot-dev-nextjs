@@ -14,7 +14,7 @@ module.exports = {
         primary: "url('/images/commons/background-primary.png')",
       },
       fontFamily: {
-        montserrat: ["var(--font-montserrat)"],
+        montserrat: ["Montserrat"],
       },
       screens: { desktop: { min: "1536px", max: "1920px" } },
       maxWidth: {

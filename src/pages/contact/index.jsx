@@ -18,7 +18,7 @@ export default function Contact() {
         <Navbar />
       </div>
       <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
-        <h1 className="text-center font-bold lg:text-6xl text-3xl desktop:text-[100px]">
+        <h1 className="text-center font-bold lg:text-6xl text-4xl desktop:text-[100px]">
           <span className="text-primary-red">Contact </span>
           us
         </h1>
@@ -26,11 +26,15 @@ export default function Contact() {
           {`Feel free to ask anything`}
         </p>
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
+      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-0 py-2 mb-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-20">
           <div className="basis-1/2 md:order-1 order-2">
-            <h1 className="desktop:text-x6l lg:text-4xl text-2xl font-semibold mb-6 md:text-left text-center">
-              We would <span className="text-primary-red"> love </span>
+            <h1 className="desktop:text-6xl lg:text-4xl font-montserrat font-bold text-2xl mb-6 md:text-left text-center">
+              We would{" "}
+              <span className="text-primary-red font-montserrat font-bold">
+                {" "}
+                love{" "}
+              </span>
               to hear from you
             </h1>
             <p className="md:text-justify text-center desktop:text-xl w-4/5 md:mx-0 mx-auto">
@@ -47,36 +51,64 @@ export default function Contact() {
             />
           </div>
         </div>
-        <h1 className="desktop:text-x6l lg:text-4xl text-2xl font-semibold mb-6 md:text-left text-center">
-          <span className="text-primary-red"> Contact </span>
-          Our Team
-        </h1>
-        <form className="flex flex-col sm:flex-row justify-between desktop:gap-20   gap-10 mb-20">
+        <div className="flex justify-between items-center mb-12">
+          <h1 className="text-[42px] text-[#D32A3D] font-montserrat font-bold">
+            Contact{" "}
+            <span className="text-white border-b-4 border-[#D32A3D]">
+              Our Team
+            </span>
+          </h1>
+        </div>
+        <form className="flex flex-col sm:flex-row justify-between desktop:gap-20 gap-10 mb-32">
           <div className="basis-1/2  flex flex-col ">
+            <label
+              htmlFor="Full Name"
+              className="font-montserrat text-[22px] mb-5 md:hidden pl-1"
+            >
+              Full Name
+            </label>
             <input
               type="text"
               className={`${styles.form_input} mb-8`}
               placeholder="Enter Full Name"
             />
+            <label
+              htmlFor="Full Name"
+              className="font-montserrat text-[22px] mb-5 md:hidden pl-1"
+            >
+              Email
+            </label>
             <input
               type="email"
               className={`${styles.form_input} mb-8`}
               placeholder="Enter Email"
             />
+            <label
+              htmlFor="Full Name"
+              className="font-montserrat text-[22px] mb-5 md:hidden pl-1"
+            >
+              Phone
+            </label>
             <input
               type="text"
               className={`${styles.form_input}`}
               placeholder="Enter Phone Number"
             />
           </div>
-          <div className="basis-1/2 text-right">
+          <div className="basis-1/2 ">
+            <label
+              htmlFor="Full Name"
+              className="font-montserrat text-[22px] md:hidden pl-1"
+            >
+              Message
+            </label>
             <textarea
               name="message"
               id="message"
-              className="w-full rounded-3xl p-4 drop-shadow-md h-full resize-none mb-4 bg-primary-dark border border-white"
+              className="w-full mt-5 md:mt-0 rounded-3xl p-4 drop-shadow-md md:h-full h-[200px] resize-none mb-4 bg-primary-dark md:bg-white border border-white  md:text-black md:border-transparent focus:outline-none"
               placeholder="Type your message here..."
             ></textarea>
-            <button className="bg-primary-red inline-block px-10 py-2 text-lg font-semibold rounded-full">
+            <button className="bg-primary-red float-right inline-block px-10 py-2 text-lg font-semibold rounded-full">
               Send
             </button>
           </div>
