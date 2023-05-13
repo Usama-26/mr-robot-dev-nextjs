@@ -11,6 +11,7 @@ import NewsletterCTA from "@/components/NewsletterCTA";
 import Footer from "@/components/Footer";
 import Statistics from "@/components/Statistics";
 import MobileFooter from "@/components/MobileFooter";
+import iconSprite from "../assets/sprite.svg";
 const services = [
   {
     service_name: "Web Development",
