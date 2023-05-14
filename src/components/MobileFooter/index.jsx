@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function MobileFooter() {
   return (
     <footer className="bg-[#3F3637]">
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 border-b desktop:text-xl text-sm text-white">
+      <div className="mx-auto desktop:px-32 lg:px-20 px-5  desktop:text-xl text-sm text-white">
         <Image
           src={"/images/commons/logo-primary.png"}
           alt="Team Image"
@@ -104,38 +104,38 @@ export default function MobileFooter() {
             <p>Address: Cape Town, South Africa</p>
             <p>Phone: +84 3 28 99 49 49</p>
             <p>Email: mrrobotdev.co.za</p>
-          </div>
-          <div className="flex flex-col">
-            <Link href={"/"}>
-              <Image
-                src={"/images/mobile/facebook.svg"}
-                width={64}
-                height={64}
-                className="w-10 h-10 mb-4"
-                alt="facebook link"
-              />
-            </Link>
-            <Link href={"/"}>
-              <Image
-                src={"/images/mobile/instagram.svg"}
-                width={64}
-                height={64}
-                className="w-10 h-10 mb-4"
-                alt="facebook link"
-              />
-            </Link>
-            <Link href={"/"}>
-              <Image
-                src={"/images/mobile/linkedin.svg"}
-                width={64}
-                height={64}
-                className="w-10 h-10 mb-4"
-                alt="facebook link"
-              />
-            </Link>
+            <div className="flex flex-row mt-4 gap-5 mb-10">
+              <Link href={"/"}>
+                <Image
+                  src={"/images/mobile/facebook.svg"}
+                  width={64}
+                  height={64}
+                  className="w-10 h-10 mb-4"
+                  alt="facebook link"
+                />
+              </Link>
+              <Link href={"/"}>
+                <Image
+                  src={"/images/mobile/instagram.svg"}
+                  width={64}
+                  height={64}
+                  className="w-10 h-10 mb-4"
+                  alt="facebook link"
+                />
+              </Link>
+              <Link href={"/"}>
+                <Image
+                  src={"/images/mobile/linkedin.svg"}
+                  width={64}
+                  height={64}
+                  className="w-10 h-10 mb-4"
+                  alt="facebook link"
+                />
+              </Link>
+            </div>
           </div>
         </div>
-        <div>
+        <div className="pb-5">
           <p className="text-center">Copyright mrrobotdev.com 2023.</p>
         </div>
       </div>

@@ -40,7 +40,9 @@ export default function Navbar() {
           </li>
           <li className={styles["nav-link"]}>
             <Popover className="relative">
-              <Popover.Button className={"inline-flex items-center"}>
+              <Popover.Button
+                className={"inline-flex items-center focus:outline-none"}
+              >
                 Services
                 <MdArrowDropDown />
               </Popover.Button>

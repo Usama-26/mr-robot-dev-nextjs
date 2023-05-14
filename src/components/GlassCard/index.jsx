@@ -1,11 +1,15 @@
 import Image from "next/image";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function GlassCard({ image, name }) {
+  const isMobileScreen = useMediaQuery("(max-width: 1023px");
   return (
     <div className="glass-card flex justify-center items-center p-10 rounded-md lg:bg-white/10 bg-white border border-zinc-600">
       <div>
         <Image
-          src={`/images/commons/${image}.svg`}
+          src={
+            !isMobileScreen ? `/desktop/${image}.png` : `/mobile/${image}.png`
+          }
           alt="Service Image"
           width={100}
           height={100}
