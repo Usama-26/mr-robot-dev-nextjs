@@ -10,7 +10,7 @@ export default function Contact() {
   const isMobileScreen = useMediaQuery("(max-width: 640px");
   const styles = {
     form_input:
-      "rounded-full sm:bg-white bg-primary-dark  border border-white w-full p-4 placeholder:italic placeholder:text-gray-700 drop-shadow-md",
+      "rounded-full sm:bg-white bg-primary-dark  border border-white w-full p-4 placeholder:italic placeholder:text-gray-700 drop-shadow-md text-gray-700",
   };
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
@@ -59,8 +59,8 @@ export default function Contact() {
             </span>
           </h1>
         </div>
-        <form className="flex flex-col sm:flex-row justify-between desktop:gap-20 gap-10 mb-32">
-          <div className="basis-1/2  flex flex-col ">
+        <form className=" flex flex-col sm:flex-row justify-between desktop:gap-20 gap-10 mb-32">
+          <div className="basis-1/2 max-w-2xl  flex flex-col ">
             <label
               htmlFor="Full Name"
               className="font-montserrat text-[22px] mb-5 md:hidden pl-1"
@@ -95,7 +95,7 @@ export default function Contact() {
               placeholder="Enter Phone Number"
             />
           </div>
-          <div className="basis-1/2 ">
+          <div className="basis-1/2 max-w-xl">
             <label
               htmlFor="Full Name"
               className="font-montserrat text-[22px] md:hidden pl-1"
@@ -114,7 +114,7 @@ export default function Contact() {
           </div>
         </form>
 
-        <div className="flex flex-col md:flex-row gap-10">
+        <div className="flex flex-col lg:flex-row gap-10">
           <div className="lg:rounded-3xl rounded-xl bg-black flex flex-col lg:gap-10 gap-5 basis-2/5 md:px-20 px-10 py-12">
             <div className="flex items-center lg:gap-10 gap-5 md:mb-10">
               <AiFillHome className="w-12 h-12 fill-primary-red" />
@@ -128,17 +128,17 @@ export default function Contact() {
             </div>
             <div className="flex items-center lg:gap-10 gap-5">
               <MdEmail className="w-12 h-12 fill-primary-red" />
-              <h1 className="desktop:text-2xl text-xl">sales@mrrobot.com</h1>
+              <h1 className="desktop:text-2xl text-xl">sales@mrrobotdev.com</h1>
             </div>
             <div className="flex items-center lg:gap-10 gap-5">
               <MdLocationOn className="w-12 h-12 fill-primary-red" />
               <h1 className="desktop:text-2xl text-xl">
-                Cape town, South Africa
+                Midrand, South Africa
               </h1>
             </div>
           </div>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d633160.1046942765!2d18.221863380387568!3d-33.8654062401274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc500f8826eed7%3A0x687fe1fc2828aa87!2sCape%20Town%2C%20South%20Africa!5e0!3m2!1sen!2s!4v1683820168501!5m2!1sen!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d633160.1046942765!2d18.221863380387568!3d-33.8654062401274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc500f8826eed7%3A0x687fe1fc2828aa87!2sMidrand%2C%20South%20Africa!5e0!3m2!1sen!2s!4v1683820168501!5m2!1sen!2s"
             allowfullscreen=""
             loading="lazy"
             draggable="true"

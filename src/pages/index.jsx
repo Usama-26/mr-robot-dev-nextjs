@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import Statistics from "@/components/Statistics";
 import MobileFooter from "@/components/MobileFooter";
 import iconSprite from "../assets/sprite.svg";
+import Link from "next/link";
 const services = [
   {
     service_name: "Web Development",
@@ -79,9 +80,12 @@ export default function Home() {
                 Read more
               </button>
             </p>
-            <button className="desktop:px-5 desktop:py-4 px-4 py-3 text-xl font-bold text-primary-red hover:text-white hover:bg-primary-red bg-white rounded-full transition duration-200">
+            <Link
+              href={"/pricing"}
+              className="desktop:px-5 desktop:py-4 px-4 py-3 text-lg font-bold text-primary-red hover:text-white hover:bg-primary-red bg-white rounded-full transition duration-200"
+            >
               Get Started
-            </button>
+            </Link>
           </div>
           <div className="lg:basis-5/12 basis-full">
             <Image
@@ -176,9 +180,12 @@ export default function Home() {
               We understand that a strong brand can lead to increased recognition, loyalty, and customer trust. By choosing to build your brand with us, you can be confident that you're making a strategic investment in your future success.
 `}
             </p>
-            <button className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-medium text-white bg-primary-red  rounded-full transition duration-200">
+            <Link
+              href={"/about"}
+              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-medium text-white bg-primary-red  rounded-full transition duration-200"
+            >
               Read More
-            </button>
+            </Link>
           </div>
           <div className="lg:basis-1/2 hidden lg:block basis-full self-center">
             <Image
@@ -186,7 +193,7 @@ export default function Home() {
               alt="Hero Image"
               width={950}
               height={945}
-              className=" desktop:h-full desktop:w-full lg:w-[500px] lg:h-[500px] mx-auto"
+              className=" lg:w-[600px] lg:h-[600px] mx-auto"
             />
           </div>
         </div>
@@ -298,9 +305,12 @@ export default function Home() {
               {`
              We provide personalized service, regular updates, and open communication to ensure that our clients are always informed and satisfied with the progress of their project. Our commitment to excellence extends beyond the delivery of the final product, as we work closely with our customers to ensure their long-term success. By establishing a strong and trusting relationship, we are able to consistently deliver exceptional software solutions that meet and exceed our customers' expectations.`}
             </p>
-            <button className="desktop:px-5 desktop:py-4 px-8 py-3 text-xl font-medium text-white bg-primary-red  rounded-full transition duration-200">
+            <Link
+              href={"/about#ourWork"}
+              className="desktop:px-5 desktop:py-4 px-8 py-3 text-xl font-medium text-white bg-primary-red  rounded-full transition duration-200"
+            >
               Our Work
-            </button>
+            </Link>
           </div>
         </div>
       </div>

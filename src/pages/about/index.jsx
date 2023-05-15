@@ -238,7 +238,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5">
+      <div id="ourWork" className="mx-auto desktop:px-32 lg:px-20 px-5">
         <h1 className="text-center desktop:text-6xl lg:text-4xl text-2xl font-bold text-white mb-10">
           <span className="text-primary-red">Our</span> Work
         </h1>

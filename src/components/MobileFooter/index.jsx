@@ -101,9 +101,9 @@ export default function MobileFooter() {
         </div>
         <div className="flex justify-between gap-10 mt-10">
           <div className="text-xs flex flex-col gap-3 ml-3">
-            <p>Address: Cape Town, South Africa</p>
-            <p>Phone: +84 3 28 99 49 49</p>
-            <p>Email: mrrobotdev.co.za</p>
+            <p>Address: Midrand, South Africa</p>
+            <p>Phone:+27 79 957 7606</p>
+            <p>Email: mrrobotdev.com</p>
             <div className="flex flex-row mt-4 gap-5 mb-10">
               <Link href={"/"}>
                 <Image

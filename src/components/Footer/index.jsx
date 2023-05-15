@@ -22,7 +22,7 @@ export default function Footer() {
               />
             </div>
             <h6 className="desktop:ml-11 ml-7 desktop:text-base">
-              Cape Town, South Africa
+              Midrand, South Africa
             </h6>
           </div>
           <div>
@@ -71,7 +71,9 @@ export default function Footer() {
                 <Link href={"/"}>Twitter</Link>
               </li>
               <li className={styles.footer_links_li}>
-                <Link href={"/"}>Facebook</Link>
+                <Link href={"www.facebook.com/profile.php?id=100092171062219"}>
+                  Facebook
+                </Link>
               </li>
               <li className={styles.footer_links_li}>
                 <Link href={"/"}>LinkedIn</Link>
@@ -83,11 +85,13 @@ export default function Footer() {
             <ul className="list-none">
               <li className={styles.footer_links_li + " inline-flex gap-2"}>
                 <MdMail className="w-5 h-5" />
-                <Link href={"/"}>thanhthanh@merakigroup.asia</Link>
+                <Link href={"mailto:sales@mrrobotdev.com"}>
+                  sales@mrrobotdev.com
+                </Link>
               </li>
               <li className={styles.footer_links_li + " inline-flex gap-2"}>
                 <MdPhone className="w-5 h-5" />
-                <Link href={"/"}>+84 3 28 99 49 49</Link>
+                <Link href={"phone:+27799577606"}>+27 79 957 7606</Link>
               </li>
               <li className={" mb-8"}>
                 <h5 className="text-xl font-semibold">
@@ -124,7 +128,7 @@ export default function Footer() {
             <Link href={"terms_conditions"}>Terms & Condition</Link>
           </li>
         </ul>
-        <h6>© 2023, www.mrrobotdev.co.za. All Right Reserved</h6>
+        <Link href={"/"}>© 2023, www.mrrobotdev.com All Right Reserved</Link>
       </div>
     </footer>
   );

@@ -50,25 +50,25 @@ export default function Navbar() {
               <Popover.Panel className="absolute top-10 right-0 z-10 font-normal text-black desktop:text-base text-xs bg-white rounded-xl desktop:w-72 w-56">
                 <div className="flex flex-col text-center">
                   <Link
-                    className="py-2 hover:bg-gray-200 rounded-t-xl"
+                    className="py-2 hover:bg-primary-red hover:text-white rounded-t-xl"
                     href="/services/web_development"
                   >
                     Website Development
                   </Link>
                   <Link
-                    className="py-2 hover:bg-gray-200"
+                    className="py-2 hover:bg-primary-red hover:text-white"
                     href="/services/app_development"
                   >
                     App Development
                   </Link>
                   <Link
-                    className="py-2 hover:bg-gray-200"
+                    className="py-2 hover:bg-primary-red hover:text-white"
                     href="/services/custom_software"
                   >
                     Custom Software Development
                   </Link>
                   <Link
-                    className="py-2 hover:bg-gray-200 rounded-b-xl"
+                    className="py-2 hover:bg-primary-red hover:text-white rounded-b-xl"
                     href="/services/game_development"
                   >
                     Game Development

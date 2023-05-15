@@ -3,4 +3,22 @@
 @tailwind utilities;
 
 @layer components {
+  .glass-card {
+    @apply transition duration-300 hover:bg-white;
+  }
+
+  .glass-card:hover .glass-card__image {
+    @apply transition-all duration-500 -translate-y-6 scale-75;
+  }
+  .glass-card:hover .glass-card__title {
+    @apply transition-all duration-500 -translate-y-16 scale-75;
+  }
+  .glass-card:hover .glass-card__desc {
+    @apply transition-all duration-500 opacity-100;
+  }
+  .glass-card__image,
+  .glass-card__title,
+  .glass-card__desc {
+    @apply transition-all duration-500;
+  }
 }
