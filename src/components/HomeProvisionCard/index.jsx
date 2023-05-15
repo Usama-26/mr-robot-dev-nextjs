@@ -15,9 +15,7 @@ export function HomeProvisionCard({ name, image, desc }) {
       <h1 className="text-primary-red text-center desktop:text-2xl lg:text-xl font-extrabold uppercase mb-6">
         {name}
       </h1>
-      <p className="desktop:text-xl text-base text-center font-medium leading-relaxed">
-        {desc}
-      </p>
+      <p className="desktop:text-xl text-center leading-relaxed">{desc}</p>
     </div>
   );
 }

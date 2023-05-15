@@ -18,7 +18,7 @@ export default function Navbar() {
 
   const styles = {
     "nav-link":
-      "relative text-white font-semibold desktop:text-2xl text-lg hover:text-primary-red",
+      "relative text-white desktop:text-xl text-base hover:text-primary-red",
   };
   return (
     <div className="flex items-center justify-between">
@@ -91,7 +91,7 @@ export default function Navbar() {
       <div className="hidden lg:block">
         <Link
           href={"/contact"}
-          className="text-white font-semibold desktop:text-2xl text-lg rounded-full desktop:px-6 desktop:py-3 px-4 py-2 bg-primary-red drop-shadow-md"
+          className="text-white font-semibold desktop:text-xl text-base rounded-full desktop:px-6 desktop:py-3 px-4 py-2 bg-primary-red drop-shadow-md"
         >
           Contact Us
         </Link>
