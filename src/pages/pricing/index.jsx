@@ -93,8 +93,9 @@ const functionalities = [
     functionality_name: "ratings",
   },
 ];
+
 export default function AppPricing() {
-  const isMobileScreen = useMediaQuery("(max-width: 1023px");
+  const isMobileScreen = useMediaQuery("(max-width: 1024px");
   const [data, setData] = useState([]);
   const handleData = (name, value) => {
     setData([...data, { name, value }]);
@@ -108,18 +109,18 @@ export default function AppPricing() {
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
         <Navbar />
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
-        <h1 className="text-center  font-bold lg:text-7xl text-3xl">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-24 py-10">
+        <h1 className="text-center  font-bold lg:text-6xl text-3xl">
           <span className="text-primary-red">App </span>
           Pricing
         </h1>
-        <p className="max-w-4xl text-center my-6 mx-auto">
+        <p className="desktop:max-w-3xl max-w-2xl text-center my-6 mx-auto">
           {` To assist in estimating the costs associated especially with app
           development, we've developed this pricing form. Play around with it,
           and if you need some help, feel free to contact us anytime.`}
         </p>
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-24 py-10">
         <div className="flex justify-between items-center mb-16">
           <h1 className="desktop:text-4xl text-2xl lg:text-left text-center font-semibold">
             <span className="text-primary-red">What</span> Do You Want To Build
@@ -140,7 +141,7 @@ export default function AppPricing() {
             ))}
           </div>
           <div className="md:w-1/2 md:block hidden bg-[#D32A3D] px-5 py-10 rounded-3xl">
-            <div className="flex gap-5 text-[30px] max-h-[300px] overflow-y-auto font-montserrat justify-between px-8 font-semibold">
+            {/* <div className="flex gap-5 text-[30px] max-h-[300px] overflow-y-auto font-montserrat justify-between px-8 font-semibold">
               <div>
                 <h1>Your Selection</h1>
                 <ul className="text-center font-montserrat font-light mt-4">
@@ -172,7 +173,7 @@ export default function AppPricing() {
               <h1 className="text-center font-semibold font-montserrat text-[40px]">
                 {totalValue}
               </h1>
-            </div>
+            </div> */}
             <div className="px-12 space-y-4 mt-5">
               <input
                 type="text"
@@ -192,7 +193,7 @@ export default function AppPricing() {
           </div>
         </div>
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 py-10">
         <div className="flex items-center justify-between mb-16">
           <h1 className="desktop:text-4xl text-2xl  lg:text-left text-center font-semibold ">
             <span className="text-primary-red">What</span> Device Features Does
@@ -212,7 +213,7 @@ export default function AppPricing() {
           ))}
         </div>
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-24 py-10">
         <div className="flex items-center justify-between mb-16">
           <h1 className="desktop:text-4xl text-2xl lg:text-left text-center font-semibold ">
             <span className="text-primary-red">What</span> Functionality Should

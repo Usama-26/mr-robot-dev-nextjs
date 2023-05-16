@@ -51,16 +51,16 @@ export default function Blog() {
   const isMobileScreen = useMediaQuery("(max-width: 640px");
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
+      <div className="mx-auto desktop:px-36 lg:px-28 px-5 lg:bg-[#3C64B122] bg-black/20">
         <Navbar />
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-24 py-10">
         <h1 className="text-center  font-bold lg:text-6 xl text-3xl">
           <span className="text-primary-red">Welcome </span>
           to our
           <span className="text-primary-red"> Blog </span>
         </h1>
-        <p className="max-w-4xl text-center my-6 mx-auto">
+        <p className="desktop:max-w-2xl max-w-xl text-center my-6 mx-auto">
           {` Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`}
         </p>
         <Image
@@ -72,7 +72,7 @@ export default function Blog() {
         />
         <hr className="border-t-4 border-primary-red mx-auto desktop:w-96 lg:w-72 md:w-60 sm:w-48 w-36 mt-10 " />
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 ">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 ">
         <h1 className="desktop:text-4xl text-2xl text-center font-semibold mb-16">
           Latest
           <span className="text-primary-red"> Articles</span>

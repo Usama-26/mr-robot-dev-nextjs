@@ -15,7 +15,7 @@ export default function GlassCard({ image, name }) {
           height={100}
           className="glass-card__image mb-8 desktop:h-28 desktop:w-28 h-20 w-20 object-contain mx-auto "
         />
-        <h4 className="glass-card__title lg:text-primary-red desktop:text-2xl text-lg text-primary-dark font-bold text-center uppercase">
+        <h4 className="glass-card__title lg:text-primary-red desktop:text-lg text-primary-dark font-bold text-center uppercase">
           {name}
         </h4>
       </div>

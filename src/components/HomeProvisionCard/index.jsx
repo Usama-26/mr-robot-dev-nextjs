@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 export function HomeProvisionCard({ name, image, desc }) {
   return (
-    <div className="rounded-xl bg-white shadow-md lg:p-8 px-8 py-4 desktop:w-[400px] w-[300px] desktop:h-[500px] lg:h-[450px] h-[400px]">
+    <div className="rounded-xl bg-white shadow-md lg:p-8 px-8 py-4 desktop:w-[400px] w-[300px]">
       <div className="desktop:mb-8 lg:mb-6 mb-4">
         <Image
           src={`/images/commons/${image}.png`}

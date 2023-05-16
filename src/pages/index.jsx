@@ -11,49 +11,45 @@ import NewsletterCTA from "@/components/NewsletterCTA";
 import Footer from "@/components/Footer";
 import Statistics from "@/components/Statistics";
 import MobileFooter from "@/components/MobileFooter";
-import iconSprite from "../assets/sprite.svg";
 import Link from "next/link";
-const services = [
-  {
-    service_name: "Web Development",
-    service_short_desc:
-      "We convert your business ideas into a impressive web application to streamline your business productivity.",
-    service_image: "web-development.png",
-  },
-  {
-    service_name: "Game Development",
-    service_short_desc:
-      "Mr.Robot Dev creates visually stunning & immersive games that meet client preferences and attract a wider audience.",
-    service_image: "game-development.png",
-  },
-  {
-    service_name: "App Development",
-    service_short_desc:
-      "We make engaging apps for mobile & web using the latest tech. We keep clients updated, focus on interactivity to boost their brand .",
-    service_image: "app-development.png",
-  },
-  {
-    service_name: "Custom Software",
-    service_short_desc:
-      "We make engaging apps for mobile & web using the latest tech. We keep clients updated, focus on interactivity to boost their brand .",
-    service_image: "custom-software.png",
-  },
-];
+
 export const styles = {
-  stats_number:
-    "desktop:text-[80px]  text-5xl font-bold mb-4 text-center drop-shadow-md",
-  stats_name:
-    "desktop:text-xl lg:text-lg text-base font-medium text-center drop-shadow-md",
   process_name:
     "desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6",
   process_desc:
     "desktop:text-lg desktop:leading-9 leading-7 text-center desktop:font-medium max-w-[400px] mx-auto",
   process_img: "mx-auto desktop:w-48 w-28",
 };
-
 export default function Home() {
   const isSmallScreen = useMediaQuery("(max-width: 1024px)");
   const isMobileScreen = useMediaQuery("(max-width: 640px");
+
+  const services = [
+    {
+      service_name: "Web Development",
+      service_short_desc:
+        "We convert your business ideas into a impressive web application to streamline your business productivity.",
+      service_image: "web-development.png",
+    },
+    {
+      service_name: "Game Development",
+      service_short_desc:
+        "Mr.Robot Dev creates visually stunning & immersive games that meet client preferences and attract a wider audience.",
+      service_image: "game-development.png",
+    },
+    {
+      service_name: "App Development",
+      service_short_desc:
+        "We make engaging apps for mobile & web using the latest tech. We keep clients updated, focus on interactivity to boost their brand .",
+      service_image: "app-development.png",
+    },
+    {
+      service_name: "Custom Software",
+      service_short_desc:
+        "We make engaging apps for mobile & web using the latest tech. We keep clients updated, focus on interactivity to boost their brand .",
+      service_image: "custom-software.png",
+    },
+  ];
 
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat">
@@ -61,7 +57,7 @@ export default function Home() {
         <Navbar />
       </div>
       <div className="mx-auto desktop:px-36 lg:px-28 px-5">
-        <div className="flex">
+        <div className="flex items-center">
           <div className="basis-7/12 desktop:py-52 py-40 hidden lg:block">
             <h1 className="text-white desktop:text-6xl lg:text-4xl font-bold desktop:leading-snug">
               <span className="text-primary-red-dark">Empowering </span>
@@ -72,17 +68,12 @@ export default function Home() {
               </span>
             </h1>
             <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide w-5/6 text-justify">
-              {`We provide top-notch solutions that help businesses stay ahead in
-              the today's rapidly evolving technology landscape. Our
-              customer-centric approach and expertise in the latest
-              technologies...`}
-              <button className="text-primary-red-dark hover:underline">
-                Read more
-              </button>
+              We provide top-notch solutions that help businesses stay ahead in
+              the today's rapidly evolving technology landscape.
             </p>
             <Link
               href={"/pricing"}
-              className="desktop:px-5 desktop:py-4 px-4 py-3 text-lg font-bold text-primary-red hover:text-white hover:bg-primary-red bg-white rounded-full transition duration-200"
+              className="desktop:px-5 desktop:py-4 px-4 py-3 text-lg font-semibold text-primary-red hover:text-white hover:bg-primary-red bg-white rounded-full transition duration-200"
             >
               Get Started
             </Link>
@@ -93,7 +84,7 @@ export default function Home() {
               width={796}
               height={739}
               alt="Hero Image"
-              className="lg:w-full lg:h-full w-96 h-96 mx-auto"
+              className=" mx-auto"
             />
           </div>
         </div>
@@ -136,7 +127,7 @@ export default function Home() {
           </div>
         ) : (
           <div className="mt-12">
-            {/* <Splide
+            <Splide
               options={{
                 perPage: 3,
                 perMove: 1,
@@ -162,7 +153,7 @@ export default function Home() {
                   />
                 </SplideSlide>
               ))}
-            </Splide> */}
+            </Splide>
           </div>
         )}
 
@@ -174,11 +165,10 @@ export default function Home() {
             <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
               {`Building a strong brand is essential for success in today's competitive market. At our company, we understand the importance of brand building and are dedicated to helping our clients achieve their goals. Our team of experts will work closely with you to understand your vision and craft a branding strategy that effectively communicates your unique value proposition to your target audience. Whether it's through comprehensive market research, innovative design, or effective marketing campaigns, we have the tools and expertise to help you build a brand that resonates with your customers. `}
               <br />
-              <br />
-
+            </p>
+            <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
               {`
-              We understand that a strong brand can lead to increased recognition, loyalty, and customer trust. By choosing to build your brand with us, you can be confident that you're making a strategic investment in your future success.
-`}
+              We understand that a strong brand can lead to increased recognition, loyalty, and customer trust. By choosing to build your brand with us, you can be confident that you're making a strategic investment in your future success.`}
             </p>
             <Link
               href={"/about"}
@@ -193,7 +183,7 @@ export default function Home() {
               alt="Hero Image"
               width={950}
               height={945}
-              className=" lg:w-[600px] lg:h-[600px] mx-auto"
+              className=" mx-auto"
             />
           </div>
         </div>
