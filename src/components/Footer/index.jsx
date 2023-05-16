@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MdMail, MdPhone } from "react-icons/md";
-import { HiPaperAirplane } from "react-icons/hi";
 import { IoPaperPlane } from "react-icons/io5";
 export default function Footer() {
   const styles = {
@@ -9,7 +8,7 @@ export default function Footer() {
   };
   return (
     <footer className="lg:bg-primary-red-dark/25 bg-[#3F3637]">
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 border-b desktop:text-xl text-sm text-white">
+      <div className="mx-auto desktop:px-36 lg:px-28 px-5 border-b desktop:text-xl text-sm text-white">
         <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-10 pt-20 pb-10">
           <div>
             <div>

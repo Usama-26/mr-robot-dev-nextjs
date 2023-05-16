@@ -104,8 +104,6 @@ export default function Home() {
         </div>
       </div>
 
-      <Statistics isSmallScreen={isSmallScreen} />
-
       <div className="mx-auto desktop:px-36 lg:px-28 px-5 pt-32">
         <h4 className="desktop:text-xl text-lg font-medium text-white text-center">
           Popular Services
