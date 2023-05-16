@@ -3,12 +3,16 @@ import React from "react";
 export default function Statistics({ isSmallScreen }) {
   const styles = {
     stats_number:
-      "desktop:text-[80px]  text-5xl font-bold mb-4 text-center drop-shadow-md",
+      "desktop:text-6xl xl:text-5xl text-4xl font-bold mb-4 text-center drop-shadow-md",
     stats_name:
-      "desktop:text-xl lg:text-lg text-base font-medium text-center drop-shadow-md",
+      "desktop:text-xl xl:text-lg text-base font-medium text-center drop-shadow-md",
   };
   return (
-    <div className=" mx-auto desktop:px-32 lg:px-20 px-5 grid text-white text-center lg:grid-cols-4 grid-cols-2 lg:bg-gradient-to-b from-[#FF001D] to-[#BF1024] py-8 gap-10">
+    <div
+      className={` mx-auto px-5 grid text-white text-center lg:grid-cols-4 grid-cols-2 py-8 gap-10 ${
+        !isSmallScreen && " stats-background"
+      }`}
+    >
       <div className="order-3 lg:order-1">
         <h1 className={styles.stats_number}>60</h1>
         <h5 className={styles.stats_name}>Countries</h5>

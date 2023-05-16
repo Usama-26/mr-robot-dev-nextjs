@@ -13,17 +13,16 @@ import Statistics from "@/components/Statistics";
 import MobileFooter from "@/components/MobileFooter";
 import Link from "next/link";
 
-export const styles = {
-  process_name:
-    "desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6",
-  process_desc:
-    "desktop:text-lg desktop:leading-9 leading-7 text-center desktop:font-medium max-w-[400px] mx-auto",
-  process_img: "mx-auto desktop:w-48 w-28",
-};
 export default function Home() {
   const isSmallScreen = useMediaQuery("(max-width: 1024px)");
   const isMobileScreen = useMediaQuery("(max-width: 640px");
-
+  const styles = {
+    process_name:
+      "desktop:text-5xl text-3xl font-bold text-center desktop:my-10 my-6",
+    process_desc:
+      "desktop:text-lg desktop:leading-9 leading-7 text-center desktop:font-medium max-w-[400px] mx-auto",
+    process_img: "mx-auto desktop:w-48 w-28",
+  };
   const services = [
     {
       service_name: "Web Development",
@@ -67,13 +66,13 @@ export default function Home() {
                 software solutions.
               </span>
             </h1>
-            <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide w-5/6 text-justify">
+            <p className="mt-5 mb-10 desktop:text-xl desktop:leading-relaxed text-base text-white  w-5/6 text-justify">
               {`We provide top-notch solutions that help businesses stay ahead in
               the today's rapidly evolving technology landscape.`}
             </p>
             <Link
               href={"/pricing"}
-              className="desktop:px-5 desktop:py-4 px-4 py-3 text-lg font-semibold text-primary-red hover:text-white hover:bg-primary-red bg-white rounded-full transition duration-200"
+              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-semibold text-primary-red hover:text-white hover:bg-primary-red bg-white rounded-full transition duration-200"
             >
               Get Started
             </Link>
@@ -164,7 +163,7 @@ export default function Home() {
               {`Building a strong brand is essential for success in today's competitive market. At our company, we understand the importance of brand building and are dedicated to helping our clients achieve their goals. Our team of experts will work closely with you to understand your vision and craft a branding strategy that effectively communicates your unique value proposition to your target audience. Whether it's through comprehensive market research, innovative design, or effective marketing campaigns, we have the tools and expertise to help you build a brand that resonates with your customers. `}
               <br />
             </p>
-            <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
+            <p className="mt-5 mb-10 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
               {`
               We understand that a strong brand can lead to increased recognition, loyalty, and customer trust. By choosing to build your brand with us, you can be confident that you're making a strategic investment in your future success.`}
             </p>
@@ -246,29 +245,26 @@ export default function Home() {
       </div>
 
       <div className="mx-auto desktop:px-36 lg:px-28 px-5 py-20">
-        <div className="flex xl:flex-row flex-col items-center justify-between xl:gap-6">
-          <div className="xl:flex xl:basis-7/12 lg:order-1 order-2">
-            <div>
-              <div className="mb-6 desktop:mb-12">
-                <HomeProvisionCard
-                  name={"Analytics"}
-                  image={"analytics"}
-                  desc={
-                    "We offers custom analytics and dashboards by utilizing user data to gain valuable insights which helps you to optimize your operations, improve customer experiences & drive growth."
-                  }
-                />
-              </div>
-              <div className="mb-6 desktop:mb-12">
-                <HomeProvisionCard
-                  name={"Quality Products"}
-                  image={"good-quality"}
-                  desc={
-                    "We ensure high-quality products through rigorous quality assurance processes to make ensure that our solution meets the highest standards of reliability, user experience & performance."
-                  }
-                />
-              </div>
+        <div className="flex xl:flex-row flex-col items-center justify-between xl:gap-5">
+          <div className=" md:flex lg:flex-row flex-col desktop:basis-7/12 desktop:gap-10 gap-5 lg:basis-1/2">
+            <div className="flex xl:flex-col sm:flex-row flex-col desktop:gap-10 gap-5 md:mb-0 mb-5">
+              <HomeProvisionCard
+                name={"Analytics"}
+                image={"analytics"}
+                desc={
+                  "We offers custom analytics and dashboards by utilizing user data to gain valuable insights which helps you to optimize your operations, improve customer experiences & drive growth."
+                }
+              />
+
+              <HomeProvisionCard
+                name={"Quality Products"}
+                image={"good-quality"}
+                desc={
+                  "We ensure high-quality products through rigorous quality assurance processes to make ensure that our solution meets the highest standards of reliability, user experience & performance."
+                }
+              />
             </div>
-            <div className="xl:self-center xl:ml-6 desktop:ml-12">
+            <div className="xl:self-center">
               <HomeProvisionCard
                 name={"Latest Technology"}
                 image={"technology"}
@@ -279,14 +275,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="xl:basis-5/12 desktop:py-52 lg:py-40 py-10 xl:text-left text-center xl:order-2 order-1">
-            <h1 className="text-white desktop:text-5xl xl:text-4xl text-2xl font-bold desktop:leading-snug">
+          <div className="desktop:basis-5/12 lg:basis-1/2 desktop:py-52 lg:py-40 py-10 xl:text-left text-center">
+            <h1 className="text-white desktop:text-5xl xl:text-4xl text-2xl font-bold mb-5 ">
               We Build Lasting <br />
               <span className="text-primary-red-dark">Relationship </span>
               With Our
               <span className="text-primary-red-dark"> Customers...</span>
             </h1>
-            <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white  desktop:tracking-wide lg:text-justify text-center">
+            <p className="mb-10 desktop:text-xl text-base text-white lg:text-justify text-center ">
               {`At our company, we understand that building lasting relationships with our customers is a key factor in our success. That's why we make it a priority to create a positive and productive partnership with each and every one of our clients. From the start of a project, we take the time to fully understand the unique needs and goals of our customers. `}
               <br />
               <br />
@@ -295,14 +291,15 @@ export default function Home() {
             </p>
             <Link
               href={"/about#ourWork"}
-              className="desktop:px-5 desktop:py-4 px-8 py-3 text-xl font-medium text-white bg-primary-red  rounded-full transition duration-200"
+              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-medium text-white bg-primary-red  rounded-full transition duration-200"
             >
               Our Work
             </Link>
           </div>
         </div>
       </div>
-      <div className="mx-auto desktop:px-36 lg:px-28 px-5 py-20">
+      <Statistics isSmallScreen={isMobileScreen} />
+      <div className="mx-auto desktop:px-36 lg:px-28 px-5 py-24">
         <h1 className="text-center desktop:text-5xl lg:text-3xl text-xl font-bold text-white mb-10">
           What Our <span className="text-primary-red">Clients</span> Say
         </h1>

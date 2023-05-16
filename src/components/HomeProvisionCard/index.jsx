@@ -9,10 +9,10 @@ export function HomeProvisionCard({ name, image, desc }) {
           width={200}
           height={200}
           alt="Analytics Image"
-          className="mx-auto desktop:w-36 desktop:h-36 h-28 w-28"
+          className="mx-auto desktop:w-32 object-contain w-24"
         />
       </div>
-      <h1 className="text-primary-red text-center desktop:text-2xl lg:text-xl font-extrabold uppercase mb-6">
+      <h1 className="text-primary-red text-center desktop:text-xl lg:text-lg font-extrabold uppercase mb-6">
         {name}
       </h1>
       <p className="desktop:text-xl text-center leading-relaxed">{desc}</p>

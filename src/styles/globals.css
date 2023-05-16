@@ -21,4 +21,10 @@
   .glass-card__desc {
     @apply transition-all duration-500;
   }
+  .stats-background {
+    background: url("/desktop/stats-background-dark.png"), #851f2b;
+    background-repeat: no-repeat;
+    background-size: 54% 100%;
+    background-position-x: left;
+  }
 }
