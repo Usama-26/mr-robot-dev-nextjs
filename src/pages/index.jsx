@@ -68,8 +68,8 @@ export default function Home() {
               </span>
             </h1>
             <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide w-5/6 text-justify">
-              We provide top-notch solutions that help businesses stay ahead in
-              the today's rapidly evolving technology landscape.
+              {`We provide top-notch solutions that help businesses stay ahead in
+              the today's rapidly evolving technology landscape.`}
             </p>
             <Link
               href={"/pricing"}
