@@ -85,8 +85,8 @@ const functionalities = [
     functionality_name: "blockchain",
   },
   {
-    functionality_image: "card",
-    functionality_name: "loyalty program",
+    functionality_image: "unity",
+    functionality_name: "unity game",
   },
   {
     functionality_image: "star",
@@ -195,7 +195,7 @@ export default function AppPricing() {
       </div>
       <div className=" mx-auto desktop:px-36 lg:px-28 px-5 py-10">
         <div className="flex items-center justify-between mb-16">
-          <h1 className="desktop:text-4xl text-2xl  lg:text-left text-center font-semibold ">
+          <h1 className="desktop:text-4xl text-2xl lg:text-left text-center font-semibold ">
             <span className="text-primary-red">What</span> Device Features Does
             It Need?
           </h1>
@@ -223,7 +223,7 @@ export default function AppPricing() {
             FUNCTIONALITY
           </h1>
         </div>
-        <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
+        <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 xl:gap-10 gap-5 justify-between">
           {functionalities.map((functionality, index) => (
             <GlassCard
               key={index}
