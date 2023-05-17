@@ -9,7 +9,7 @@ export default function ServiceCard({ name, desc, image, smallScreen }) {
           width={419}
           height={292}
           alt={name}
-          className="mx-auto w-[420px] desktop:h-[300px] h-56"
+          className="mx-auto w-[420px] desktop:h-[300px] object-contain h-56"
         />
       </div>
       <h1 className="text-primary text-center desktop:text-[40px] text-2xl font-bold mt-8">
@@ -19,7 +19,7 @@ export default function ServiceCard({ name, desc, image, smallScreen }) {
         {desc}
       </p>
       <div className="text-center">
-        <button className="desktop:py-4 desktop:px-8 py-3 px-6 bg-black rounded-full text-white desktop:text-xl text- drop-shadow-md">
+        <button className="desktop:py-4 desktop:px-8 py-3 px-6 bg-black rounded-full text-white desktop:text-xl text- drop-shadow-md hover:bg-white border hover:border-primary-dark hover:text-black transition duration-200">
           Read More
         </button>
       </div>

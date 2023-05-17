@@ -59,7 +59,7 @@ export default function Home() {
       <div className="mx-auto desktop:px-36 lg:px-28 px-5">
         <div className="flex items-center">
           <div className="basis-7/12 desktop:py-52 py-40 hidden lg:block">
-            <h1 className="text-white desktop:text-6xl lg:text-4xl font-bold desktop:leading-snug">
+            <h1 className="text-white desktop:text-5xl lg:text-4xl font-bold desktop:leading-snug">
               <span className="text-primary-red">Empowering </span>
               your business <br /> with leading-edge
               <span className="text-primary-red"> software solutions.</span>
@@ -152,7 +152,7 @@ export default function Home() {
           </div>
         )}
 
-        <div className="flex flex-col lg:flex-row item-center justify-between">
+        <div className="flex flex-col lg:flex-row lg:gap-10 item-center justify-between">
           <div className="basis-1/2 desktop:py-52 py-40 lg:text-left text-center ">
             <h1 className="text-primary-red desktop:text-5xl lg:text-3xl text-2xl font-bold desktop:leading-snug">
               Build Your Brand With Us
@@ -161,24 +161,23 @@ export default function Home() {
               {`Building a strong brand is essential for success in today's competitive market. At our company, we understand the importance of brand building and are dedicated to helping our clients achieve their goals. Our team of experts will work closely with you to understand your vision and craft a branding strategy that effectively communicates your unique value proposition to your target audience. Whether it's through comprehensive market research, innovative design, or effective marketing campaigns, we have the tools and expertise to help you build a brand that resonates with your customers. `}
               <br />
             </p>
-            <p className="mt-5 mb-10 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
+            {/* <p className="mt-5 mb-10 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
               {`
               We understand that a strong brand can lead to increased recognition, loyalty, and customer trust. By choosing to build your brand with us, you can be confident that you're making a strategic investment in your future success.`}
-            </p>
+            </p> */}
             <Link
               href={"/about"}
-              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-medium text-white bg-primary-red  rounded-full transition duration-200"
+              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-medium text-white bg-primary-red  rounded-full transition duration-200 hover:bg-white hover:text-primary-red"
             >
               Read More
             </Link>
           </div>
           <div className="lg:basis-1/2 hidden lg:block basis-full self-center">
             <Image
-              src={"/images/commons/build-your-brand.png"}
-              alt="Hero Image"
+              src={"/images/commons/brand-image.png"}
+              height={650}
               width={950}
-              height={945}
-              className=" mx-auto"
+              alt="Brand Section Image"
             />
           </div>
         </div>
@@ -289,7 +288,7 @@ export default function Home() {
             </p>
             <Link
               href={"/about#ourWork"}
-              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-medium text-white bg-primary-red  rounded-full transition duration-200"
+              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-medium text-white bg-primary-red  rounded-full transition duration-200 hover:bg-white hover:text-primary-red"
             >
               Our Work
             </Link>

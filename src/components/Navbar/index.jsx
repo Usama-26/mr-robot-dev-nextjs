@@ -91,7 +91,7 @@ export default function Navbar() {
       <div className="hidden lg:block">
         <Link
           href={"/contact"}
-          className="text-white font-semibold desktop:text-xl text-base rounded-full desktop:px-6 desktop:py-3 px-4 py-2 bg-primary-red drop-shadow-md"
+          className="text-white font-semibold desktop:text-xl text-base rounded-full desktop:px-6 desktop:py-3 px-5 py-2 bg-primary-red drop-shadow-md hover:bg-white hover:text-primary-red transition duration-200"
         >
           Contact Us
         </Link>
