@@ -146,7 +146,7 @@ export default function Contact() {
             </div>
           </div>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d633160.1046942765!2d18.221863380387568!3d-33.8654062401274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc500f8826eed7%3A0x687fe1fc2828aa87!2sMidrand%2C%20South%20Africa!5e0!3m2!1sen!2s!4v1683820168501!5m2!1sen!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114763.8273261964!2d28.094105399999997!3d-25.98870735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9571fd4965198b%3A0x87b2105c1c8bfe22!2sMidrand%2C%20South%20Africa!5e0!3m2!1sen!2s!4v1684346205597!5m2!1sen!2s"
             allowfullscreen=""
             loading="lazy"
             draggable="true"

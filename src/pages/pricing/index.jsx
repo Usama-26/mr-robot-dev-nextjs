@@ -96,7 +96,7 @@ const functionalities = [
 ];
 
 export default function AppPricing() {
-  const isMobileScreen = useMediaQuery("(max-width: 1024px");
+  const isMobileScreen = useMediaQuery("(max-width: 640px");
   const [data, setData] = useState([]);
   const handleData = (name, value) => {
     setData([...data, { name, value }]);
@@ -130,7 +130,7 @@ export default function AppPricing() {
           and if you need some help, feel free to contact us anytime.`}
         </p>
       </div>
-      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-24 py-10">
+      <div className=" mx-auto desktop:px-36 lg:px-10 px-5 lg:py-24 py-10">
         <div className="flex justify-between items-center mb-16">
           <h1 className="desktop:text-4xl text-2xl lg:text-left text-center font-semibold">
             <span className="text-primary-red">What</span> Do You Want To Build
@@ -141,7 +141,7 @@ export default function AppPricing() {
           </h1>
         </div>
         <div className="flex desktop:gap-28 gap-10 justify-between items-center">
-          <div className="md:w-1/2 w-full grid sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
+          <div className="lg:w-1/2 sm:w-4/5 w-full mx-auto grid sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
             {services.map((service, index) => (
               <GlassCard
                 key={index}
@@ -150,7 +150,7 @@ export default function AppPricing() {
               />
             ))}
           </div>
-          <div className="md:w-1/2 md:block hidden bg-[#D32A3D] px-5 py-10 rounded-3xl">
+          <div className="lg:w-1/2 lg:block hidden bg-[#D32A3D] px-5 py-10 rounded-3xl">
             {/* <div className="flex gap-5 text-[30px] max-h-[300px] overflow-y-auto font-montserrat justify-between px-8 font-semibold">
               <div>
                 <h1>Your Selection</h1>
@@ -203,7 +203,7 @@ export default function AppPricing() {
           </div>
         </div>
       </div>
-      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 py-10">
+      <div className=" mx-auto desktop:px-36 lg:px-20 px-5 py-10">
         <div className="flex items-center justify-between mb-16">
           <h1 className="desktop:text-4xl text-2xl lg:text-left text-center font-semibold ">
             <span className="text-primary-red">What</span> Device Features Does
