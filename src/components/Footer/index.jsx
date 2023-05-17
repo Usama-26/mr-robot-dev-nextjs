@@ -101,10 +101,10 @@ export default function Footer() {
                 <form>
                   <input
                     type="email"
-                    className="desktop:p-4 p-3 rounded-lg w-full"
+                    className="desktop:p-4 p-3 rounded-2xl w-full"
                     placeholder="Your email"
                   />
-                  <button className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-md absolute desktop:top-1 desktop:right-1 top-0.5 right-0.5 ">
+                  <button className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-r-2xl absolute right-0 h-full ">
                     <IoPaperPlane className="w-8 h-8 " />
                   </button>
                 </form>

@@ -9,11 +9,20 @@ export default function WebDevelopment() {
   const isMobileScreen = useMediaQuery("(max-width: 640px");
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
+      <div className="mx-auto desktop:px-36 lg:px-28 px-5 lg:bg-[#3C64B122] bg-black/20">
         <Navbar />
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-24 py-10">
         <h1 className="text-center font-bold lg:text-6xl text-3xl">
+          <span>
+            <Image
+              src={"/images/commons/bars.svg"}
+              height={50}
+              width={50}
+              alt="bars"
+              className="hidden lg:inline"
+            />
+          </span>
           Website
           <span className="text-primary-red"> Development </span>
         </h1>
@@ -22,7 +31,7 @@ export default function WebDevelopment() {
 that enhance your productivity and efficiency.`}
         </p>
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10 flex flex-col gap-20">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-24 py-10 flex flex-col gap-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
           <div className="basis-1/2 md:text-left text-center order-2 md:order-1">
             <h1 className="desktop:text-5xl lg:text-3xl text-xl font-bold mb-6 md:text-left text-center">

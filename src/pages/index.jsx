@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import Statistics from "@/components/Statistics";
 import MobileFooter from "@/components/MobileFooter";
 import Link from "next/link";
+import { MdArrowCircleLeft, MdArrowCircleRight } from "react-icons/md";
 
 export default function Home() {
   const isSmallScreen = useMediaQuery("(max-width: 1024px)");
@@ -59,12 +60,9 @@ export default function Home() {
         <div className="flex items-center">
           <div className="basis-7/12 desktop:py-52 py-40 hidden lg:block">
             <h1 className="text-white desktop:text-6xl lg:text-4xl font-bold desktop:leading-snug">
-              <span className="text-primary-red-dark">Empowering </span>
+              <span className="text-primary-red">Empowering </span>
               your business <br /> with leading-edge
-              <span className="text-primary-red-dark">
-                {" "}
-                software solutions.
-              </span>
+              <span className="text-primary-red"> software solutions.</span>
             </h1>
             <p className="mt-5 mb-10 desktop:text-xl desktop:leading-relaxed text-base text-white  w-5/6 text-justify">
               {`We provide top-notch solutions that help businesses stay ahead in
@@ -317,7 +315,7 @@ export default function Home() {
             <h4 className="uppercase lg:text-xl font-bold lg:text-primary-red text-white">
               Testimonials
             </h4>
-            <p className="text-white my-6">
+            <p className="text-white my-6 lg:w-full w-4/5 mx-auto">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
               ducimus ullam dignissimos optio, quas asperiores quos magnam ut
               vero. Dolorem eaque nobis repudiandae tenetur harum tempore
@@ -325,6 +323,15 @@ export default function Home() {
             </p>
             <h2 className="text-2xl font-bold text-primary-red">Andrew Tate</h2>
             <h4 className="text-white">CEO, Founder</h4>
+
+            <div className="lg:text-right text-center mt-4">
+              <button>
+                <MdArrowCircleLeft className="fill-white w-12 h-12 mr-4 hover:fill-primary-red drop-shadow-md" />
+              </button>
+              <button>
+                <MdArrowCircleRight className="fill-white w-12 h-12 mr-4 hover:fill-primary-red drop-shadow-md" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

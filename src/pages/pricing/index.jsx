@@ -4,6 +4,7 @@ import GlassCard from "@/components/GlassCard";
 import MobileFooter from "@/components/MobileFooter";
 import Navbar from "@/components/Navbar";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import Image from "next/image";
 
 const services = [
   {
@@ -110,7 +111,16 @@ export default function AppPricing() {
         <Navbar />
       </div>
       <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-24 py-10">
-        <h1 className="text-center  font-bold lg:text-6xl text-3xl">
+        <h1 className="text-center font-bold lg:text-6xl text-3xl">
+          <span>
+            <Image
+              src={"/images/commons/bars.svg"}
+              height={50}
+              width={50}
+              alt="bars"
+              className="hidden lg:inline"
+            />
+          </span>
           <span className="text-primary-red">App </span>
           Pricing
         </h1>

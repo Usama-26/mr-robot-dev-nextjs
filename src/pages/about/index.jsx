@@ -77,12 +77,21 @@ export default function About() {
   const isSmallScreen = useMediaQuery("(max-width: 1024px)");
   const isMobileScreen = useMediaQuery("(max-width: 640px");
   return (
-    <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
+    <main className="mx-auto bg-primary  bg-cover  bg-no-repeat max-w-desktop font-montserrat text-white">
+      <div className="mx-auto desktop:px-36 lg:px-28 px-5 lg:bg-[#3C64B122] bg-black/20">
         <Navbar />
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 py-20">
-        <h1 className="text-center  font-bold lg:text-6xl text-3xl">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 py-20">
+        <h1 className="text-center font-bold lg:text-6xl text-3xl">
+          <span>
+            <Image
+              src={"/images/commons/bars.svg"}
+              height={50}
+              width={50}
+              alt="bars"
+              className="hidden lg:inline"
+            />
+          </span>
           <span className="text-primary-red">About </span>
           us
         </h1>
@@ -101,7 +110,7 @@ export default function About() {
             delivering superior services.
           </p>
         </div>
-        <div className="py-20 grid lg:grid-cols-3 sm:grid-cols-2 lg:gap-28 gap-10">
+        <div className="py-20 grid lg:grid-cols-3 sm:grid-cols-2 gap-10">
           {features.map((feature, index) => (
             <FeatureAbout
               key={index}
@@ -112,8 +121,8 @@ export default function About() {
           ))}
         </div>
 
-        <div className="py-20">
-          <h1 className="text-center  font-semibold lg:text-4xl text-xl">
+        <div className="md:py-20 py-10">
+          <h1 className="text-center font-semibold lg:text-4xl text-2xl">
             Who
             <span className="text-primary-red"> We </span>
             Are
@@ -155,7 +164,7 @@ export default function About() {
         </div>
       </div>
       <Statistics isSmallScreen={isSmallScreen} />
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 pt-32 pb-20">
+      <div className="mx-auto desktop:px-36 lg:px-28 px-5 pt-32 pb-20">
         <div>
           <h1 className="text-center mx-auto max-w-lg font-semibold  lg:text-4xl text-xl">
             <span className="text-primary-red">
@@ -238,7 +247,7 @@ export default function About() {
         </div>
       </div>
 
-      <div id="ourWork" className="mx-auto desktop:px-32 lg:px-20 px-5">
+      <div id="ourWork" className="mx-auto desktop:px-36 lg:px-28 px-5">
         <h1 className="text-center desktop:text-6xl lg:text-4xl text-2xl font-bold text-white mb-10">
           <span className="text-primary-red">Our</span> Work
         </h1>

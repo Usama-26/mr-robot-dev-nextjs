@@ -15,7 +15,7 @@ export function FeatureAbout({ image, title, desc }) {
       <h1 className="text-center font-semibold desktop:text-3xl text-xl mb-4">
         {title}
       </h1>
-      <p className="text-center w-4/5 mx-auto leading-7">{desc}</p>
+      <p className="text-center xl:w-4/5 mx-auto leading-7">{desc}</p>
     </div>
   );
 }

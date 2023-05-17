@@ -10,23 +10,32 @@ export default function Contact() {
   const isMobileScreen = useMediaQuery("(max-width: 640px");
   const styles = {
     form_input:
-      "rounded-full sm:bg-white bg-primary-dark  border border-white w-full p-4 placeholder:italic placeholder:text-gray-700 drop-shadow-md text-gray-700",
+      "rounded-full bg-white  border border-white w-full px-4 py-3 placeholder:italic placeholder:text-gray-700 drop-shadow-md text-gray-700",
   };
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
+      <div className="mx-auto desktop:px-36 lg:px-28 px-5 lg:bg-[#3C64B122] bg-black/20">
         <Navbar />
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-24 py-10">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-24 py-10">
         <h1 className="text-center font-bold lg:text-6xl text-4xl desktop:text-[100px]">
+          <span>
+            <Image
+              src={"/images/commons/bars.svg"}
+              height={50}
+              width={50}
+              alt="bars"
+              className="hidden lg:inline"
+            />
+          </span>
           <span className="text-primary-red">Contact </span>
           us
         </h1>
-        <p className="max-w-4xl text-center my-6 mx-auto">
+        <p className="max-w-4xl desktop:text-2xl lg:text-lg text-center my-6 mx-auto">
           {`Feel free to ask anything`}
         </p>
       </div>
-      <div className=" mx-auto desktop:px-32 lg:px-20 px-5 lg:py-0 py-2 mb-20">
+      <div className=" mx-auto desktop:px-36 lg:px-28 px-5 lg:py-0 py-2 mb-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-20">
           <div className="basis-1/2 md:order-1 order-2">
             <h1 className="desktop:text-6xl lg:text-4xl font-montserrat font-bold text-2xl mb-6 md:text-left text-center">
@@ -51,41 +60,38 @@ export default function Contact() {
             />
           </div>
         </div>
-        <div className="flex justify-between items-center mb-12">
-          <h1 className="text-[42px] text-[#D32A3D] font-montserrat font-bold">
-            Contact{" "}
-            <span className="text-white border-b-4 border-[#D32A3D]">
-              Our Team
-            </span>
+        <div className=" mb-12">
+          <h1 className=" text-2xl md:text-3xl lg:text-4xl desktop:text-5xl md:text-left text-center text-[#D32A3D] font-montserrat font-bold">
+            Contact <span className="text-white">Our Team</span>
           </h1>
         </div>
-        <form className=" flex flex-col sm:flex-row justify-between desktop:gap-20 gap-10 mb-32">
-          <div className="basis-1/2 max-w-2xl  flex flex-col ">
+        <form className=" flex flex-col sm:flex-row justify-between mb-32 gap-10">
+          <div className="basis-1/2 flex flex-col ">
             <label
               htmlFor="Full Name"
-              className="font-montserrat text-[22px] mb-5 md:hidden pl-1"
+              className="font-montserrat text-sm mb-2 md:hidden pl-1"
             >
               Full Name
             </label>
             <input
               type="text"
-              className={`${styles.form_input} mb-8`}
+              className={`${styles.form_input} md:mb-8 mb-2`}
               placeholder="Enter Full Name"
             />
             <label
               htmlFor="Full Name"
-              className="font-montserrat text-[22px] mb-5 md:hidden pl-1"
+              className="font-montserrat text-sm mb-2 md:hidden pl-1"
             >
               Email
             </label>
             <input
               type="email"
-              className={`${styles.form_input} mb-8`}
+              className={`${styles.form_input} md:mb-8 mb-2`}
               placeholder="Enter Email"
             />
             <label
               htmlFor="Full Name"
-              className="font-montserrat text-[22px] mb-5 md:hidden pl-1"
+              className="font-montserrat text-sm mb-2 md:hidden pl-1"
             >
               Phone
             </label>
@@ -95,17 +101,17 @@ export default function Contact() {
               placeholder="Enter Phone Number"
             />
           </div>
-          <div className="basis-1/2 max-w-xl">
+          <div className="basis-1/2">
             <label
               htmlFor="Full Name"
-              className="font-montserrat text-[22px] md:hidden pl-1"
+              className="font-montserrat md:hidden text-sm pl-1"
             >
               Message
             </label>
             <textarea
               name="message"
               id="message"
-              className="w-full mt-5 md:mt-0 rounded-3xl p-4 drop-shadow-md md:h-full h-[200px] resize-none mb-4 bg-primary-dark md:bg-white border border-white  md:text-black md:border-transparent focus:outline-none"
+              className="w-full mt-5 md:mt-0 rounded-3xl px-4 py-3 drop-shadow-md md:h-full h-48 resize-none mb-4 bg-white border border-white  md:text-black md:border-transparent focus:outline-none"
               placeholder="Type your message here..."
             ></textarea>
             <button className="bg-primary-red float-right inline-block px-10 py-2 text-lg font-semibold rounded-full">
@@ -114,8 +120,8 @@ export default function Contact() {
           </div>
         </form>
 
-        <div className="flex flex-col lg:flex-row gap-10">
-          <div className="lg:rounded-3xl rounded-xl bg-black flex flex-col lg:gap-10 gap-5 basis-2/5 md:px-20 px-10 py-12">
+        <div className="flex flex-col sm:flex-row gap-10">
+          <div className="lg:rounded-3xl rounded-xl bg-black flex flex-col lg:gap-10 gap-5 basis-2/5 md:px-20 px-5 py-12">
             <div className="flex items-center lg:gap-10 gap-5 md:mb-10">
               <AiFillHome className="w-12 h-12 fill-primary-red" />
               <h1 className="md:text-3xl text-xl font-bold">
@@ -124,15 +130,17 @@ export default function Contact() {
             </div>
             <div className="flex items-center lg:gap-10 gap-5">
               <MdLocalPhone className="w-12 h-12 fill-primary-red" />
-              <h1 className="desktop:text-2xl text-xl">+27 79 957 7606</h1>
+              <h1 className="desktop:text-xl lg:text-lg">+27 79 957 7606</h1>
             </div>
             <div className="flex items-center lg:gap-10 gap-5">
               <MdEmail className="w-12 h-12 fill-primary-red" />
-              <h1 className="desktop:text-2xl text-xl">sales@mrrobotdev.com</h1>
+              <h1 className="desktop:text-xl lg:text-lg">
+                sales@mrrobotdev.com
+              </h1>
             </div>
             <div className="flex items-center lg:gap-10 gap-5">
               <MdLocationOn className="w-12 h-12 fill-primary-red" />
-              <h1 className="desktop:text-2xl text-xl">
+              <h1 className="desktop:text-xl lg:text-lg">
                 Midrand, South Africa
               </h1>
             </div>
