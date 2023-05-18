@@ -154,8 +154,9 @@ export default function Home() {
 
         <div className="flex flex-col lg:flex-row lg:gap-10 item-center justify-between">
           <div className="basis-1/2 desktop:py-52 py-40 lg:text-left text-center ">
-            <h1 className="text-primary-red desktop:text-5xl lg:text-3xl text-2xl font-bold desktop:leading-snug">
-              Build Your Brand With Us
+            <h1 className="text-white desktop:text-5xl lg:text-3xl text-2xl font-bold desktop:leading-snug">
+              <span className="text-primary-red">Build</span> Your
+              <span className="text-primary-red"> Brand </span> With Us
             </h1>
             <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
               {`Building a strong brand is essential for success in today's competitive market. At our company, we understand the importance of brand building and are dedicated to helping our clients achieve their goals. Our team of experts will work closely with you to understand your vision and craft a branding strategy that effectively communicates your unique value proposition to your target audience. Whether it's through comprehensive market research, innovative design, or effective marketing campaigns, we have the tools and expertise to help you build a brand that resonates with your customers. `}
@@ -190,7 +191,7 @@ export default function Home() {
             height="314"
             viewBox="0 0 408 314"
             fill="none"
-            className="absolute desktop:w-[350px] desktop:top-10 desktop:left-[25%] xl:w-[250px] xl:top-0 lg:w-[160px] lg:-top-10 lg:left-[28%] xl:left-[26%] lg:visible invisible z-0"
+            className="absolute desktop:w-[350px] desktop:top-10 desktop:left-[25%] xl:w-[250px] xl:top-0 lg:w-[160px] lg:-top-10 lg:left-[28%] xl:left-[26%] lg:block hidden z-0"
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="xMidYMid meet"
           >
@@ -228,7 +229,7 @@ export default function Home() {
             viewBox="0 0 426 72"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute lg:-top-0 lg:left-[75%] lg:w-[160px] xl:w-[220px] xl:-top-10 xl:left-[75%] desktop:w-[350px] desktop:left-[80%] -z-0 invisible lg:visible"
+            className="absolute lg:-top-0 lg:left-[75%] lg:w-[160px] xl:w-[220px] xl:-top-10 xl:left-[75%] desktop:w-[350px] desktop:left-[80%] -z-0 hidden lg:block"
           >
             <path
               d="M2.35767 59.6674C24.0489 50.5588 54.9652 41.5277 88.9445 37.8341C225.711 22.9674 424.094 139.548 424.36 1.9756V1.9756"

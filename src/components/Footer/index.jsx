@@ -7,7 +7,7 @@ export default function Footer() {
     footer_links_li: "relative mb-4 hover:text-primary-red",
   };
   return (
-    <footer className="lg:bg-primary-red-dark/25 bg-[#3F3637]">
+    <footer className="lg:bg-primary-red-dark/25 ">
       <div className="mx-auto desktop:px-36 lg:px-28 px-5 border-b desktop:text-xl text-sm text-white">
         <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-10 pt-20 pb-10">
           <div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function MobileFooter() {
   return (
-    <footer className="bg-[#3F3637]">
+    <footer className="bg-primary-red-dark/25">
       <div className="mx-auto desktop:px-32 lg:px-20 px-5  desktop:text-xl text-sm text-white">
         <Image
           src={"/images/commons/logo-primary.png"}
@@ -49,7 +49,7 @@ export default function MobileFooter() {
             </ul>
           </div>
           <div>
-            <h1 className="font-bold text-lg mb-6">What we do</h1>
+            <h1 className="font-bold text-lg mb-6">Services</h1>
             <ul>
               <li className="mb-2">
                 <Link
@@ -84,27 +84,14 @@ export default function MobileFooter() {
                 </Link>
               </li>
             </ul>
-            <h1 className="font-bold text-lg mb-2">Company</h1>
-            <ul>
-              <li className="mb-2">
-                <Link href={"/"} className="hover:text-primary-red">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link href={"/services"} className="hover:text-primary-red">
-                  Terms & Conditions
-                </Link>
-              </li>
-            </ul>
           </div>
         </div>
-        <div className="flex justify-between gap-10 mt-10">
-          <div className="text-xs flex flex-col gap-3 ml-3">
+        <div className="flex justify-center text-center gap-10 mt-10">
+          <div className="text-xs  flex flex-col gap-3 ml-3">
             <p>Address: Midrand, South Africa</p>
             <p>Phone:+27 79 957 7606</p>
             <p>Email: mrrobotdev.com</p>
-            <div className="flex flex-row mt-4 gap-5 mb-10">
+            <div className="flex flex-row mx-auto mt-4 gap-5 mb-5">
               <Link href={"/"}>
                 <Image
                   src={"/images/mobile/facebook.svg"}
@@ -123,21 +110,17 @@ export default function MobileFooter() {
                   alt="facebook link"
                 />
               </Link>
-              <Link href={"/"}>
-                <Image
-                  src={"/images/mobile/linkedin.svg"}
-                  width={64}
-                  height={64}
-                  className="w-10 h-10 mb-4"
-                  alt="facebook link"
-                />
-              </Link>
+            </div>
+            <div className="pb-5">
+              <p className="text-center">Copyright mrrobotdev.com 2023.</p>
             </div>
           </div>
         </div>
-        <div className="pb-5">
-          <p className="text-center">Copyright mrrobotdev.com 2023.</p>
-        </div>
+      </div>
+      <hr />
+      <div className="flex justify-between text-white py-3 px-5">
+        <Link href={"/privacy"}>Privacy Policy</Link>
+        <Link href={"/terms"}>Terms & Conditions</Link>
       </div>
     </footer>
   );
