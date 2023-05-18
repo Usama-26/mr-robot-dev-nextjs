@@ -37,7 +37,7 @@ export default function WebDevelopment() {
               <span className="text-primary-red"> Mobile </span>
               App
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center desktop:text-xl md:mx-0 mx-auto">
               {`At Mr. Robot Dev, we specialize in providing exceptional mobile app development services. Our process begins with a thorough understanding of your goals and requirements, allowing us to create a customized solution that meets your needs. We work closely with you throughout the entire process to ensure the finished product exceeds your expectations. `}
             </p>
           </div>
@@ -66,7 +66,7 @@ export default function WebDevelopment() {
               <span className="text-primary-red"> State </span>
               of the art Mobile Apps
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center desktop:text-xl md:mx-0 mx-auto">
               We provide state-of-the-art mobile applications solution that are
               designed to be user-friendly, visually appealing, and highly
               functional. Our applications are built using the latest
@@ -90,7 +90,7 @@ export default function WebDevelopment() {
               <span className="text-primary-red"> Custom </span>
               Integrations
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center  desktop:text-xl md:mx-0 mx-auto">
               At our company, we pride ourselves on our ability to provide
               top-notch custom integration mobile apps that effortlessly mesh
               with your current systems and platforms. Our professionals works
@@ -130,7 +130,7 @@ export default function WebDevelopment() {
             <h1 className="desktop:text-5xl lg:text-3xl text-xl font-bold mb-6 md:text-left text-center">
               <span className="text-primary-red"> Android </span>& IOS Apps
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center  desktop:text-xl md:mx-0 mx-auto">
               Our development team creates high-quality applications for both
               Android and iOS platforms, utilizing the latest technology and
               design trends to produce user-friendly experiences that meet the
@@ -162,3 +162,4 @@ export default function WebDevelopment() {
     </main>
   );
 }
+w;

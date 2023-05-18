@@ -129,7 +129,7 @@ export default function About() {
           </h1>
           <div className="flex flex-col md:flex-row desktop:gap-28 gap-10 py-20">
             <div className="basis-1/2">
-              <p className="text-justify">
+              <p className="md:text-justify text-center">
                 With years of experience in the industry, Mr. Robot Dev has
                 established itself as a leading software development company. We
                 have helped startups and established companies alike with their
@@ -144,7 +144,7 @@ export default function About() {
               </p>
             </div>
             <div className="basis-1/2">
-              <p className="text-justify">
+              <p className="md:text-justify text-center">
                 {`We understand that every project is unique, and we take a
                 customized approach to deliver tailor-made solutions that meet
                 the specific needs of our clients. At Mr. Robot Dev, We offers
@@ -203,7 +203,7 @@ export default function About() {
               <h1 className="desktop:text-4xl lg:text-2xl text-xl font-semibold mb-6 md:text-left text-center">
                 Best <span className="text-primary-red">Solutions</span>
               </h1>
-              <p className="text-justify desktop:text-xl w-4/5 md:mx-0 mx-auto">
+              <p className="md:text-justify text-center desktop:text-xl w-4/5 md:mx-0 mx-auto">
                 {`we have a dedicated team of developers, designers, and project
                 managers who work together smartly to ensure the success of our
                 clients' projects. Our team is committed to delivering
@@ -235,7 +235,7 @@ export default function About() {
               <h1 className="desktop:text-4xl lg:text-2xl text-xl font-semibold mb-6 md:text-left text-center">
                 <span className="text-primary-red">Accountability</span>
               </h1>
-              <p className="text-justify  desktop:text-xl w-4/5 md:mx-0 mx-auto">
+              <p className="md:text-justify text-center desktop:text-xl w-4/5 md:mx-0 mx-auto">
                 {` we understand that accountability is critical to delivering
                 quality solutions to our clients, that’s why we take full
                 responsibility for every aspect of the development process, from

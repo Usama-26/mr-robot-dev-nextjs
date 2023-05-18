@@ -37,7 +37,7 @@ export default function WebDevelopment() {
               <span className="text-primary-red"> Custom </span>
               Software
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center desktop:text-xl md:mx-0 mx-auto">
               Mr. Robot Dev provides a full-spectrum custom software development
               service designed to meet the unique needs of businesses. From idea
               to launch, we provide a seamless development experience, ensuring
@@ -72,7 +72,7 @@ export default function WebDevelopment() {
               <span className="text-primary-red"> software </span>
               development
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center  desktop:text-xl md:mx-0 mx-auto">
               We specializes in developing custom software applications that are
               at the forefront of modern technology. Our applications are
               designed to be user-friendly, visually stunning, and highly
@@ -95,7 +95,7 @@ export default function WebDevelopment() {
               <span className="text-primary-red"> Quality </span>
               End Product
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center desktop:text-xl md:mx-0 mx-auto">
               we are dedicated to delivering high-quality end products to our
               customers. Our ultimate aim is to provide our customers with
               products that they will take pleasure in owning and that will
@@ -130,7 +130,7 @@ export default function WebDevelopment() {
             <h1 className="desktop:text-5xl lg:text-3xl text-xl font-bold mb-6 md:text-left text-center">
               <span className="text-primary-red"> Agile </span> Development
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center  desktop:text-xl md:mx-0 mx-auto">
               Our company adheres to the Agile development methodology, which is
               based on collaboration, flexibility, and continuous improvement.
               Our teams work in short sprints to provide incremental updates and

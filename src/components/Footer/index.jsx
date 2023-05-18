@@ -7,7 +7,7 @@ export default function Footer() {
     footer_links_li: "relative mb-4 hover:text-primary-red",
   };
   return (
-    <footer className="lg:bg-primary-red-dark/25 ">
+    <footer className="bg-primary-red-dark/25 ">
       <div className="mx-auto desktop:px-36 lg:px-28 px-5 border-b desktop:text-xl text-sm text-white">
         <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-10 pt-20 pb-10">
           <div>
@@ -101,10 +101,10 @@ export default function Footer() {
                 <form>
                   <input
                     type="email"
-                    className="desktop:p-4 p-3 rounded-2xl w-full"
+                    className="desktop:p-4 p-3 rounded-full w-full"
                     placeholder="Your email"
                   />
-                  <button className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-r-2xl absolute right-0 h-full ">
+                  <button className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-r-full absolute right-0 h-full ">
                     <IoPaperPlane className="w-8 h-8 " />
                   </button>
                 </form>

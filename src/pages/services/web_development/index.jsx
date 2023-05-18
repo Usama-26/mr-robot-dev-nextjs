@@ -38,7 +38,7 @@ that enhance your productivity and efficiency.`}
               <span className="text-primary-red"> Custom </span>
               Website
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center  desktop:text-xl md:mx-0 mx-auto">
               {`We specialize in custom web development services that are tailored to meet the unique needs of businesses. Our focus is on creating high-performance, visually appealing, and user-friendly websites that drive business success. Trust us to deliver a web solution that meets your needs and those of your customers.`}
             </p>
           </div>
@@ -68,7 +68,7 @@ that enhance your productivity and efficiency.`}
               take web development to the
               <span className="text-primary-red"> next </span> level
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center desktop:text-xl md:mx-0 mx-auto">
               {`Our approach to web development starts with a dedicated effort to understand your business and its unique requirements. We invest time in learning about your brand, target audience, and website objectives. This knowledge is then leveraged to develop a customized web development plan that is designed specifically to meet your needs. Our professionals will then collaborate with you to create a visually engaging, easy-to-use, and search engine-optimized website.`}
               <br />
               <br />
@@ -82,7 +82,7 @@ that enhance your productivity and efficiency.`}
               <span className="text-primary-red"> Modern </span>
               responsive design
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center desktop:text-xl md:mx-0 mx-auto">
               {`Having a modern responsive design is critical for successful web development. It ensures that your website functions seamlessly on any device, be it a desktop, tablet, or smartphone. With the widespread use of mobile devices, optimizing your website for all screen sizes is crucial.`}
               <br />
               <br />

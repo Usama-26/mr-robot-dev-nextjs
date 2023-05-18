@@ -38,7 +38,7 @@ export default function WebDevelopment() {
               <span className="text-primary-red"> Custom </span>
               Games
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center desktop:text-xl md:mx-0 mx-auto">
               {`  We provide full-service game development, offering a diverse range of services such as game design, programming, art, and animation. Our team is dedicated to providing tailored and high-quality game development services that align with our clients' unique requirements. If you're seeking to bring your game idea to fruition, Mr. Robot Dev has the expertise and support to make it a reality.`}
             </p>
           </div>
@@ -68,7 +68,7 @@ export default function WebDevelopment() {
               take game development to the
               <span className="text-primary-red"> next </span> level
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center desktop:text-xl md:mx-0 mx-auto">
               We pride ourselves on taking game development to the next level.
               We believe that every game should be a unique and immersive
               experience that engages players on a deeper level. To achieve
@@ -88,7 +88,7 @@ export default function WebDevelopment() {
               <span className="text-primary-red"> VR gaming </span>
               experience
             </h1>
-            <p className="text-justify  desktop:text-xl md:mx-0 mx-auto">
+            <p className="md:text-justify text-center desktop:text-xl md:mx-0 mx-auto">
               “Crafting immersive worlds” we are dedicated to delivering the
               best VR experience games on the market. We believe that VR is the
               future of gaming and that it has the power to transform the way
