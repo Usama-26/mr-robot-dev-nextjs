@@ -150,8 +150,8 @@ export default function AppPricing() {
               />
             ))}
           </div>
-          <div className="lg:w-1/2 lg:block hidden bg-[#D32A3D] px-5 py-10 rounded-3xl">
-            {/* <div className="flex gap-5 text-[30px] max-h-[300px] overflow-y-auto font-montserrat justify-between px-8 font-semibold">
+          <div className="lg:w-1/2 md:block hidden bg-[#D32A3D] px-5 py-10 lg:rounded-2xl rounded-xl h-full">
+            <div className="flex gap-5 max-h-[300px] overflow-y-auto font-montserrat justify-between px-8 font-semibold">
               <div>
                 <h1>Your Selection</h1>
                 <ul className="text-center font-montserrat font-light mt-4">
@@ -178,12 +178,12 @@ export default function AppPricing() {
             </div>
             <div>
               <h1 className="text-[50px] text-center font-bold text-white font-montserrat">
-                R OK
+                R 0K
               </h1>
               <h1 className="text-center font-semibold font-montserrat text-[40px]">
                 {totalValue}
               </h1>
-            </div> */}
+            </div>
             <div className="px-12 space-y-4 mt-5">
               <input
                 type="text"
@@ -196,7 +196,7 @@ export default function AppPricing() {
                 className="bg-white p-3 italic w-full rounded-md focus:outline-none text-gray-700"
               />
 
-              <button className="bg-[#262626] font-montserrat w-full p-3 rounded-md text-[20px]">
+              <button className="bg-[#262626] font-montserrat w-full p-3 rounded-md ">
                 Get back to me
               </button>
             </div>

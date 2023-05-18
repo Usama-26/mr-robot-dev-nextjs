@@ -111,7 +111,7 @@ export default function Contact() {
             <textarea
               name="message"
               id="message"
-              className="w-full mt-5 md:mt-0 rounded-3xl px-4 py-3 drop-shadow-md md:h-full h-48 resize-none mb-4 bg-white border border-white  md:text-black md:border-transparent focus:outline-none"
+              className="w-full mt-5 md:mt-0 rounded-3xl px-4 py-3 drop-shadow-md md:h-full h-48 resize-none mb-4 bg-white border border-white  text-black md:border-transparent focus:outline-none"
               placeholder="Type your message here..."
             ></textarea>
             <button className="bg-primary-red float-right inline-block px-10 py-2 text-lg font-semibold rounded-full">

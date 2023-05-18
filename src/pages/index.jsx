@@ -183,9 +183,28 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mx-auto desktop:px-36 lg:px-28 px-5 flex lg:flex-row flex-col gap-8 justify-between desktop:h-[750px] lg:h-[550px] ">
+      <div className="relative mx-auto desktop:px-36 lg:px-28 px-5 flex lg:flex-row flex-col gap-8 justify-between desktop:h-[750px] lg:h-[550px] ">
         <div className="text-white desktop:w-[400px] lg:w-[350px]">
-          <div>
+          <svg
+            width="408"
+            height="314"
+            viewBox="0 0 408 314"
+            fill="none"
+            className="absolute desktop:w-[350px] desktop:top-10 desktop:left-[25%] xl:w-[250px] xl:top-0 lg:w-[160px] lg:-top-10 lg:left-[28%] xl:left-[26%] lg:visible invisible z-0"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <path
+              d="M1.5 1.5C33.8843 2.64298 88.2051 11.8529 136.652 36.4838C206.47 71.9797 196.642 152.923 202.433 231.031V231.031C206.554 286.624 272.059 326.148 324.597 307.51C357.652 295.784 389.676 273.677 406 234.5"
+              stroke="white"
+              stroke-opacity="0.5"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-dasharray="10 10"
+            />
+          </svg>
+          <div className="z-10">
             <Image
               src={"/images/commons/strategy.png"}
               width={200}
@@ -202,8 +221,27 @@ export default function Home() {
             identify business drivers and success metrics.
           </p>
         </div>
-        <div className="text-white desktop:w-[400px] lg:w-[350px] lg:self-end">
-          <div>
+        <div className="relative text-white desktop:w-[400px] lg:w-[350px] lg:self-end">
+          <svg
+            width="426"
+            height="72"
+            viewBox="0 0 426 72"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute lg:-top-0 lg:left-[75%] lg:w-[160px] xl:w-[220px] xl:-top-10 xl:left-[75%] desktop:w-[350px] desktop:left-[80%] -z-0 invisible lg:visible"
+          >
+            <path
+              d="M2.35767 59.6674C24.0489 50.5588 54.9652 41.5277 88.9445 37.8341C225.711 22.9674 424.094 139.548 424.36 1.9756V1.9756"
+              stroke="white"
+              stroke-opacity="0.5"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-dasharray="10 10"
+            />
+          </svg>
+
+          <div className="z-10">
             <Image
               src={"/images/commons/planning.png"}
               width={200}
