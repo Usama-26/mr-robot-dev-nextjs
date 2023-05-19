@@ -1,7 +1,7 @@
 export default function NewsletterCTA() {
   return (
-    <div className="mx-auto desktop:px-32 lg:px-20 px-5 py-20">
-      <h1 className="text-center desktop:text-6xl lg:text-4xl text-xl font-bold text-white mb-10">
+    <div className="mx-auto desktop:px-32 lg:px-20 px-5 pb-24">
+      <h1 className="text-center desktop:text-6xl lg:text-4xl text-xl font-bold text-white mb-5">
         <span className="text-primary-red">Our</span> Newsletter
       </h1>
       <div className="text-center">

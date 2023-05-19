@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-primary-red-dark/25 ">
       <div className="mx-auto desktop:px-36 lg:px-28 px-5 border-b desktop:text-xl text-sm text-white">
-        <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-10 pt-20 pb-10">
+        <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 pt-20 pb-10">
           <div>
             <div>
               <Image
@@ -20,9 +20,7 @@ export default function Footer() {
                 className="w-96 h-20 object-cover"
               />
             </div>
-            <h6 className="desktop:ml-11 ml-7 desktop:text-base">
-              Midrand, South Africa
-            </h6>
+            <h6 className=" desktop:text-base">Midrand, South Africa</h6>
           </div>
           <div>
             <h5 className="desktop:text-xl mb-4 font-semibold">Pages</h5>
@@ -90,7 +88,7 @@ export default function Footer() {
                 <Link href={"tel:+27799577606"}>+27 79 957 7606</Link>
               </li>
               <li className={"mb-4"}>
-                <h5 className="desktop:text-xl text-lg font-semibold">
+                <h5 className="desktop:text-xl  font-semibold">
                   Subscribe to our Newsletter
                 </h5>
               </li>
@@ -98,7 +96,7 @@ export default function Footer() {
                 <form>
                   <input
                     type="email"
-                    className="desktop:p-4 p-3 rounded-full w-full"
+                    className="desktop:p-4 p-2 rounded-full w-full"
                     placeholder="Your email"
                   />
                   <button className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-r-full absolute right-0 h-full ">

@@ -57,7 +57,7 @@ export default function Home() {
         <Navbar />
       </div>
       <div className="mx-auto desktop:px-36 lg:px-28 px-5">
-        <div className="flex items-start">
+        <div className="flex items-start gap-10">
           <div className="basis-7/12 desktop:py-52 py-40 hidden lg:block">
             <h1 className="text-white desktop:text-5xl lg:text-4xl font-bold desktop:leading-snug">
               <span className="text-primary-red">Empowering </span>
@@ -70,7 +70,7 @@ export default function Home() {
             </p>
             <Link
               href={"/pricing"}
-              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-semibold text-primary-red hover:text-white hover:bg-primary-red bg-white rounded-full transition duration-200"
+              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-bold text-primary-red hover:text-white hover:bg-primary-red bg-white rounded-full transition duration-200"
             >
               Get Started
             </Link>
@@ -90,8 +90,9 @@ export default function Home() {
             Leading The Way In
           </h4>
           <h1 className="text-4xl font-bold leading-snug">
-            <span className="text-primary-red-dark">Innovative</span> And{" "}
-            <span className="text-primary-red-dark">Technology</span>
+            <span className="text-primary-red">Empowering </span>
+            your business <br /> with leading-edge
+            <span className="text-primary-red"> software solutions.</span>
           </h1>
           <div className="mt-4">
             <button className=" px-8 py-3 text-xl font-bold text-primary-red hover:text-white hover:bg-primary-red bg-white rounded-full transition duration-200">
@@ -105,8 +106,8 @@ export default function Home() {
         <h4 className="desktop:text-xl text-lg font-medium text-white text-center">
           Popular Services
         </h4>
-        <h1 className="text-center desktop:text-5xl lg:text-3xl text-2xl font-bold text-primary-red my-4">
-          Do More With Mr. Robot Dev
+        <h1 className="text-center desktop:text-5xl lg:text-3xl text-2xl font-bold text-white my-4">
+          Do More With <span className="text-primary-red">Mr. Robot Dev</span>
         </h1>
         {isMobileScreen ? (
           <div className="flex flex-col items-center gap-8">
@@ -159,7 +160,8 @@ export default function Home() {
               <span className="text-primary-red"> Brand </span> With Us
             </h1>
             <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
-              {`Building a strong brand is essential for success in today's competitive market. At our company, we understand the importance of brand building and are dedicated to helping our clients achieve their goals. Our team of experts will work closely with you to understand your vision and craft a branding strategy that effectively communicates your unique value proposition to your target audience. Whether it's through comprehensive market research, innovative design, or effective marketing campaigns, we have the tools and expertise to help you build a brand that resonates with your customers. `}
+              {`Building a strong brand is essential for success in today's competitive market. At our company, we understand the importance of brand building and are dedicated to helping our clients achieve their goals. Our team of experts will work closely with you to understand your vision and craft a branding strategy that effectively communicates your unique value proposition to your target audience. `}
+              {/* {`Whether it's through comprehensive market research, innovative design, or effective marketing campaigns, we have the tools and expertise to help you build a brand that resonates with your customers. `} */}
               <br />
             </p>
             {/* <p className="mt-5 mb-10 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
@@ -335,7 +337,7 @@ export default function Home() {
         </div>
       </div>
       <Statistics isSmallScreen={isMobileScreen} />
-      <div className="mx-auto desktop:px-36 lg:px-28 px-5 py-24">
+      <div className="mx-auto desktop:px-36 lg:px-28 px-5 py-24 ">
         <h1 className="text-center desktop:text-5xl lg:text-3xl text-xl font-bold text-white mb-10">
           What Our <span className="text-primary-red">Clients</span> Say
         </h1>

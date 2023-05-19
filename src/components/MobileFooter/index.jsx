@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function MobileFooter() {
   return (
     <footer className="bg-primary-red-dark/25">
-      <div className="mx-auto desktop:px-32 lg:px-20 px-5  desktop:text-xl text-sm text-white">
+      <div className="mx-auto desktop:px-32 lg:px-20 px-5 desktop:text-xl text-sm text-white">
         <Image
           src={"/images/commons/logo-primary.png"}
           alt="Team Image"
@@ -87,7 +87,7 @@ export default function MobileFooter() {
           </div>
         </div>
         <div className="flex justify-center text-center gap-10 mt-10">
-          <div className="text-xs  flex flex-col gap-3 ml-3">
+          <div className="flex flex-col gap-3 ml-3">
             <p>Address: Midrand, South Africa</p>
             <p>Phone:+27 79 957 7606</p>
             <p>Email: mrrobotdev.com</p>
@@ -103,7 +103,7 @@ export default function MobileFooter() {
               </Link>
               <Link href={"/"}>
                 <Image
-                  src={"/images/mobile/instagram.svg"}
+                  src={"/images/mobile/linkedin.svg"}
                   width={64}
                   height={64}
                   className="w-10 h-10 mb-4"
@@ -112,13 +112,15 @@ export default function MobileFooter() {
               </Link>
             </div>
             <div className="pb-5">
-              <p className="text-center">Copyright mrrobotdev.com 2023.</p>
+              <p className="text-center text-xs">
+                Copyright mrrobotdev.com 2023.
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <hr />
-      <div className="flex justify-between text-white py-3 px-5">
+      <hr className="bg-transparent border-t border-gray-400" />
+      <div className="flex justify-between text-white py-3 px-5 text-xs">
         <Link href={"/privacy"}>Privacy Policy</Link>
         <Link href={"/terms"}>Terms & Conditions</Link>
       </div>
