@@ -87,7 +87,7 @@ export default function Footer() {
                 <MdPhone className="w-5 h-5" />
                 <Link href={"tel:+27799577606"}>+27 79 957 7606</Link>
               </li>
-              <li className={"mb-4"}>
+              <li className={" mt-6 mb-4"}>
                 <h5 className="desktop:text-xl  font-semibold">
                   Subscribe to our Newsletter
                 </h5>
@@ -100,7 +100,7 @@ export default function Footer() {
                     placeholder="Your email"
                   />
                   <button className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-r-full absolute right-0 h-full ">
-                    <IoPaperPlane className="w-8 h-8 " />
+                    <IoPaperPlane className="w-6 h-6 " />
                   </button>
                 </form>
               </li>

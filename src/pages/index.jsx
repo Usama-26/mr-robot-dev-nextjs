@@ -53,12 +53,12 @@ export default function Home() {
 
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat">
-      <div className="mx-auto desktop:px-36 lg:px-28 px-5 lg:bg-[#3C64B122] bg-black/20">
+      <div className="mx-auto desktop:px-36 lg:px-24 px-5 lg:bg-[#3C64B122] bg-black/20">
         <Navbar />
       </div>
-      <div className="mx-auto desktop:px-36 lg:px-28 px-5">
+      <div className="mx-auto desktop:px-36 lg:px-24 px-5">
         <div className="flex items-start gap-10">
-          <div className="basis-7/12 desktop:py-52 py-40 hidden lg:block">
+          <div className="basis-7/12 desktop:py-36 py-28 hidden lg:block">
             <h1 className="text-white desktop:text-5xl lg:text-4xl font-bold desktop:leading-snug">
               <span className="text-primary-red">Empowering </span>
               your business <br /> with leading-edge
@@ -86,10 +86,7 @@ export default function Home() {
           </div>
         </div>
         <div className="text-center text-white py-8 lg:hidden">
-          <h4 className="text-xl font-semibold tracking-wide mb-4">
-            Leading The Way In
-          </h4>
-          <h1 className="text-4xl font-bold leading-snug">
+          <h1 className="text-3xl font-bold leading-snug">
             <span className="text-primary-red">Empowering </span>
             your business <br /> with leading-edge
             <span className="text-primary-red"> software solutions.</span>
@@ -102,7 +99,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mx-auto desktop:px-36 lg:px-28 px-5 pt-32">
+      <div className="mx-auto desktop:px-36 lg:px-24 px-5 py-24">
         <h4 className="desktop:text-xl text-lg font-medium text-white text-center">
           Popular Services
         </h4>
@@ -153,13 +150,13 @@ export default function Home() {
           </div>
         )}
 
-        <div className="flex flex-col lg:flex-row lg:gap-10 items-center justify-between">
-          <div className="basis-1/2 desktop:py-52 py-40 lg:text-left text-center ">
+        <div className="flex flex-col-reverse lg:flex-row items-center desktop:py-20  justify-between gap-10">
+          <div className="basis-1/2 lg:text-left text-center ">
             <h1 className="text-white desktop:text-5xl lg:text-3xl text-2xl font-bold desktop:leading-snug">
               <span className="text-primary-red">Build</span> Your
               <span className="text-primary-red"> Brand </span> With Us
             </h1>
-            <p className="my-5 desktop:text-xl desktop:leading-relaxed text-base text-white tracking-wide lg:text-justify text-center">
+            <p className="my-5 desktop:text-xl desktop:leading-relaxed text-white tracking-wide lg:text-justify text-center">
               {`Building a strong brand is essential for success in today's competitive market. At our company, we understand the importance of brand building and are dedicated to helping our clients achieve their goals. Our team of experts will work closely with you to understand your vision and craft a branding strategy that effectively communicates your unique value proposition to your target audience. `}
               {/* {`Whether it's through comprehensive market research, innovative design, or effective marketing campaigns, we have the tools and expertise to help you build a brand that resonates with your customers. `} */}
               <br />
@@ -170,12 +167,12 @@ export default function Home() {
             </p> */}
             <Link
               href={"/about"}
-              className="desktop:px-5 desktop:py-4 px-8 py-3 text-lg font-medium text-white bg-primary-red  rounded-full transition duration-200 hover:bg-white hover:text-primary-red"
+              className="desktop:px-5 desktop:py-4 px-8 py-3 inline-block mt-4 text-lg font-medium text-white bg-primary-red  rounded-full transition duration-200 hover:bg-white hover:text-primary-red"
             >
               Read More
             </Link>
           </div>
-          <div className="lg:basis-1/2 hidden lg:block basis-full">
+          <div className="lg:basis-1/2 lg:block basis-full">
             <Image
               src={"/images/commons/brand-image.png"}
               height={650}
@@ -186,7 +183,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative mx-auto desktop:px-36 lg:px-28 px-5 flex lg:flex-row flex-col gap-8 justify-between desktop:h-[750px] lg:h-[550px] ">
+      <div className="relative mx-auto desktop:px-36 lg:px-24 px-5 flex lg:flex-row flex-col gap-8 justify-between desktop:h-[750px] lg:h-[550px] ">
         <div className="text-white desktop:w-[400px] lg:w-[350px]">
           <svg
             width="408"
@@ -282,7 +279,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mx-auto desktop:px-36 lg:px-28 px-5 py-20">
+      <div className="mx-auto desktop:px-36 lg:px-24 px-5 py-20">
         <div className="flex xl:flex-row flex-col items-center justify-between xl:gap-14">
           <div className=" md:flex lg:flex-row flex-col desktop:basis-7/12 desktop:gap-10 gap-5 lg:basis-1/2">
             <div className="flex xl:flex-col sm:flex-row flex-col desktop:gap-10 gap-5 md:mb-0 mb-5">
@@ -337,7 +334,7 @@ export default function Home() {
         </div>
       </div>
       <Statistics isSmallScreen={isMobileScreen} />
-      <div className="mx-auto desktop:px-36 lg:px-28 px-5 py-24 ">
+      <div className="mx-auto desktop:px-36 lg:px-24 px-5 py-24 ">
         <h1 className="text-center desktop:text-5xl lg:text-3xl text-xl font-bold text-white mb-10">
           What Our <span className="text-primary-red">Clients</span> Say
         </h1>
