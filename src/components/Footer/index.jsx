@@ -4,7 +4,7 @@ import { MdMail, MdPhone } from "react-icons/md";
 import { IoPaperPlane } from "react-icons/io5";
 export default function Footer() {
   const styles = {
-    footer_links_li: "relative mb-4 hover:text-primary-red",
+    footer_links_li: "relative mb-4 footer-link",
   };
   return (
     <footer className="bg-primary-red-dark/25 ">
@@ -67,9 +67,6 @@ export default function Footer() {
             <h5 className="desktop:text-xl mb-4 font-semibold">Social Media</h5>
             <ul className="list-none">
               <li className={styles.footer_links_li}>
-                <Link href={"/"}>Twitter</Link>
-              </li>
-              <li className={styles.footer_links_li}>
                 <Link href={"www.facebook.com/profile.php?id=100092171062219"}>
                   Facebook
                 </Link>
@@ -90,10 +87,10 @@ export default function Footer() {
               </li>
               <li className={styles.footer_links_li + " inline-flex gap-2"}>
                 <MdPhone className="w-5 h-5" />
-                <Link href={"phone:+27799577606"}>+27 79 957 7606</Link>
+                <Link href={"tel:+27799577606"}>+27 79 957 7606</Link>
               </li>
-              <li className={" mb-8"}>
-                <h5 className="text-xl font-semibold">
+              <li className={"mb-4"}>
+                <h5 className="desktop:text-xl text-lg font-semibold">
                   Subscribe to our Newsletter
                 </h5>
               </li>
@@ -115,15 +112,15 @@ export default function Footer() {
       </div>
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 ml-10 flex justify-between items-center desktop:text-xl text-sm text-white">
         <ul className="list-none flex py-8 gap-8 ">
-          <li className="hover:text-primary-red">
+          <li className="hover:text-underline">
             <Link href={"cookies_policy"}>Cookies Policy</Link>
           </li>
 
-          <li className="hover:text-primary-red">
+          <li className="hover:text-underline">
             <Link href={"privacy_policy"}>Privacy Policy</Link>
           </li>
 
-          <li className="hover:text-primary-red">
+          <li className="hover:text-underline">
             <Link href={"terms_conditions"}>Terms & Condition</Link>
           </li>
         </ul>

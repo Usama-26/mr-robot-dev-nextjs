@@ -19,7 +19,7 @@ export default function ServiceCard({ name, desc, image, smallScreen }) {
         {desc}
       </p>
       <div className="text-center">
-        <button className="desktop:py-4 desktop:px-8 py-3 px-6 bg-black rounded-full text-white desktop:text-xl text- drop-shadow-md hover:bg-white border hover:border-primary-dark hover:text-black transition duration-200">
+        <button className="desktop:py-4 desktop:px-8 py-3 px-6 bg-primary-dark hover:bg-black rounded-full text-white desktop:text-xl">
           Read More
         </button>
       </div>

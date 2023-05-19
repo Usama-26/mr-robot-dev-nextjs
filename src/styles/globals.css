@@ -27,4 +27,7 @@
     background-size: 54% 100%;
     background-position-x: left;
   }
+  .footer-link > a {
+    @apply hover:text-primary-red;
+  }
 }

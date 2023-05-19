@@ -57,14 +57,14 @@ export default function Home() {
         <Navbar />
       </div>
       <div className="mx-auto desktop:px-36 lg:px-28 px-5">
-        <div className="flex items-center">
+        <div className="flex items-start">
           <div className="basis-7/12 desktop:py-52 py-40 hidden lg:block">
             <h1 className="text-white desktop:text-5xl lg:text-4xl font-bold desktop:leading-snug">
               <span className="text-primary-red">Empowering </span>
               your business <br /> with leading-edge
               <span className="text-primary-red"> software solutions.</span>
             </h1>
-            <p className="mt-5 mb-10 desktop:text-xl desktop:leading-relaxed text-base text-white  w-5/6 text-justify">
+            <p className="mt-5 mb-6 desktop:text-xl desktop:leading-relaxed text-base text-white  w-5/6 text-justify">
               {`We provide top-notch solutions that help businesses stay ahead in
               the today's rapidly evolving technology landscape.`}
             </p>
@@ -152,7 +152,7 @@ export default function Home() {
           </div>
         )}
 
-        <div className="flex flex-col lg:flex-row lg:gap-10 item-center justify-between">
+        <div className="flex flex-col lg:flex-row lg:gap-10 items-center justify-between">
           <div className="basis-1/2 desktop:py-52 py-40 lg:text-left text-center ">
             <h1 className="text-white desktop:text-5xl lg:text-3xl text-2xl font-bold desktop:leading-snug">
               <span className="text-primary-red">Build</span> Your
@@ -173,7 +173,7 @@ export default function Home() {
               Read More
             </Link>
           </div>
-          <div className="lg:basis-1/2 hidden lg:block basis-full self-center">
+          <div className="lg:basis-1/2 hidden lg:block basis-full">
             <Image
               src={"/images/commons/brand-image.png"}
               height={650}
@@ -281,7 +281,7 @@ export default function Home() {
       </div>
 
       <div className="mx-auto desktop:px-36 lg:px-28 px-5 py-20">
-        <div className="flex xl:flex-row flex-col items-center justify-between xl:gap-5">
+        <div className="flex xl:flex-row flex-col items-center justify-between xl:gap-14">
           <div className=" md:flex lg:flex-row flex-col desktop:basis-7/12 desktop:gap-10 gap-5 lg:basis-1/2">
             <div className="flex xl:flex-col sm:flex-row flex-col desktop:gap-10 gap-5 md:mb-0 mb-5">
               <HomeProvisionCard
@@ -322,8 +322,8 @@ export default function Home() {
               {`At our company, we understand that building lasting relationships with our customers is a key factor in our success. That's why we make it a priority to create a positive and productive partnership with each and every one of our clients. From the start of a project, we take the time to fully understand the unique needs and goals of our customers. `}
               <br />
               <br />
-              {`
-             We provide personalized service, regular updates, and open communication to ensure that our clients are always informed and satisfied with the progress of their project. Our commitment to excellence extends beyond the delivery of the final product, as we work closely with our customers to ensure their long-term success. By establishing a strong and trusting relationship, we are able to consistently deliver exceptional software solutions that meet and exceed our customers' expectations.`}
+              {/* {`
+             We provide personalized service, regular updates, and open communication to ensure that our clients are always informed and satisfied with the progress of their project. Our commitment to excellence extends beyond the delivery of the final product, as we work closely with our customers to ensure their long-term success. By establishing a strong and trusting relationship, we are able to consistently deliver exceptional software solutions that meet and exceed our customers' expectations.`} */}
             </p>
             <Link
               href={"/about#ourWork"}
