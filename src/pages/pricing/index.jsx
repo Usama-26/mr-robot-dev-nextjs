@@ -420,7 +420,7 @@ export default function AppPricing() {
       {isMobileScreen && (
         <>
           <div className="bg-[#D32A3D] px-5 py-10 rounded-3xl mx-4 mb-12">
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between gap-4 text-sm">
               <div>
                 <h3 className="mb-4 font-semibold desktop:text-lg text-base">
                   Your Selection
