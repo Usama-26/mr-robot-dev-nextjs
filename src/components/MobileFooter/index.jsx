@@ -90,7 +90,7 @@ export default function MobileFooter() {
           <div className="flex flex-col gap-3 ml-3">
             <p>Address: Midrand, South Africa</p>
             <p>Phone:+27 79 957 7606</p>
-            <p>Email: mrrobotdev.com</p>
+            <p>Email: sales@mrrobotdev.com</p>
             <div className="flex flex-row mx-auto mt-4 gap-5 mb-5">
               <Link href={"/"}>
                 <Image
