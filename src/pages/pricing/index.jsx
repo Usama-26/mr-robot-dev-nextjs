@@ -208,10 +208,7 @@ export default function AppPricing() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= 800) {
-        setRevealed(true);
-      } else setRevealed(false);
-      if (isMobileScreen && window.scrollY >= 300) {
+      if ((isMobileScreen && window.scrollY >= 300) || window.scrollY >= 800) {
         setRevealed(true);
       } else setRevealed(false);
     };
@@ -442,7 +439,7 @@ export default function AppPricing() {
                   ))}
                 </ul>
               </div>
-              <div className="border-b border-dashed">
+              <div>
                 <h3 className="font-semibold desktop:text-lg text-base">
                   Estimated Cost
                 </h3>
