@@ -97,14 +97,53 @@ const functionalities = [
 
 export default function AppPricing() {
   const isMobileScreen = useMediaQuery("(max-width: 640px");
-  const [data, setData] = useState([]);
-  const handleData = (name, value) => {
-    setData([...data, { name, value }]);
+  const [selectedService, setSelectedService] = useState("");
+  const [selectedFeatures, setSelectedFeatures] = useState([]);
+  const [selectedFunctionalities, setSelectedFunctionalities] = useState([]);
+  const handleFeatures = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedFeatures((prevSelectedFeatures) => [
+        ...prevSelectedFeatures,
+        value,
+      ]);
+    } else {
+      setSelectedFeatures((prevSelectedFeatures) =>
+        prevSelectedFeatures.filter((item) => item !== value)
+      );
+    }
   };
+  const handleFunctionalities = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedFunctionalities((prevSelectedFunctionalities) => [
+        ...prevSelectedFunctionalities,
+        value,
+      ]);
+    } else {
+      setSelectedFunctionalities((prevSelectedFunctionalities) =>
+        prevSelectedFunctionalities.filter((item) => item !== value)
+      );
+    }
+  };
+  const isFeatureSelected = (value) => {
+    return selectedFeatures.includes(value);
+  };
+  const isFunctionalitySelected = (value) => {
+    return selectedFunctionalities.includes(value);
+  };
+  function handleServices(event) {
+    setSelectedService(event.target.value);
+  }
+  console.log(selectedService, selectedFeatures, selectedFunctionalities);
   // const [totalValue, setTotalValue] = useState(0);
-  const totalValue = data.reduce((total, item) => {
-    return total + item.value;
-  }, 0);
+  // const [data, setData] = useState([]);
+  // const handleData = (name, value) => {
+  //   setData([...data, { name, value }]);
+  // };
+  // const totalValue = data.reduce((total, item) => {
+  //   return total + item.value;
+  // }, 0);
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
@@ -143,16 +182,31 @@ export default function AppPricing() {
         <div className="flex desktop:gap-28 gap-10 justify-between items-center">
           <div className="lg:w-1/2 sm:w-4/5 w-full mx-auto grid sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
             {services.map((service, index) => (
-              <GlassCard
-                key={index}
-                image={service.service_image}
-                name={service.service_name}
-              />
+              <>
+                <label htmlFor={service.service_name}>
+                  <GlassCard
+                    key={index}
+                    isSelected={
+                      selectedService === service.service_name ? true : false
+                    }
+                    image={service.service_image}
+                    name={service.service_name}
+                  />
+                </label>
+                <input
+                  type="radio"
+                  name="service"
+                  id={service.service_name}
+                  value={service.service_name}
+                  className="hidden"
+                  onChange={handleServices}
+                />
+              </>
             ))}
           </div>
           <div className="lg:w-1/2 md:block hidden bg-[#D32A3D] px-5 py-10 lg:rounded-2xl rounded-xl h-full">
             <div className="flex gap-5 max-h-[300px] overflow-y-auto font-montserrat justify-between px-8 font-semibold">
-              <div>
+              {/* <div>
                 <h1>Your Selection</h1>
                 <ul className="text-center font-montserrat font-light mt-4">
                   {data?.map((item) => (
@@ -174,14 +228,14 @@ export default function AppPricing() {
                     </>
                   ))}
                 </ul>
-              </div>
+              </div> */}
             </div>
             <div>
               <h1 className="text-[50px] text-center font-bold text-white font-montserrat">
                 R 0K
               </h1>
               <h1 className="text-center font-semibold font-montserrat text-[40px]">
-                {totalValue}
+                {/* {totalValue} */}
               </h1>
             </div>
             <div className="px-12 space-y-4 mt-5">
@@ -215,11 +269,24 @@ export default function AppPricing() {
         </div>
         <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
           {device_features.map((feature, index) => (
-            <GlassCard
-              key={index}
-              image={feature.feature_image}
-              name={feature.feature_name}
-            />
+            <>
+              <label htmlFor={feature.feature_name}>
+                <GlassCard
+                  key={index}
+                  isSelected={isFeatureSelected(feature.feature_name)}
+                  image={feature.feature_image}
+                  name={feature.feature_name}
+                />
+              </label>
+              <input
+                type="checkbox"
+                name={feature.feature_name}
+                id={feature.feature_name}
+                value={feature.feature_name}
+                onChange={handleFeatures}
+                className="hidden"
+              />
+            </>
           ))}
         </div>
       </div>
@@ -235,11 +302,26 @@ export default function AppPricing() {
         </div>
         <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 xl:gap-10 gap-5 justify-between">
           {functionalities.map((functionality, index) => (
-            <GlassCard
-              key={index}
-              image={functionality.functionality_image}
-              name={functionality.functionality_name}
-            />
+            <>
+              <label htmlFor={functionality.functionality_name}>
+                <GlassCard
+                  key={index}
+                  isSelected={isFunctionalitySelected(
+                    functionality.functionality_name
+                  )}
+                  image={functionality.functionality_image}
+                  name={functionality.functionality_name}
+                />
+              </label>
+              <input
+                type="checkbox"
+                name={functionality.functionality_name}
+                id={functionality.functionality_name}
+                value={functionality.functionality_name}
+                onChange={handleFunctionalities}
+                className="hidden"
+              />
+            </>
           ))}
         </div>
       </div>
@@ -250,11 +332,11 @@ export default function AppPricing() {
               <div>
                 <h1>Your Selection</h1>
                 <ul className="text-center font-montserrat font-light mt-4">
-                  {data?.map((item) => (
+                  {/* {data?.map((item) => (
                     <>
                       <li>{item.name}</li>
                     </>
-                  ))}
+                  ))} */}
                 </ul>
               </div>
               <div>
@@ -263,22 +345,22 @@ export default function AppPricing() {
                   (Subject to Final Scope)
                 </p>
                 <ul className="text-center font-montserrat font-light">
-                  {data?.map((item) => (
+                  {/* {data?.map((item) => (
                     <>
                       <li>{item.value}</li>
                     </>
-                  ))}
+                  ))} */}
                 </ul>
               </div>
             </div>
-            <div>
+            {/* <div>
               <h1 className="text-[30px] text-center font-bold text-white font-montserrat">
                 R OK
               </h1>
               <h1 className="text-center font-semibold font-montserrat text-[30px]">
                 {totalValue}
               </h1>
-            </div>
+            </div> */}
             <div className="px-0 space-y-4 mt-5">
               <input
                 type="text"
@@ -298,6 +380,9 @@ export default function AppPricing() {
           </div>
         </>
       )}
+      <div className="fixed bottom-0 w-full py-4 px-20 bg-primary-red text-white text-center text-2xl font-bold z-10">
+        R 0K
+      </div>
       {isMobileScreen ? <MobileFooter /> : <Footer />}
     </main>
   );
