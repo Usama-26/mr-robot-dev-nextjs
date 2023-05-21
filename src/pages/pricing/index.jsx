@@ -211,6 +211,9 @@ export default function AppPricing() {
       if (window.scrollY >= 800) {
         setRevealed(true);
       } else setRevealed(false);
+      if (isMobileScreen && window.scrollY >= 300) {
+        setRevealed(true);
+      } else setRevealed(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -302,11 +305,24 @@ export default function AppPricing() {
                   ))}
                 </ul>
               </div>
-              <div className="border-b">
+              <div>
                 <h3 className="font-semibold desktop:text-lg text-base">
                   Estimated Cost
                 </h3>
                 <span className="text-xs">(Subject to Final Scope)</span>
+                <h4 className="font-semibold text-center border-b pb-2 mb-4 border-dashed">
+                  {selectedService.price}
+                </h4>
+                <ul className="list-disc max-h-16 list-inside pb-2 mb-4 border-b border-dashed overflow-y-auto ">
+                  {selectedFeatures.map((feature, index) => (
+                    <li key={index}>{feature.price}</li>
+                  ))}
+                </ul>
+                <ul className="list-disc max-h-16 list-inside pb-2 mb-4 border-b border-dashed overflow-y-auto ">
+                  {selectedFunctionalities.map((functionality, index) => (
+                    <li key={index}>{functionality.price}</li>
+                  ))}
+                </ul>
               </div>
             </div>
             <h1 className="text-4xl text-center font-bold text-white font-montserrat">
@@ -431,6 +447,19 @@ export default function AppPricing() {
                   Estimated Cost
                 </h3>
                 <span className="text-xs">(Subject to Final Scope)</span>
+                <h4 className="font-semibold text-center border-b pb-2 mb-4 border-dashed">
+                  {selectedService.price}
+                </h4>
+                <ul className="list-disc max-h-16 list-inside pb-2 mb-4 border-b border-dashed overflow-y-auto ">
+                  {selectedFeatures.map((feature, index) => (
+                    <li key={index}>{feature.price}</li>
+                  ))}
+                </ul>
+                <ul className="list-disc max-h-16 list-inside pb-2 mb-4 border-b border-dashed overflow-y-auto ">
+                  {selectedFunctionalities.map((functionality, index) => (
+                    <li key={index}>{functionality.price}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -457,11 +486,11 @@ export default function AppPricing() {
         </>
       )}
       {isMobileScreen ? <MobileFooter /> : <Footer />}
-      {!isMobileScreen && revealed ? (
-        <div className="sticky bottom-0 w-full py-4 px-20 bg-primary-red text-white text-center text-2xl font-bold z-10">
+      {revealed ? (
+        <div className="sticky bottom-0 w-full py-4 md:px-20 px-5 bg-primary-red text-white text-center text-2xl font-bold z-10">
           <span>R {isNaN(totalPrice) ? 0 : totalPrice}K</span>
           <Link
-            className="inline-block ml-60 font-semibold border px-4 py-2 rounded-full border-white text-lg"
+            className="inline-block md:ml-60 sm:ml-10 ml-5 font-semibold border px-4 py-2 rounded-full border-white desktop:text-lg md:text-base text-sm"
             href={"/pricing#CTA"}
           >
             Get a Quote

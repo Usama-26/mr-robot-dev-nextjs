@@ -33,7 +33,7 @@ export default function GlassCard({ image, name, desc, isSelected }) {
         </h4>
       </div>
       <p
-        className={`transition-all duration-500 text-center text-sm mx-4 text-black top-32   opacity-0 absolute ${
+        className={`transition-all duration-500 text-center text-sm mx-4 text-black desktop:top-40 top-32   opacity-0 absolute ${
           isSelected && "opacity-100"
         }`}
       >
