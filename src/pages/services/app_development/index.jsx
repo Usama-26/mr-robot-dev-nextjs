@@ -142,17 +142,17 @@ export default function WebDevelopment() {
         </div>
       </div>
 
-      <div className="py-20 text-center">
+      <div className="py-20 px-5 text-center">
         <h1 className="font-bold text-2xl mb-4">
           Ready to try different work experience now?
         </h1>
-        <h6 className="mb-6">
+        <p className="mb-8 text-sm">
           Get the best working experience that you never feel before
-        </h6>
+        </p>
         <div>
           <Link
             href={"/contact"}
-            className="text-white font-semibold desktop:text-2xl text-lg rounded-full desktop:px-6 desktop:py-3 px-4 py-2 bg-primary-red drop-shadow-md"
+            className="text-white font-semibold desktop:text-2xl text-lg rounded-full desktop:px-6 desktop:py-4 px-4 py-3 bg-primary-red drop-shadow-md"
           >
             Contact Us
           </Link>

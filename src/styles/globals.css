@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer components {
   .stats-background {
     background: url("/desktop/stats-background-dark.png"), #851f2b;

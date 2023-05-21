@@ -5,23 +5,35 @@ import MobileFooter from "@/components/MobileFooter";
 import Navbar from "@/components/Navbar";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
     service_image: "mvp",
     service_name: "mvp",
+    service_price: 1000,
+    service_desc: "A Minimum Viable Product to test and verify your concept",
   },
   {
     service_image: "appp",
     service_name: "app",
+    service_price: 2000,
+    service_desc:
+      "An extensively developed application designed for scalability and expansion.",
   },
   {
     service_image: "game",
     service_name: "game",
+    service_price: 3000,
+    service_desc:
+      "A game developed with personalized features and specifications.",
   },
   {
     service_image: "platform",
     service_name: "platform",
+    service_price: 4000,
+    service_desc:
+      "A comprehensive platform with multiple applications and supporting backend services",
   },
 ];
 
@@ -29,18 +41,26 @@ const device_features = [
   {
     feature_image: "camera",
     feature_name: "camera",
+    feature_price: 200,
+    feature_desc: "Utilize the camera on the device.",
   },
   {
     feature_image: "geo",
     feature_name: "geolocation",
+    feature_price: 300,
+    feature_desc: "Access the location of the device.",
   },
   {
     feature_image: "chat",
     feature_name: "push notification",
+    feature_price: 400,
+    feature_desc: "Push notifications to provide reminders and alerts",
   },
   {
     feature_image: "blue",
     feature_name: "bluetooth integration",
+    feature_price: 500,
+    feature_desc: "Incorporation with Bluetooth-enabled devices.",
   },
 ];
 
@@ -48,102 +68,153 @@ const functionalities = [
   {
     functionality_image: "booking",
     functionality_name: "booking",
+    functionality_price: 20,
+    functionality_desc: "Enable the user to schedule or reserve a booking.",
   },
   {
     functionality_image: "ai",
     functionality_name: "ai-ml",
+    functionality_price: 30,
+    functionality_desc: "Artificial Intelligence or Machine Learning",
   },
   {
     functionality_image: "vr",
     functionality_name: "ar/vr",
+    functionality_price: 40,
+    functionality_desc:
+      "Augmented Reality or Virtual Reality Intelligence or Machine Learning",
   },
   {
     functionality_image: "message",
     functionality_name: "chat",
+    functionality_price: 50,
+    functionality_desc:
+      "Facilitate in-app communication among users and/or administrators.",
   },
   {
     functionality_image: "cart",
     functionality_name: "shopping cart",
+    functionality_price: 60,
+    functionality_desc: "Permit users to buy goods or services.",
   },
   {
     functionality_image: "setting",
     functionality_name: "3rd party integration",
+    functionality_price: 70,
+    functionality_desc: "Incorporate with third-party external entities.",
   },
   {
     functionality_image: "meter",
     functionality_name: "dashboard",
+    functionality_price: 80,
+    functionality_desc:
+      "A visual interface that displays key metrics and data in a centralized location.",
   },
   {
     functionality_image: "user",
     functionality_name: "admin/agent app",
+    functionality_price: 90,
+    functionality_desc:
+      "A distinct application for the administrative or agent functions.",
   },
   {
     functionality_image: "payment",
     functionality_name: "payments",
+    functionality_price: 100,
+    functionality_desc: "Transferring payments to third-party entities.",
   },
   {
     functionality_image: "blockchain",
     functionality_name: "blockchain",
+    functionality_price: 110,
+    functionality_desc: "Sending payments to external third-party recipients.",
   },
   {
     functionality_image: "unity",
     functionality_name: "unity game",
+    functionality_price: 120,
+    functionality_desc: "Games developed using the Unity game engine.",
   },
   {
     functionality_image: "star",
     functionality_name: "ratings",
+    functionality_price: 130,
+    functionality_desc:
+      "A system for users to rate products or services, or for products and services to be rated by users.",
   },
 ];
 
 export default function AppPricing() {
   const isMobileScreen = useMediaQuery("(max-width: 640px");
-  const [selectedService, setSelectedService] = useState("");
+  const [selectedService, setSelectedService] = useState({});
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [selectedFunctionalities, setSelectedFunctionalities] = useState([]);
+  const [revealed, setRevealed] = useState(false);
+
+  function handleServices(event) {
+    const { value } = event.target;
+    const { price } = event.target.dataset;
+    setSelectedService({
+      name: value,
+      price: price,
+    });
+  }
   const handleFeatures = (event) => {
     const { value, checked } = event.target;
+    const { price } = event.target.dataset;
+
     if (checked) {
       setSelectedFeatures((prevSelectedFeatures) => [
         ...prevSelectedFeatures,
-        value,
+        { name: value, price: price },
       ]);
     } else {
       setSelectedFeatures((prevSelectedFeatures) =>
-        prevSelectedFeatures.filter((item) => item !== value)
+        prevSelectedFeatures.filter((item) => item.name !== value)
       );
     }
   };
   const handleFunctionalities = (event) => {
     const { value, checked } = event.target;
+    const { price } = event.target.dataset;
+
     if (checked) {
       setSelectedFunctionalities((prevSelectedFunctionalities) => [
         ...prevSelectedFunctionalities,
-        value,
+        { name: value, price: price },
       ]);
     } else {
       setSelectedFunctionalities((prevSelectedFunctionalities) =>
-        prevSelectedFunctionalities.filter((item) => item !== value)
+        prevSelectedFunctionalities.filter((item) => item.name !== value)
       );
     }
   };
   const isFeatureSelected = (value) => {
-    return selectedFeatures.includes(value);
+    return selectedFeatures.filter((item) => item.name === value).length === 1;
   };
   const isFunctionalitySelected = (value) => {
-    return selectedFunctionalities.includes(value);
+    return (
+      selectedFunctionalities.filter((item) => item.name === value).length === 1
+    );
   };
-  function handleServices(event) {
-    setSelectedService(event.target.value);
-  }
-  console.log(selectedService, selectedFeatures, selectedFunctionalities);
-  // const [totalValue, setTotalValue] = useState(0);
-  // const [data, setData] = useState([]);
-  // const handleData = (name, value) => {
-  //   setData([...data, { name, value }]);
-  // };
-  // const totalValue = data.reduce((total, item) => {
-  //   return total + item.value;
-  // }, 0);
+
+  const totalPrice = [
+    selectedService,
+    ...selectedFeatures,
+    ...selectedFunctionalities,
+  ].reduce((total, item) => {
+    return total + +item.price;
+  }, 0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 800) {
+        setRevealed(true);
+      } else setRevealed(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+  }, []);
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
@@ -179,18 +250,21 @@ export default function AppPricing() {
             BUILD
           </h1>
         </div>
-        <div className="flex desktop:gap-28 gap-10 justify-between items-center">
-          <div className="lg:w-1/2 sm:w-4/5 w-full mx-auto grid sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
+        <div className="flex gap-20 justify-between">
+          <div className="lg:w-3/5 sm:w-4/5 w-full mx-auto grid sm:grid-cols-2 grid-cols-1 gap-10 justify-between self-start">
             {services.map((service, index) => (
               <>
                 <label htmlFor={service.service_name}>
                   <GlassCard
                     key={index}
                     isSelected={
-                      selectedService === service.service_name ? true : false
+                      selectedService.name === service.service_name
+                        ? true
+                        : false
                     }
                     image={service.service_image}
                     name={service.service_name}
+                    desc={service.service_desc}
                   />
                 </label>
                 <input
@@ -199,58 +273,59 @@ export default function AppPricing() {
                   id={service.service_name}
                   value={service.service_name}
                   className="hidden"
+                  data-price={service.service_price}
                   onChange={handleServices}
                 />
               </>
             ))}
           </div>
-          <div className="lg:w-1/2 md:block hidden bg-[#D32A3D] px-5 py-10 lg:rounded-2xl rounded-xl h-full">
-            <div className="flex gap-5 max-h-[300px] overflow-y-auto font-montserrat justify-between px-8 font-semibold">
-              {/* <div>
-                <h1>Your Selection</h1>
-                <ul className="text-center font-montserrat font-light mt-4">
-                  {data?.map((item) => (
-                    <>
-                      <li>{item.name}</li>
-                    </>
+          <div
+            id="CTA"
+            className="lg:w-2/5 md:block hidden bg-[#D32A3D] px-10 py-10 lg:rounded-2xl rounded-xl h-full"
+          >
+            <div className="flex justify-between text-sm mb-8">
+              <div>
+                <h3 className="mb-4 font-semibold desktop:text-lg text-base">
+                  Your Selection
+                </h3>
+                <h4 className="font-semibold text-center border-b pb-2 mb-4 border-dashed">
+                  {selectedService.name}
+                </h4>
+                <ul className="list-disc max-h-16 list-inside pb-2 mb-4 border-b border-dashed overflow-y-auto ">
+                  {selectedFeatures.map((feature, index) => (
+                    <li key={index}>{feature.name}</li>
+                  ))}
+                </ul>
+                <ul className="list-disc max-h-16 list-inside pb-2 mb-4 border-b border-dashed overflow-y-auto ">
+                  {selectedFunctionalities.map((functionality, index) => (
+                    <li key={index}>{functionality.name}</li>
                   ))}
                 </ul>
               </div>
-              <div>
-                <h1>Estimated Cost</h1>
-                <p className="text-[14px] font-montserrat font-light text-center">
-                  (Subject to Final Scope)
-                </p>
-                <ul className="text-center font-montserrat font-light">
-                  {data?.map((item) => (
-                    <>
-                      <li>{item.value}</li>
-                    </>
-                  ))}
-                </ul>
-              </div> */}
+              <div className="border-b">
+                <h3 className="font-semibold desktop:text-lg text-base">
+                  Estimated Cost
+                </h3>
+                <span className="text-xs">(Subject to Final Scope)</span>
+              </div>
             </div>
-            <div>
-              <h1 className="text-[50px] text-center font-bold text-white font-montserrat">
-                R 0K
-              </h1>
-              <h1 className="text-center font-semibold font-montserrat text-[40px]">
-                {/* {totalValue} */}
-              </h1>
-            </div>
-            <div className="px-12 space-y-4 mt-5">
+            <h1 className="text-4xl text-center font-bold text-white font-montserrat">
+              R {isNaN(totalPrice) ? 0 : totalPrice}K
+            </h1>
+
+            <div className=" flex flex-col gap-4 mt-5">
               <input
                 type="text"
                 placeholder="Name"
-                className="bg-white italic p-3 w-full rounded-md focus:outline-none text-gray-700"
+                className="bg-white italic px-4 py-2 w-full rounded-full focus:outline-none text-gray-700"
               />
               <input
                 type="text"
                 placeholder="Email"
-                className="bg-white p-3 italic w-full rounded-md focus:outline-none text-gray-700"
+                className="bg-white px-4 py-2 italic w-full rounded-full focus:outline-none text-gray-700"
               />
 
-              <button className="bg-[#262626] font-montserrat w-full p-3 rounded-md ">
+              <button className="bg-[#262626] font-montserrat w-full p-3 rounded-full ">
                 Get back to me
               </button>
             </div>
@@ -276,6 +351,7 @@ export default function AppPricing() {
                   isSelected={isFeatureSelected(feature.feature_name)}
                   image={feature.feature_image}
                   name={feature.feature_name}
+                  desc={feature.feature_desc}
                 />
               </label>
               <input
@@ -284,6 +360,7 @@ export default function AppPricing() {
                 id={feature.feature_name}
                 value={feature.feature_name}
                 onChange={handleFeatures}
+                data-price={feature.feature_price}
                 className="hidden"
               />
             </>
@@ -309,6 +386,7 @@ export default function AppPricing() {
                   isSelected={isFunctionalitySelected(
                     functionality.functionality_name
                   )}
+                  desc={functionality.functionality_desc}
                   image={functionality.functionality_image}
                   name={functionality.functionality_name}
                 />
@@ -318,6 +396,7 @@ export default function AppPricing() {
                 name={functionality.functionality_name}
                 id={functionality.functionality_name}
                 value={functionality.functionality_name}
+                data-price={functionality.functionality_price}
                 onChange={handleFunctionalities}
                 className="hidden"
               />
@@ -327,40 +406,37 @@ export default function AppPricing() {
       </div>
       {isMobileScreen && (
         <>
-          <div className=" bg-[#D32A3D] px-5 py-10 rounded-3xl mx-4 mb-12">
-            <div className="flex gap-5 text-[16px] max-h-[300px] overflow-y-auto font-montserrat justify-between px-2 font-semibold">
+          <div className="bg-[#D32A3D] px-5 py-10 rounded-3xl mx-4 mb-12">
+            <div className="flex justify-between text-sm">
               <div>
-                <h1>Your Selection</h1>
-                <ul className="text-center font-montserrat font-light mt-4">
-                  {/* {data?.map((item) => (
-                    <>
-                      <li>{item.name}</li>
-                    </>
-                  ))} */}
+                <h3 className="mb-4 font-semibold desktop:text-lg text-base">
+                  Your Selection
+                </h3>
+                <h4 className="font-semibold text-center border-b pb-2 mb-4 border-dashed">
+                  {selectedService.name}
+                </h4>
+                <ul className="list-disc max-h-16 list-inside pb-2 mb-4 border-b border-dashed overflow-y-auto ">
+                  {selectedFeatures.map((feature, index) => (
+                    <li key={index}>{feature.name}</li>
+                  ))}
+                </ul>
+                <ul className="list-disc max-h-16 list-inside pb-2 mb-4 border-b border-dashed overflow-y-auto ">
+                  {selectedFunctionalities.map((functionality, index) => (
+                    <li key={index}>{functionality.name}</li>
+                  ))}
                 </ul>
               </div>
-              <div>
-                <h1>Estimated Cost</h1>
-                <p className="text-[8px] font-montserrat font-light text-center">
-                  (Subject to Final Scope)
-                </p>
-                <ul className="text-center font-montserrat font-light">
-                  {/* {data?.map((item) => (
-                    <>
-                      <li>{item.value}</li>
-                    </>
-                  ))} */}
-                </ul>
+              <div className="border-b border-dashed">
+                <h3 className="font-semibold desktop:text-lg text-base">
+                  Estimated Cost
+                </h3>
+                <span className="text-xs">(Subject to Final Scope)</span>
               </div>
             </div>
-            {/* <div>
-              <h1 className="text-[30px] text-center font-bold text-white font-montserrat">
-                R OK
-              </h1>
-              <h1 className="text-center font-semibold font-montserrat text-[30px]">
-                {totalValue}
-              </h1>
-            </div> */}
+
+            <h1 className="text-[50px] text-center font-bold text-white font-montserrat">
+              R {isNaN(totalPrice) ? 0 : totalPrice}K
+            </h1>
             <div className="px-0 space-y-4 mt-5">
               <input
                 type="text"
@@ -380,10 +456,20 @@ export default function AppPricing() {
           </div>
         </>
       )}
-      <div className="fixed bottom-0 w-full py-4 px-20 bg-primary-red text-white text-center text-2xl font-bold z-10">
-        R 0K
-      </div>
       {isMobileScreen ? <MobileFooter /> : <Footer />}
+      {!isMobileScreen && revealed ? (
+        <div className="sticky bottom-0 w-full py-4 px-20 bg-primary-red text-white text-center text-2xl font-bold z-10">
+          <span>R {isNaN(totalPrice) ? 0 : totalPrice}K</span>
+          <Link
+            className="inline-block ml-60 font-semibold border px-4 py-2 rounded-full border-white text-lg"
+            href={"/pricing#CTA"}
+          >
+            Get a Quote
+          </Link>
+        </div>
+      ) : (
+        ""
+      )}
     </main>
   );
 }

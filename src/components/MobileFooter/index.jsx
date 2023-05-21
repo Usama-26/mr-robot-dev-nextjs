@@ -15,7 +15,7 @@ export default function MobileFooter() {
         <div className="flex ml-3 justify-between">
           <div>
             <h1 className="font-bold text-lg mb-6">Links</h1>
-            <ul>
+            <ul className="list-disc list-inside">
               <li className="mb-2">
                 <Link href={"/"} className="hover:text-primary-red">
                   Home
@@ -50,7 +50,7 @@ export default function MobileFooter() {
           </div>
           <div>
             <h1 className="font-bold text-lg mb-6">Services</h1>
-            <ul>
+            <ul className="list-disc list-inside">
               <li className="mb-2">
                 <Link
                   href={"/services/web_development"}

@@ -1,17 +1,21 @@
 import Image from "next/image";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
-export default function GlassCard({ image, name, isSelected }) {
+export default function GlassCard({ image, name, desc, isSelected }) {
   const isMobileScreen = useMediaQuery("(max-width: 1023px");
   return (
     <div
       className={` flex justify-center items-center py-10 rounded-md border border-zinc-600 relative transition-all duration-500 ${
-        isSelected ? "bg-white" : "bg-white/10"
+        isMobileScreen || isSelected ? "bg-white" : "bg-white/10"
       }`}
     >
       <div>
         <Image
-          src={!isSelected ? `/desktop/${image}.png` : `/mobile/${image}.png`}
+          src={
+            isSelected || isMobileScreen
+              ? `/mobile/${image}.png`
+              : `/desktop/${image}.png`
+          }
           alt="Service Image"
           width={100}
           height={100}
@@ -20,20 +24,20 @@ export default function GlassCard({ image, name, isSelected }) {
           } `}
         />
         <h4
-          className={`transition-all duration-500 lg:text-primary-red desktop:text-xl text-primary-dark font-bold text-center uppercase ${
+          className={`transition-all duration-500 lg:text-primary-red desktop:text-xl font-bold text-center uppercase ${
             isSelected && "-translate-y-16 scale-75"
-          }`}
+          }
+          ${isMobileScreen || isSelected ? "text-black" : ""}`}
         >
           {name}
         </h4>
       </div>
       <p
-        className={`transition-all duration-500 text-center text-sm mx-4 text-black bottom-10 opacity-0 absolute ${
+        className={`transition-all duration-500 text-center text-sm mx-4 text-black top-32   opacity-0 absolute ${
           isSelected && "opacity-100"
         }`}
       >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente,
-        nemo?
+        {desc}
       </p>
     </div>
   );
