@@ -14,11 +14,11 @@ export default function Statistics({ isSmallScreen }) {
       }`}
     >
       <div className="order-3 lg:order-1">
-        <h1 className={styles.stats_number}>60</h1>
+        <h1 className={styles.stats_number}>2</h1>
         <h5 className={styles.stats_name}>Countries</h5>
       </div>
       <div className="order-2">
-        <h1 className={styles.stats_number}>6,750</h1>
+        <h1 className={styles.stats_number}>6</h1>
         <h5 className={styles.stats_name}>Total Group Employees</h5>
       </div>
       <div className="lg:order-3 order-1">
@@ -28,7 +28,7 @@ export default function Statistics({ isSmallScreen }) {
         <h5 className={styles.stats_name}>Total Group Monthly Traffic</h5>
       </div>
       <div className="order-3 lg:order-4">
-        <h1 className={styles.stats_number}>10</h1>
+        <h1 className={styles.stats_number}>6</h1>
         <h5 className={styles.stats_name}>Brands</h5>
       </div>
     </div>

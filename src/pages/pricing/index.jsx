@@ -6,32 +6,34 @@ import Navbar from "@/components/Navbar";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
+import { toast } from "react-toastify";
 
 const services = [
   {
     service_image: "mvp",
     service_name: "mvp",
-    service_price: 1000,
+    service_price: 0,
     service_desc: "A Minimum Viable Product to test and verify your concept",
   },
   {
     service_image: "appp",
     service_name: "app",
-    service_price: 2000,
+    service_price: 0,
     service_desc:
       "An extensively developed application designed for scalability and expansion.",
   },
   {
     service_image: "game",
     service_name: "game",
-    service_price: 3000,
+    service_price: 0,
     service_desc:
       "A game developed with personalized features and specifications.",
   },
   {
     service_image: "platform",
     service_name: "platform",
-    service_price: 4000,
+    service_price: 0,
     service_desc:
       "A comprehensive platform with multiple applications and supporting backend services",
   },
@@ -41,25 +43,25 @@ const device_features = [
   {
     feature_image: "camera",
     feature_name: "camera",
-    feature_price: 200,
+    feature_price: 0,
     feature_desc: "Utilize the camera on the device.",
   },
   {
     feature_image: "geo",
     feature_name: "geolocation",
-    feature_price: 300,
+    feature_price: 0,
     feature_desc: "Access the location of the device.",
   },
   {
     feature_image: "chat",
     feature_name: "push notification",
-    feature_price: 400,
+    feature_price: 0,
     feature_desc: "Push notifications to provide reminders and alerts",
   },
   {
     feature_image: "blue",
     feature_name: "bluetooth integration",
-    feature_price: 500,
+    feature_price: 0,
     feature_desc: "Incorporation with Bluetooth-enabled devices.",
   },
 ];
@@ -68,77 +70,77 @@ const functionalities = [
   {
     functionality_image: "booking",
     functionality_name: "booking",
-    functionality_price: 20,
+    functionality_price: 0,
     functionality_desc: "Enable the user to schedule or reserve a booking.",
   },
   {
     functionality_image: "ai",
     functionality_name: "ai-ml",
-    functionality_price: 30,
+    functionality_price: 0,
     functionality_desc: "Artificial Intelligence or Machine Learning",
   },
   {
     functionality_image: "vr",
     functionality_name: "ar/vr",
-    functionality_price: 40,
+    functionality_price: 0,
     functionality_desc:
       "Augmented Reality or Virtual Reality Intelligence or Machine Learning",
   },
   {
     functionality_image: "message",
     functionality_name: "chat",
-    functionality_price: 50,
+    functionality_price: 0,
     functionality_desc:
       "Facilitate in-app communication among users and/or administrators.",
   },
   {
     functionality_image: "cart",
     functionality_name: "shopping cart",
-    functionality_price: 60,
+    functionality_price: 0,
     functionality_desc: "Permit users to buy goods or services.",
   },
   {
     functionality_image: "setting",
     functionality_name: "3rd party integration",
-    functionality_price: 70,
+    functionality_price: 0,
     functionality_desc: "Incorporate with third-party external entities.",
   },
   {
     functionality_image: "meter",
     functionality_name: "dashboard",
-    functionality_price: 80,
+    functionality_price: 0,
     functionality_desc:
       "A visual interface that displays key metrics and data in a centralized location.",
   },
   {
     functionality_image: "user",
     functionality_name: "admin/agent app",
-    functionality_price: 90,
+    functionality_price: 0,
     functionality_desc:
       "A distinct application for the administrative or agent functions.",
   },
   {
     functionality_image: "payment",
     functionality_name: "payments",
-    functionality_price: 100,
+    functionality_price: 0,
     functionality_desc: "Transferring payments to third-party entities.",
   },
   {
     functionality_image: "blockchain",
     functionality_name: "blockchain",
-    functionality_price: 110,
+    functionality_price: 0,
     functionality_desc: "Sending payments to external third-party recipients.",
   },
   {
     functionality_image: "unity",
     functionality_name: "unity game",
-    functionality_price: 120,
+    functionality_price: 0,
     functionality_desc: "Games developed using the Unity game engine.",
   },
   {
     functionality_image: "star",
     functionality_name: "ratings",
-    functionality_price: 130,
+    functionality_price: 0,
     functionality_desc:
       "A system for users to rate products or services, or for products and services to be rated by users.",
   },
@@ -150,6 +152,7 @@ export default function AppPricing() {
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [selectedFunctionalities, setSelectedFunctionalities] = useState([]);
   const [revealed, setRevealed] = useState(false);
+  const myDivRef = useRef(null);
 
   function handleServices(event) {
     const { value } = event.target;
@@ -162,6 +165,10 @@ export default function AppPricing() {
   const handleFeatures = (event) => {
     const { value, checked } = event.target;
     const { price } = event.target.dataset;
+    if (Object.keys(selectedService).length == 0) {
+      navigateToDiv();
+      return;
+    }
 
     if (checked) {
       setSelectedFeatures((prevSelectedFeatures) => [
@@ -177,6 +184,10 @@ export default function AppPricing() {
   const handleFunctionalities = (event) => {
     const { value, checked } = event.target;
     const { price } = event.target.dataset;
+    if (Object.keys(selectedService).length == 0) {
+      navigateToDiv();
+      return;
+    }
 
     if (checked) {
       setSelectedFunctionalities((prevSelectedFunctionalities) => [
@@ -215,6 +226,13 @@ export default function AppPricing() {
 
     window.addEventListener("scroll", handleScroll);
   }, []);
+
+  const navigateToDiv = () => {
+    toast.error("Please select build first!!", {});
+    if (myDivRef.current) {
+      myDivRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
@@ -240,7 +258,11 @@ export default function AppPricing() {
           and if you need some help, feel free to contact us anytime.`}
         </p>
       </div>
-      <div className=" mx-auto desktop:px-36 lg:px-10 px-5 lg:py-24 py-10">
+      <div
+        className=" mx-auto desktop:px-36 lg:px-10 px-5 lg:py-24 py-10"
+        id="myDiv"
+        ref={myDivRef}
+      >
         <div className="flex justify-between items-center mb-16">
           <h1 className="desktop:text-4xl text-2xl lg:text-left text-center font-semibold">
             <span className="text-primary-red">What</span> Do You Want To Build

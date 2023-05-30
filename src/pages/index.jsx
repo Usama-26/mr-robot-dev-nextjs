@@ -30,24 +30,28 @@ export default function Home() {
       service_short_desc:
         "We convert your business ideas into a impressive web application to streamline your business productivity.",
       service_image: "web-development.png",
+      path: "/services/web_development",
     },
     {
       service_name: "Game Development",
       service_short_desc:
         "Mr.Robot Dev creates visually stunning & immersive games that meet client preferences and attract a wider audience.",
       service_image: "game-development.png",
+      path: "/services/game_development",
     },
     {
       service_name: "App Development",
       service_short_desc:
         "We make engaging apps for mobile & web using the latest tech. We keep clients updated, focus on interactivity to boost their brand .",
       service_image: "app-development.png",
+      path: "/services/app_development",
     },
     {
       service_name: "Custom Software",
       service_short_desc:
         "We make engaging apps for mobile & web using the latest tech. We keep clients updated, focus on interactivity to boost their brand .",
       service_image: "custom-software.png",
+      path: "/services/custom_software",
     },
   ];
 
@@ -113,6 +117,7 @@ export default function Home() {
                 key={index}
                 name={service.service_name}
                 image={service.service_image}
+                path={service.path}
                 desc={service.service_short_desc}
                 smallScreen={isSmallScreen}
               />
@@ -142,6 +147,7 @@ export default function Home() {
                     name={service.service_name}
                     image={service.service_image}
                     desc={service.service_short_desc}
+                    path={service.path}
                     smallScreen={isSmallScreen}
                   />
                 </SplideSlide>
@@ -352,13 +358,8 @@ export default function Home() {
             <h4 className="uppercase lg:text-xl font-bold lg:text-primary-red text-white">
               Testimonials
             </h4>
-            <p className="text-white my-6 lg:w-full w-4/5 mx-auto">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
-              ducimus ullam dignissimos optio, quas asperiores quos magnam ut
-              vero. Dolorem eaque nobis repudiandae tenetur harum tempore
-              inventore perferendis, facilis aperiam.
-            </p>
-            <h2 className="text-2xl font-bold text-primary-red">Andrew Tate</h2>
+            <p className="text-white my-6 lg:w-full w-4/5 mx-auto"></p>
+            <h2 className="text-2xl font-bold text-primary-red"></h2>
             <h4 className="text-white">CEO, Founder</h4>
 
             <div className="lg:text-right text-center mt-4">
