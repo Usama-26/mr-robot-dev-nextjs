@@ -128,10 +128,10 @@ export default function Contact() {
                 Get in <span className="text-primary-red"> Touch</span>
               </h1>
             </div>
-            <div className="flex items-center lg:gap-10 gap-5">
+            {/* <div className="flex items-center lg:gap-10 gap-5">
               <MdLocalPhone className="w-12 h-12 fill-primary-red" />
               <h1 className="desktop:text-xl lg:text-lg">+27 79 957 7606</h1>
-            </div>
+            </div> */}
             <div className="flex items-center lg:gap-10 gap-5">
               <MdEmail className="w-12 h-12 fill-primary-red" />
               <h1 className="desktop:text-xl lg:text-lg">
