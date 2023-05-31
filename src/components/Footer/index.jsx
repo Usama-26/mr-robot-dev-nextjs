@@ -32,7 +32,7 @@ export default function Footer() {
                 <Link href={"pricing"}>App Pricing</Link>
               </li>
               <li className={styles.footer_links_li}>
-                <Link href={"blogs"}>Blogs</Link>
+                <Link href={"blog"}>Blogs</Link>
               </li>
               <li className={styles.footer_links_li}>
                 <Link href={"about"}>About us</Link>
@@ -65,9 +65,12 @@ export default function Footer() {
             <h5 className="desktop:text-xl mb-4 font-semibold">Social Media</h5>
             <ul className="list-none">
               <li className={styles.footer_links_li}>
-                <Link href={"www.facebook.com/profile.php?id=100092171062219"}>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100092171062219"
+                  target="_blank"
+                >
                   Facebook
-                </Link>
+                </a>
               </li>
               <li className={styles.footer_links_li}>
                 <Link href={"/"}>LinkedIn</Link>
@@ -111,15 +114,15 @@ export default function Footer() {
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 ml-10 flex justify-between items-center desktop:text-xl text-sm text-white">
         <ul className="list-none flex py-8 gap-8 ">
           <li className="hover:text-underline">
-            <Link href={"cookies_policy"}>Cookies Policy</Link>
+            <Link href={"/"}>Cookies Policy</Link>
           </li>
 
           <li className="hover:text-underline">
-            <Link href={"privacy_policy"}>Privacy Policy</Link>
+            <Link href={"/"}>Privacy Policy</Link>
           </li>
 
           <li className="hover:text-underline">
-            <Link href={"terms_conditions"}>Terms & Condition</Link>
+            <Link href={"/"}>Terms & Condition</Link>
           </li>
         </ul>
         <span>© 2023, Mr.RobotDev PTY LTD, All Rights Reserved</span>
