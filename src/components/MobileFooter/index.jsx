@@ -92,7 +92,10 @@ export default function MobileFooter() {
             <p>Phone:+27 79 957 7606</p>
             <p>Email: sales@mrrobotdev.com</p>
             <div className="flex flex-row mx-auto mt-4 gap-5 mb-5">
-              <Link href={"/"}>
+              <a
+                href="https://www.facebook.com/profile.php?id=100092171062219"
+                target="_blank"
+              >
                 <Image
                   src={"/images/mobile/facebook.svg"}
                   width={64}
@@ -100,7 +103,7 @@ export default function MobileFooter() {
                   className="w-10 h-10 mb-4"
                   alt="facebook link"
                 />
-              </Link>
+              </a>
               <Link href={"/"}>
                 <Image
                   src={"/images/mobile/linkedin.svg"}
@@ -121,8 +124,8 @@ export default function MobileFooter() {
       </div>
       <hr className="bg-transparent border-t border-gray-400" />
       <div className="flex justify-between text-white py-3 px-5 text-xs">
-        <Link href={"/privacy"}>Privacy Policy</Link>
-        <Link href={"/terms"}>Terms & Conditions</Link>
+        <Link href={"/"}>Privacy Policy</Link>
+        <Link href={"/"}>Terms & Conditions</Link>
       </div>
     </footer>
   );
