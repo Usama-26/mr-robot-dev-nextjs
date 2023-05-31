@@ -122,7 +122,7 @@ export default function Footer() {
             <Link href={"terms_conditions"}>Terms & Condition</Link>
           </li>
         </ul>
-        <Link href={"/"}>© 2023, www.mrrobotdev.com All Right Reserved</Link>
+        <span>© 2023, Mr.RobotDev PTY LTD, All Rights Reserved</span>
       </div>
     </footer>
   );

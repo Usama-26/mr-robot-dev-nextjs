@@ -228,9 +228,13 @@ export default function AppPricing() {
   }, []);
 
   const navigateToDiv = () => {
-    toast.error("Please select build first!!", {});
-    if (myDivRef.current) {
-      myDivRef.current.scrollIntoView({ behavior: "smooth" });
+    if (!toast.isActive("my-toast-id5")) {
+      toast.error("Please select build first!!", {
+        toastId: "my-toast-id5",
+      });
+      if (myDivRef.current) {
+        myDivRef.current.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
   return (

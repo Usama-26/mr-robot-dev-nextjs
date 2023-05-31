@@ -113,7 +113,7 @@ export default function MobileFooter() {
             </div>
             <div className="pb-5">
               <p className="text-center text-xs">
-                Copyright mrrobotdev.com 2023.
+                © 2023, Mr.RobotDev PTY LTD, All Rights Reserved
               </p>
             </div>
           </div>
