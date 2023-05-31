@@ -78,21 +78,21 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h5 className="desktop:text-xl mb-4 font-semibold">Contact Us</h5>
+            <h5 className="desktop:text-xl mb-0 font-semibold">Contact Us</h5>
             <ul className="list-none">
               <li
                 className={styles.footer_links_li + " flex items-center gap-2"}
               >
-                <MdMail className="w-5 h-5" />
+                {/* <MdMail className="w-5 h-5" />
                 <Link href={"mailto:sales@mrrobotdev.com"}>
                   sales@mrrobotdev.com
-                </Link>
+                </Link> */}
               </li>
               {/* <li className={styles.footer_links_li + " inline-flex gap-2"}>
                 <MdPhone className="w-5 h-5" />
                 <Link href={"tel:+27799577606"}>+27 79 957 7606</Link>
               </li> */}
-              <li className={" mt-6 mb-4"}>
+              <li className={" mt-0 mb-4"}>
                 <h5 className="desktop:text-xl  font-semibold">
                   Subscribe to our Newsletter
                 </h5>

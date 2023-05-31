@@ -132,12 +132,12 @@ export default function Contact() {
               <MdLocalPhone className="w-12 h-12 fill-primary-red" />
               <h1 className="desktop:text-xl lg:text-lg">+27 79 957 7606</h1>
             </div> */}
-            <div className="flex items-center lg:gap-10 gap-5">
+            {/* <div className="flex items-center lg:gap-10 gap-5">
               <MdEmail className="w-12 h-12 fill-primary-red" />
               <h1 className="desktop:text-xl lg:text-lg">
                 sales@mrrobotdev.com
               </h1>
-            </div>
+            </div> */}
             <div className="flex items-center lg:gap-10 gap-5">
               <MdLocationOn className="w-12 h-12 fill-primary-red" />
               <h1 className="desktop:text-xl lg:text-lg">
