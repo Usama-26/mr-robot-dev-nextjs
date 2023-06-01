@@ -70,7 +70,7 @@ export default function Blog() {
           <span className="text-primary-red"> Blog </span>
         </h1>
         <p className="desktop:max-w-2xl max-w-xl text-center my-6 mx-auto">
-          {` Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`}
+          {`Where we share insights, updates, and expertise on all things software development. Stay tuned for informative articles that explore the latest trends and provide valuable resources to help you navigate the world of technology.`}
         </p>
         <Image
           src="/images/commons/blog-hero.png"
