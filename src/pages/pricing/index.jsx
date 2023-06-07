@@ -8,151 +8,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { toast } from "react-toastify";
-
-const services = [
-  {
-    service_image: "mvp",
-    service_name: "mvp",
-    service_price: 0,
-    service_desc: "A Minimum Viable Product to test and verify your concept",
-  },
-  {
-    service_image: "appp",
-    service_name: "app",
-    service_price: 0,
-    service_desc:
-      "An extensively developed application designed for scalability and expansion.",
-  },
-  {
-    service_image: "game",
-    service_name: "game",
-    service_price: 0,
-    service_desc:
-      "A game developed with personalized features and specifications.",
-  },
-  {
-    service_image: "platform",
-    service_name: "platform",
-    service_price: 0,
-    service_desc:
-      "A comprehensive platform with multiple applications and supporting backend services",
-  },
-];
-
-const device_features = [
-  {
-    feature_image: "camera",
-    feature_name: "camera",
-    feature_price: 0,
-    feature_desc: "Utilize the camera on the device.",
-  },
-  {
-    feature_image: "geo",
-    feature_name: "geolocation",
-    feature_price: 0,
-    feature_desc: "Access the location of the device.",
-  },
-  {
-    feature_image: "chat",
-    feature_name: "push notification",
-    feature_price: 0,
-    feature_desc: "Push notifications to provide reminders and alerts",
-  },
-  {
-    feature_image: "blue",
-    feature_name: "bluetooth integration",
-    feature_price: 0,
-    feature_desc: "Incorporation with Bluetooth-enabled devices.",
-  },
-];
-
-const functionalities = [
-  {
-    functionality_image: "booking",
-    functionality_name: "booking",
-    functionality_price: 0,
-    functionality_desc: "Enable the user to schedule or reserve a booking.",
-  },
-  {
-    functionality_image: "ai",
-    functionality_name: "ai-ml",
-    functionality_price: 0,
-    functionality_desc: "Artificial Intelligence or Machine Learning",
-  },
-  {
-    functionality_image: "vr",
-    functionality_name: "ar/vr",
-    functionality_price: 0,
-    functionality_desc:
-      "Augmented Reality or Virtual Reality Intelligence or Machine Learning",
-  },
-  {
-    functionality_image: "message",
-    functionality_name: "chat",
-    functionality_price: 0,
-    functionality_desc:
-      "Facilitate in-app communication among users and/or administrators.",
-  },
-  {
-    functionality_image: "cart",
-    functionality_name: "shopping cart",
-    functionality_price: 0,
-    functionality_desc: "Permit users to buy goods or services.",
-  },
-  {
-    functionality_image: "setting",
-    functionality_name: "3rd party integration",
-    functionality_price: 0,
-    functionality_desc: "Incorporate with third-party external entities.",
-  },
-  {
-    functionality_image: "meter",
-    functionality_name: "dashboard",
-    functionality_price: 0,
-    functionality_desc:
-      "A visual interface that displays key metrics and data in a centralized location.",
-  },
-  {
-    functionality_image: "user",
-    functionality_name: "admin/agent app",
-    functionality_price: 0,
-    functionality_desc:
-      "A distinct application for the administrative or agent functions.",
-  },
-  {
-    functionality_image: "payment",
-    functionality_name: "payments",
-    functionality_price: 0,
-    functionality_desc: "Transferring payments to third-party entities.",
-  },
-  {
-    functionality_image: "blockchain",
-    functionality_name: "blockchain",
-    functionality_price: 0,
-    functionality_desc: "Sending payments to external third-party recipients.",
-  },
-  {
-    functionality_image: "unity",
-    functionality_name: "unity game",
-    functionality_price: 0,
-    functionality_desc: "Games developed using the Unity game engine.",
-  },
-  {
-    functionality_image: "star",
-    functionality_name: "ratings",
-    functionality_price: 0,
-    functionality_desc:
-      "A system for users to rate products or services, or for products and services to be rated by users.",
-  },
-];
+import axios from "axios";
+import { baseURL } from "@/helpers/generic";
 
 export default function AppPricing() {
   const isMobileScreen = useMediaQuery("(max-width: 640px");
   const [selectedService, setSelectedService] = useState({});
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [selectedFunctionalities, setSelectedFunctionalities] = useState([]);
+  const [functionalities, setFunctionalities] = useState([]);
+  const [services, setServices] = useState([]);
+  const [device, setDevice] = useState([]);
   const [revealed, setRevealed] = useState(false);
   const myDivRef = useRef(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const getPricingItems = async () => {
+    try {
+      const { data } = await axios.get(`${baseURL}/pricingitems`);
+      console.log(data);
+      setDevice(data.Device);
+      setServices(data.Service);
+      setFunctionalities(data.Functionality);
+    } catch (e) {
+      console.log("Error", e);
+    }
+  };
+
+  useEffect(() => {
+    getPricingItems();
+  }, []);
 
   function handleServices(event) {
     const { value } = event.target;
@@ -237,6 +123,33 @@ export default function AppPricing() {
       }
     }
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const payload = {
+      fullName: name,
+      email: email,
+      type: "App pricing",
+      appPricing: {
+        service: [selectedService],
+        functionalities: [...selectedFunctionalities],
+        devices: [...selectedFeatures],
+        totalPrice: Number(totalPrice.toFixed(3)),
+      },
+    };
+    try {
+      const response = await axios.post(`${baseURL}/contactus`, payload);
+      toast.success("Information Submitted Successfully", {});
+      setName("");
+      setEmail("");
+      setSelectedService({});
+      setSelectedFeatures([]);
+      setSelectedFunctionalities([]);
+    } catch (e) {
+      toast.error("Something went wrong!!", {});
+      console.log("Error Post", e);
+    }
+  };
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 lg:bg-[#3C64B122] bg-black/20">
@@ -278,28 +191,26 @@ export default function AppPricing() {
         </div>
         <div className="flex gap-20 justify-between">
           <div className="lg:w-3/5 sm:w-4/5 w-full mx-auto grid sm:grid-cols-2 grid-cols-1 gap-10 justify-between self-start">
-            {services.map((service, index) => (
+            {services?.map((item, index) => (
               <>
-                <label htmlFor={service.service_name}>
+                <label htmlFor={item?.name}>
                   <GlassCard
                     key={index}
                     isSelected={
-                      selectedService.name === service.service_name
-                        ? true
-                        : false
+                      selectedService.name === item.name ? true : false
                     }
-                    image={service.service_image}
-                    name={service.service_name}
-                    desc={service.service_desc}
+                    image={item?.logo}
+                    name={item?.name}
+                    desc={item?.description}
                   />
                 </label>
                 <input
                   type="radio"
                   name="service"
-                  id={service.service_name}
-                  value={service.service_name}
+                  id={item?.name}
+                  value={item?.name}
                   className="hidden"
-                  data-price={service.service_price}
+                  data-price={item?.price}
                   onChange={handleServices}
                 />
               </>
@@ -349,25 +260,34 @@ export default function AppPricing() {
               </div>
             </div>
             <h1 className="text-4xl text-center font-bold text-white font-montserrat">
-              R {isNaN(totalPrice) ? 0 : totalPrice}K
+              R {isNaN(totalPrice) ? 0 : totalPrice?.toFixed(3)}
             </h1>
 
-            <div className=" flex flex-col gap-4 mt-5">
+            <form className=" flex flex-col gap-4 mt-5" onSubmit={handleSubmit}>
               <input
                 type="text"
                 placeholder="Name"
                 className="bg-white italic px-4 py-2 w-full rounded-full focus:outline-none text-gray-700"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
               />
               <input
-                type="text"
+                type="email"
                 placeholder="Email"
                 className="bg-white px-4 py-2 italic w-full rounded-full focus:outline-none text-gray-700"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
 
-              <button className="bg-[#262626] font-montserrat w-full p-3 rounded-full ">
+              <button
+                type="submit"
+                className="bg-[#262626] font-montserrat w-full p-3 rounded-full "
+              >
                 Get back to me
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -382,24 +302,24 @@ export default function AppPricing() {
           </h1>
         </div>
         <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 justify-between">
-          {device_features.map((feature, index) => (
+          {device?.map((feature, index) => (
             <>
-              <label htmlFor={feature.feature_name}>
+              <label htmlFor={feature?.name}>
                 <GlassCard
                   key={index}
-                  isSelected={isFeatureSelected(feature.feature_name)}
-                  image={feature.feature_image}
-                  name={feature.feature_name}
-                  desc={feature.feature_desc}
+                  isSelected={isFeatureSelected(feature?.name)}
+                  image={feature?.logo}
+                  name={feature?.name}
+                  desc={feature?.description}
                 />
               </label>
               <input
                 type="checkbox"
-                name={feature.feature_name}
-                id={feature.feature_name}
-                value={feature.feature_name}
+                name={feature.name}
+                id={feature.name}
+                value={feature.name}
                 onChange={handleFeatures}
-                data-price={feature.feature_price}
+                data-price={feature.price}
                 className="hidden"
               />
             </>
@@ -419,23 +339,21 @@ export default function AppPricing() {
         <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 xl:gap-10 gap-5 justify-between">
           {functionalities.map((functionality, index) => (
             <>
-              <label htmlFor={functionality.functionality_name}>
+              <label htmlFor={functionality?.name}>
                 <GlassCard
                   key={index}
-                  isSelected={isFunctionalitySelected(
-                    functionality.functionality_name
-                  )}
-                  desc={functionality.functionality_desc}
-                  image={functionality.functionality_image}
-                  name={functionality.functionality_name}
+                  isSelected={isFunctionalitySelected(functionality?.name)}
+                  desc={functionality?.description}
+                  image={functionality?.logo}
+                  name={functionality?.name}
                 />
               </label>
               <input
                 type="checkbox"
-                name={functionality.functionality_name}
-                id={functionality.functionality_name}
-                value={functionality.functionality_name}
-                data-price={functionality.functionality_price}
+                name={functionality?.name}
+                id={functionality?.name}
+                value={functionality?.name}
+                data-price={functionality?.price}
                 onChange={handleFunctionalities}
                 className="hidden"
               />
@@ -487,7 +405,7 @@ export default function AppPricing() {
             </div>
 
             <h1 className="text-[50px] text-center font-bold text-white font-montserrat">
-              R {isNaN(totalPrice) ? 0 : totalPrice}K
+              R {isNaN(totalPrice) ? 0 : totalPrice?.toFixed(3)}
             </h1>
             <div className="px-0 space-y-4 mt-5">
               <input
@@ -511,7 +429,7 @@ export default function AppPricing() {
       {isMobileScreen ? <MobileFooter /> : <Footer />}
       {revealed ? (
         <div className="sticky bottom-0 w-full py-4 md:px-20 px-5 bg-primary-red text-white text-center text-2xl font-bold z-10">
-          <span>R {isNaN(totalPrice) ? 0 : totalPrice}K</span>
+          <span>R {isNaN(totalPrice) ? 0 : totalPrice?.toFixed(3)}</span>
           <Link
             className="inline-block md:ml-60 sm:ml-10 ml-5 font-semibold border px-4 py-2 rounded-full border-white desktop:text-lg md:text-base text-sm"
             href={"/pricing#CTA"}
