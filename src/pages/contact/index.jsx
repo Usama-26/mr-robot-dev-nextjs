@@ -1,16 +1,53 @@
+import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import MobileFooter from "@/components/MobileFooter";
 import Navbar from "@/components/Navbar";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Image from "next/image";
 import { AiFillHome } from "react-icons/ai";
+import { toast } from "react-toastify";
 import { MdLocalPhone, MdEmail, MdLocationOn } from "react-icons/md";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { baseURL } from "@/helpers/generic";
 
 export default function Contact() {
   const isMobileScreen = useMediaQuery("(max-width: 640px");
+  const router = useRouter();
   const styles = {
     form_input:
       "rounded-full bg-white  border border-white w-full px-4 py-3 placeholder:italic placeholder:text-gray-700 drop-shadow-md text-gray-700",
+  };
+  const [data, setData] = useState({
+    fullName: "",
+    email: "",
+    phoneNo: "",
+    message: "",
+    type: "Contact us",
+    appPricing: {},
+  });
+
+  const handleData = (key, value) => {
+    setData({ ...data, [key]: value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(`${baseURL}/contactus`, data);
+      toast.success("Information Submitted Successfully", {});
+      setData({
+        fullName: "",
+        email: "",
+        phoneNo: "",
+        message: "",
+        type: "Contact us",
+        appPricing: {},
+      });
+    } catch (e) {
+      toast.error("Something went wrong!!", {});
+      console.log("Error Post", e);
+    }
   };
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
@@ -65,7 +102,10 @@ export default function Contact() {
             Contact <span className="text-white">Our Team</span>
           </h1>
         </div>
-        <form className=" flex flex-col sm:flex-row justify-between mb-32 gap-10">
+        <form
+          className=" flex flex-col sm:flex-row justify-between mb-32 gap-10"
+          onSubmit={(e) => handleSubmit(e)}
+        >
           <div className="basis-1/2 flex flex-col ">
             <label
               htmlFor="Full Name"
@@ -77,6 +117,9 @@ export default function Contact() {
               type="text"
               className={`${styles.form_input} md:mb-8 mb-2`}
               placeholder="Enter Full Name"
+              value={data.fullName}
+              onChange={(e) => handleData("fullName", e.target.value)}
+              required
             />
             <label
               htmlFor="Full Name"
@@ -88,6 +131,9 @@ export default function Contact() {
               type="email"
               className={`${styles.form_input} md:mb-8 mb-2`}
               placeholder="Enter Email"
+              value={data.email}
+              onChange={(e) => handleData("email", e.target.value)}
+              required
             />
             <label
               htmlFor="Full Name"
@@ -99,6 +145,9 @@ export default function Contact() {
               type="text"
               className={`${styles.form_input}`}
               placeholder="Enter Phone Number"
+              value={data.phoneNo}
+              onChange={(e) => handleData("phoneNo", e.target.value)}
+              required
             />
           </div>
           <div className="basis-1/2">
@@ -113,8 +162,14 @@ export default function Contact() {
               id="message"
               className="w-full mt-5 md:mt-0 rounded-3xl px-4 py-3 drop-shadow-md md:h-full h-48 resize-none mb-4 bg-white border border-white  text-black md:border-transparent focus:outline-none"
               placeholder="Type your message here..."
+              value={data.message}
+              onChange={(e) => handleData("message", e.target.value)}
+              required
             ></textarea>
-            <button className="bg-primary-red float-right inline-block px-10 py-2 text-lg font-semibold rounded-full">
+            <button
+              type="submit"
+              className="bg-primary-red float-right inline-block px-10 py-2 text-lg font-semibold rounded-full"
+            >
               Send
             </button>
           </div>
