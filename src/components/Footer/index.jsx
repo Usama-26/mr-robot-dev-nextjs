@@ -2,10 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdMail, MdPhone } from "react-icons/md";
 import { IoPaperPlane } from "react-icons/io5";
+import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import CombineRepository from "@/repositories/CombineRepository";
+import alert from "../Notification/Alert";
 export default function Footer() {
   const styles = {
     footer_links_li: "relative mb-4 footer-link",
   };
+  const [email, setEmail] = useState("");
+  async function subscribeNewsLetter(e) {
+    e.preventDefault();
+    try {
+      const data = await CombineRepository.subscribeNewsLetter({
+        email: email,
+      });
+      alert.showSuccessAlert(
+        "You have successfully subscribed to our NewsLetter"
+      );
+      setEmail("");
+    } catch (error) {
+      alert.showErrorAlert(error);
+    }
+  }
   return (
     <footer className="bg-primary-red-dark/25 ">
       <div className="mx-auto desktop:px-36 lg:px-28 px-5 border-b desktop:text-xl text-sm text-white">
@@ -98,13 +117,19 @@ export default function Footer() {
                 </h5>
               </li>
               <li className="relative mb-4">
-                <form>
+                <form onSubmit={subscribeNewsLetter}>
                   <input
                     type="email"
-                    className="desktop:p-4 p-2 rounded-full w-full"
+                    className="desktop:p-4 p-2 rounded-full w-full text-black"
                     placeholder="Your email"
+                    value={email}
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
                   />
-                  <button className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-r-full absolute right-0 h-full ">
+                  <button
+                    type="submit"
+                    className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-r-full absolute right-0 h-full "
+                  >
                     <IoPaperPlane className="w-6 h-6 " />
                   </button>
                 </form>
