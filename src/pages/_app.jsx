@@ -58,6 +58,7 @@ export default function App({ Component, pageProps }) {
       email: userData.email,
       phoneNo: userData.phoneNo,
     };
+<<<<<<< Updated upstream
     try {
       const user = await chatsRepository.createChatUser(payload);
       setCurrentUser(user.result.id);
@@ -82,6 +83,85 @@ export default function App({ Component, pageProps }) {
       }
     } catch (error) {
       console.log(error);
+=======
+    const createChatUser = async (e) => {
+        e.preventDefault();
+        const payload = {
+            firstName: userData.firstName,
+            surName: userData.surName,
+            email: userData.email,
+            phoneNo: userData.phoneNo,
+        };
+        try {
+            const user = await chatsRepository.createChatUser(payload);
+            setCurrentUser(user.result.id);
+            socket.emit('new-user-add', user.result.id, staffUser.socketId);
+            socket.on('get-staff', (onlineStaffUsers) => {
+                console.log(onlineStaffUsers);
+                setOnlineStaffUsers(onlineStaffUsers);
+            });
+
+            if (staffUser) {
+                const chatpayload = {
+                    senderId: user.result.id,
+                    receiverId: staffUser.userId,
+                };
+
+                const chat = await chatsRepository.createChat(chatpayload);
+                setChat(chat.result);
+                sessionStorage.setItem(
+                    'chat',
+                    encodeURI(JSON.stringify(chat.result))
+                );
+                setBotStep(4);
+            } else {
+                console.log('No staff User available for chat');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    const startChat = () => {
+        const alreadyChat = JSON.parse(
+            decodeURI(sessionStorage.getItem('chat'))
+        );
+
+        if (alreadyChat) {
+            socket.emit('get-online-users');
+            socket.on('online-staff-users', (onlinestaffusers) => {
+                setOnlineStaffUsers(onlinestaffusers);
+            });
+            setIsVisible(true);
+            setBotStep(4);
+            if (!alreadyChat?.isClosed) setChat(alreadyChat);
+            else alert.showinfoAlert('Your chat has been closed');
+        } else {
+            socket.emit('get-staff-user');
+            socket.once('online-staff-user', (staffUser) => {
+                console.log(staffUser);
+                setStaffUser(staffUser);
+            });
+            setIsVisible(true);
+            setBotStep(1);
+        }
+    };
+    async function handleCloseChat() {
+        if (chat) {
+            sessionStorage.clear();
+            setChat(null);
+            setStaffUser(null);
+            setIsVisible(false);
+            closeChatModal();
+            const payload = {
+                chat,
+            };
+            try {
+                await chatsRepository.sendChatLink(payload);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+>>>>>>> Stashed changes
     }
   };
   const startChat = () => {

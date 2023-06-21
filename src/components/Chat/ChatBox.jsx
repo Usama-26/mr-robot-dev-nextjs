@@ -117,6 +117,7 @@ export function ChatBox({ chat, socket }) {
                 </div>
               </div>
             </div>
+<<<<<<< Updated upstream
           </div>
         ))}
       </div>
@@ -150,4 +151,40 @@ export function ChatBox({ chat, socket }) {
       </div>
     </>
   );
+=======
+            {!chat?.isClosed ? (
+                <div className="border-t-2 border-gray-200 px-4 py-4 mb-2 sm:mb-0 flex items-center">
+                    <InputEmoji
+                        className="w-48"
+                        borderColor={'#b9b2b2'}
+                        value={message}
+                        onChange={setMessage}
+                    />
+                    <label
+                        for="file-input"
+                        class="relative inline-block cursor-pointer mr-1"
+                    >
+                        <ImAttachment className="w-6 h-6 cursor-pointer" />
+                        <input
+                            id="file-input"
+                            type="file"
+                            class="hidden"
+                            onChange={handleFileSelect}
+                            accept="image/jpeg, image/png, image/gif"
+                            maxLength={1}
+                        />
+                    </label>
+                    <button
+                        onClick={(e) => handleSend(e)}
+                        className=" rounded-full p-1 bg-primary-red-dark"
+                    >
+                        <IoPaperPlane className="w-5 h-5 fill-white" />
+                    </button>
+                </div>
+            ) : (
+                <></>
+            )}
+        </>
+    );
+>>>>>>> Stashed changes
 }
