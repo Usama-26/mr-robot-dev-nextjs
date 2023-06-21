@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
@@ -6,16 +7,12 @@ export default function GlassCard({ image, name, desc, isSelected }) {
   return (
     <div
       className={` flex justify-center items-center py-10 rounded-md border border-zinc-600 relative transition-all duration-500 ${
-        isMobileScreen || isSelected ? "bg-white" : "bg-white/10"
+        isSelected ? "bg-primary-red" : "bg-white/10"
       }`}
     >
       <div>
-        <Image
-          src={
-            isSelected || isMobileScreen
-              ? `/mobile/${image}.png`
-              : `/desktop/${image}.png`
-          }
+        <img
+          src={isSelected || isMobileScreen ? image : image}
           alt="Service Image"
           width={100}
           height={100}
@@ -24,16 +21,16 @@ export default function GlassCard({ image, name, desc, isSelected }) {
           } `}
         />
         <h4
-          className={`transition-all duration-500 lg:text-primary-red desktop:text-xl font-bold text-center uppercase ${
+          className={`transition-all duration-500  desktop:text-xl font-bold text-center uppercase ${
             isSelected && "-translate-y-16 scale-75"
           }
-          ${isMobileScreen || isSelected ? "text-black" : ""}`}
+          ${isSelected ? "text-white" : "text-primary-red"}`}
         >
           {name}
         </h4>
       </div>
       <p
-        className={`transition-all duration-500 text-center text-sm mx-4 text-black desktop:top-40 top-32   opacity-0 absolute ${
+        className={`transition-all duration-500 text-center text-md mx-4 text-white desktop:top-40 top-32   opacity-0 absolute ${
           isSelected && "opacity-100"
         }`}
       >
