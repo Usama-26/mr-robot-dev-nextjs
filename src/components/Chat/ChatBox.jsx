@@ -1,9 +1,19 @@
+<<<<<<< Updated upstream
 import React, { useEffect, useRef, useState } from "react";
 import { FileMessageWithProgress } from "./FileMessageWithProgress";
 import { ImAttachment } from "react-icons/im";
 import InputEmoji from "react-input-emoji";
 import { IoPaperPlaneSharp, IoPaperPlane } from "react-icons/io5";
 import chatsRepository from "@/repositories/chatsRepository";
+=======
+import React, { useEffect, useRef, useState } from 'react';
+import { FileMessageWithProgress } from './FileMessageWithProgress';
+import { ImAttachment } from 'react-icons/im';
+import InputEmoji from 'react-input-emoji';
+import { IoPaperPlaneSharp, IoPaperPlane } from 'react-icons/io5';
+import chatsRepository from '@/repositories/chatsRepository';
+import { convertDateAndTime } from '@/helpers/chatHelpers';
+>>>>>>> Stashed changes
 
 export function ChatBox({ chat, socket }) {
   const [message, setMessage] = useState("");
@@ -85,6 +95,7 @@ export function ChatBox({ chat, socket }) {
                 message.author == currentUser && "justify-end"
               }`}
             >
+<<<<<<< Updated upstream
               <div className="flex flex-col space-y-2 text-xs max-w-xs order-1 items-end">
                 <div>
                   {message.attachment ? (
@@ -94,6 +105,69 @@ export function ChatBox({ chat, socket }) {
                           ? "bg-[#D32A3D]  text-white rounded-br-none"
                           : "bg-gray-200  text-gray-700 rounded-bl-none"
                       }`}
+=======
+                {messages.map((message, index) => (
+                    <div ref={scroll} key={index} className="chat-message">
+                        <div
+                            className={`flex items-end ${
+                                message.author == currentUser && 'justify-end'
+                            }`}
+                        >
+                            <div className="flex flex-col space-y-2 text-xs max-w-xs order-1 items-end">
+                                <div>
+                                    {message.attachment ? (
+                                        <span
+                                            className={`px-4 py-2 rounded-lg inline-block  ${
+                                                message.author == currentUser
+                                                    ? 'bg-[#D32A3D]  text-white rounded-br-none'
+                                                    : 'bg-gray-200  text-gray-700 rounded-bl-none'
+                                            }`}
+                                        >
+                                            <FileMessageWithProgress
+                                                chatId={chat?.id}
+                                                message={message}
+                                                file={file}
+                                                socket={socket}
+                                                userId={chat?.receiverId?.id}
+                                            />
+                                        </span>
+                                    ) : (
+                                        <>
+                                            <span
+                                                className={`px-4 py-2 rounded-lg inline-block  ${
+                                                    message.author ==
+                                                    currentUser
+                                                        ? 'bg-[#D32A3D]  text-white rounded-br-none'
+                                                        : 'bg-gray-200  text-gray-700 rounded-bl-none'
+                                                }`}
+                                            >
+                                                {message?.message}
+                                                <span className="block text-right">
+                                                    {convertDateAndTime(
+                                                        message?.time
+                                                    )}
+                                                </span>
+                                            </span>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            {!chat?.isClosed ? (
+                <div className="border-t-2 border-gray-200 px-4 py-4 mb-2 sm:mb-0 flex items-center">
+                    <InputEmoji
+                        className="w-48"
+                        borderColor={'#b9b2b2'}
+                        value={message}
+                        onChange={setMessage}
+                    />
+                    <label
+                        for="file-input"
+                        class="relative inline-block cursor-pointer mr-1"
+>>>>>>> Stashed changes
                     >
                       <FileMessageWithProgress
                         chatId={chat?.id}
