@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import MobileFooter from "@/components/MobileFooter";
@@ -10,9 +11,24 @@ import { MdLocalPhone, MdEmail, MdLocationOn } from "react-icons/md";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { baseURL } from "@/helpers/generic";
-
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
+import { HiOutlineRefresh } from "react-icons/hi";
 export default function Contact() {
   const isMobileScreen = useMediaQuery("(max-width: 640px");
+  const [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+    setIsSubmitted(false);
+    setUserAnswer("");
+    generateNewQuestion();
+  }
+
+  function openModal(e) {
+    e.preventDefault();
+    setIsOpen(true);
+  }
   const router = useRouter();
   const styles = {
     form_input:
@@ -31,11 +47,12 @@ export default function Contact() {
     setData({ ...data, [key]: value });
   };
 
-  const handleSubmit = async (event) => {
+  const handlesubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(`${baseURL}/contactus`, data);
       toast.success("Information Submitted Successfully", {});
+      closeModal();
       setData({
         fullName: "",
         email: "",
@@ -46,9 +63,76 @@ export default function Contact() {
       });
     } catch (e) {
       toast.error("Something went wrong!!", {});
+      closeModal();
       console.log("Error Post", e);
     }
   };
+
+  const [firstNumber, setFirstNumber] = useState(
+    Math.floor(Math.random() * 10)
+  );
+  const [secondNumber, setSecondNumber] = useState(
+    Math.floor(Math.random() * 10)
+  );
+  const [operator, setOperator] = useState(
+    ["+", "-", "*"][Math.floor(Math.random() * 3)]
+  );
+  const [userAnswer, setUserAnswer] = useState("");
+  const [isBot, setIsBot] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [startTime, setStartTime] = useState(null);
+
+  useEffect(() => {
+    if (!isSubmitted) {
+      setStartTime(Date.now());
+    }
+  }, [isSubmitted]);
+
+  const generateNewQuestion = () => {
+    setFirstNumber(Math.floor(Math.random() * 20));
+    setSecondNumber(Math.floor(Math.random() * 20));
+    setOperator(["+", "-", "*"][Math.floor(Math.random() * 3)]);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const expectedAnswer = eval(`${firstNumber} ${operator} ${secondNumber}`);
+    const endTime = Date.now();
+    const elapsedTime = (endTime - startTime) / 1000; // Calculate elapsed time in seconds
+
+    if (userAnswer === expectedAnswer.toString() && elapsedTime > 4) {
+      console.log("Human");
+      setIsBot(false);
+      handlesubmit(e);
+      submitCaptcha("Human", "Success");
+    } else {
+      console.log("Bot");
+      setIsBot(true);
+      submitCaptcha("Bot", "Failed");
+    }
+
+    setIsSubmitted(true);
+  };
+
+  const handleChange = (e) => {
+    setUserAnswer(e.target.value);
+  };
+
+  const handleTryAgain = () => {
+    setIsSubmitted(false);
+    setUserAnswer("");
+    generateNewQuestion();
+  };
+
+  const submitCaptcha = async (classfication, result) => {
+    let payload = {
+      userClassification: classfication,
+      result: result,
+    };
+    try {
+      const response = await axios.post(`${baseURL}/captchas`, payload);
+    } catch (e) {}
+  };
+
   return (
     <main className="mx-auto bg-primary bg-cover bg-no-repeat max-w-desktop font-montserrat text-white">
       <div className="mx-auto desktop:px-36 lg:px-28 px-5 lg:bg-[#3C64B122] bg-black/20">
@@ -104,7 +188,7 @@ export default function Contact() {
         </div>
         <form
           className=" flex flex-col sm:flex-row justify-between mb-32 gap-10"
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={(e) => openModal(e)}
         >
           <div className="basis-1/2 flex flex-col ">
             <label
@@ -210,6 +294,117 @@ export default function Contact() {
           ></iframe>
         </div>
       </div>
+
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-100"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-3xl  overflow-hidden rounded-2xl bg-black px-6 text-left">
+                  <div className="mt-2">
+                    <div className="flex justify-between items-center">
+                      <div className="text-white mb-12">
+                        <div>
+                          <img src="/desktop/captchaLogo.png" alt="" />
+                        </div>
+                        <h1 className="font-montserrat font-semibold mb-5 text-[18px]">
+                          Verify your human identity to proceed securely.
+                        </h1>
+                        <span className="font-light font-montserrat text-[15px]">
+                          Help us combat spam and maintain platform integrity.
+                        </span>
+                        <p className="mt-5 font-extralight font-montserrat text-[13px]">
+                          Please Solve the Math problem below:
+                        </p>
+                        <div>
+                          {isSubmitted && !isBot ? (
+                            <>
+                              <img
+                                src="/desktop/verified.png"
+                                alt=""
+                                className="mt-2"
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <form onSubmit={handleSubmit}>
+                                <div className="flex items-center gap-2">
+                                  <div
+                                    className={`${
+                                      isSubmitted && isBot
+                                        ? "border-primary-red border-4"
+                                        : "border-none"
+                                    } flex bg-white items-center p-1.5 rounded-2xl w-[170px] mt-2`}
+                                  >
+                                    <p className="text-black font-bold ml-1">{`${firstNumber} ${operator} ${secondNumber} =`}</p>
+                                    <input
+                                      type="text"
+                                      value={userAnswer}
+                                      onChange={handleChange}
+                                      className="text-black w-[70px] p-1.5 font-bold focus:outline-none"
+                                    />
+                                  </div>
+                                  <HiOutlineRefresh
+                                    className="w-7 h-7 cursor-pointer"
+                                    onClick={handleTryAgain}
+                                  />
+                                </div>
+                                <div className="flex flex-col items-start justify-start">
+                                  {isSubmitted && isBot && (
+                                    <>
+                                      <span className="text-primary-red text-[14px] mt-1">
+                                        Verification failed, try again
+                                      </span>
+                                    </>
+                                  )}
+
+                                  <button
+                                    type="submit"
+                                    className="bg-primary-red text-white rounded-2xl px-3.5 py-1 mt-2"
+                                  >
+                                    Submit
+                                  </button>
+                                </div>
+                              </form>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                      <div className="hidden md:block">
+                        <img
+                          src="/desktop/captcha.png"
+                          alt=""
+                          className="w-[250px] h-[250px]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
 
       {isMobileScreen ? <MobileFooter /> : <Footer />}
     </main>
