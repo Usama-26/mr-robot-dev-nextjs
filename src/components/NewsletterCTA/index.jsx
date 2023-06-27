@@ -5,6 +5,8 @@ import alert from "../Notification/Alert";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { HiOutlineRefresh } from "react-icons/hi";
+import { baseURL } from "@/helpers/generic";
+import axios from "axios";
 
 export default function NewsletterCTA() {
   const [email, setEmail] = useState("");

@@ -10,6 +10,8 @@ import alert from "../Notification/Alert";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { HiOutlineRefresh } from "react-icons/hi";
+import { baseURL } from "@/helpers/generic";
+import axios from "axios";
 export default function Footer() {
   const styles = {
     footer_links_li: "relative mb-4 footer-link",
