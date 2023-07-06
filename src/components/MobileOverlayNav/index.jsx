@@ -25,7 +25,7 @@ export default function MobileOverlayNav({ isVisible, setIsVisible }) {
               <MdArrowDropDown />
             </Popover.Button>
 
-            <Popover.Panel className="font-normal text-xs mt-4 w-56">
+            <Popover.Panel className="font-normal text-xs mt-4   w-56">
               <div className="flex flex-col text-center">
                 <Link className="py-2" href="/services/web_development">
                   Website Development
