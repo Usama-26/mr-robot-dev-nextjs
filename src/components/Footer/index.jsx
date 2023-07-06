@@ -1,11 +1,117 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
 import { MdMail, MdPhone } from "react-icons/md";
 import { IoPaperPlane } from "react-icons/io5";
+import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import CombineRepository from "@/repositories/CombineRepository";
+import alert from "../Notification/Alert";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
+import { HiOutlineRefresh } from "react-icons/hi";
+import { baseURL } from "@/helpers/generic";
+import axios from "axios";
 export default function Footer() {
   const styles = {
     footer_links_li: "relative mb-4 footer-link",
   };
+  const [email, setEmail] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+    setIsSubmitted(false);
+    setUserAnswer("");
+    generateNewQuestion();
+  }
+
+  function openModal(e) {
+    e.preventDefault();
+    setIsOpen(true);
+  }
+
+  async function subscribeNewsLetter(e) {
+    e.preventDefault();
+    try {
+      const data = await CombineRepository.subscribeNewsLetter({
+        email: email,
+      });
+      alert.showSuccessAlert(
+        "You have successfully subscribed to our NewsLetter"
+      );
+      setEmail("");
+      closeModal();
+    } catch (error) {
+      alert.showErrorAlert(error);
+      closeModal();
+    }
+  }
+
+  const [firstNumber, setFirstNumber] = useState(
+    Math.floor(Math.random() * 10)
+  );
+  const [secondNumber, setSecondNumber] = useState(
+    Math.floor(Math.random() * 10)
+  );
+  const [operator, setOperator] = useState(
+    ["+", "-", "*"][Math.floor(Math.random() * 3)]
+  );
+  const [userAnswer, setUserAnswer] = useState("");
+  const [isBot, setIsBot] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [startTime, setStartTime] = useState(null);
+
+  useEffect(() => {
+    if (!isSubmitted) {
+      setStartTime(Date.now());
+    }
+  }, [isSubmitted]);
+
+  const generateNewQuestion = () => {
+    setFirstNumber(Math.floor(Math.random() * 20));
+    setSecondNumber(Math.floor(Math.random() * 20));
+    setOperator(["+", "-", "*"][Math.floor(Math.random() * 3)]);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const expectedAnswer = eval(`${firstNumber} ${operator} ${secondNumber}`);
+    const endTime = Date.now();
+    const elapsedTime = (endTime - startTime) / 1000; // Calculate elapsed time in seconds
+
+    if (userAnswer === expectedAnswer.toString() && elapsedTime > 4) {
+      console.log("Human");
+      setIsBot(false);
+      subscribeNewsLetter(e);
+      submitCaptcha("Human", "Success");
+    } else {
+      console.log("Bot");
+      setIsBot(true);
+      submitCaptcha("Bot", "Failed");
+    }
+
+    setIsSubmitted(true);
+  };
+
+  const handleChange = (e) => {
+    setUserAnswer(e.target.value);
+  };
+  const handleTryAgain = () => {
+    setIsSubmitted(false);
+    setUserAnswer("");
+    generateNewQuestion();
+  };
+
+  const submitCaptcha = async (classfication, result) => {
+    let payload = {
+      userClassification: classfication,
+      result: result,
+    };
+    try {
+      const response = await axios.post(`${baseURL}/captchas`, payload);
+    } catch (e) {}
+  };
+
   return (
     <footer className="bg-primary-red-dark/25 ">
       <div className="mx-auto desktop:px-36 lg:px-28 px-5 border-b desktop:text-xl text-sm text-white">
@@ -98,13 +204,19 @@ export default function Footer() {
                 </h5>
               </li>
               <li className="relative mb-4">
-                <form>
+                <form onSubmit={(e) => openModal(e)}>
                   <input
                     type="email"
-                    className="desktop:p-4 p-2 rounded-full w-full"
+                    className="desktop:p-4 p-2 rounded-full w-full text-black"
                     placeholder="Your email"
+                    value={email}
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
                   />
-                  <button className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-r-full absolute right-0 h-full ">
+                  <button
+                    type="submit"
+                    className="bg-primary-red desktop:px-4 desktop:py-2 px-2 py-1 rounded-r-full absolute right-0 h-full "
+                  >
                     <IoPaperPlane className="w-6 h-6 " />
                   </button>
                 </form>
@@ -113,6 +225,116 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-100"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-3xl  overflow-hidden rounded-2xl bg-black px-6 text-left">
+                  <div className="mt-2">
+                    <div className="flex justify-between items-center">
+                      <div className="text-white mb-12">
+                        <div>
+                          <img src="/desktop/captchaLogo.png" alt="" />
+                        </div>
+                        <h1 className="font-montserrat font-semibold mb-5 text-[18px]">
+                          Verify your human identity to proceed securely.
+                        </h1>
+                        <span className="font-light font-montserrat text-[15px]">
+                          Help us combat spam and maintain platform integrity.
+                        </span>
+                        <p className="mt-5 font-extralight font-montserrat text-[13px]">
+                          Please Solve the Math problem below:
+                        </p>
+                        <div>
+                          {isSubmitted && !isBot ? (
+                            <>
+                              <img
+                                src="/desktop/verified.png"
+                                alt=""
+                                className="mt-2"
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <form onSubmit={handleSubmit}>
+                                <div className="flex items-center gap-2">
+                                  <div
+                                    className={`${
+                                      isSubmitted && isBot
+                                        ? "border-primary-red border-4"
+                                        : "border-none"
+                                    } flex bg-white items-center p-1.5 rounded-2xl w-[170px] mt-2`}
+                                  >
+                                    <p className="text-black font-bold ml-1">{`${firstNumber} ${operator} ${secondNumber} =`}</p>
+                                    <input
+                                      type="text"
+                                      value={userAnswer}
+                                      onChange={handleChange}
+                                      className="text-black w-[70px] p-1.5 font-bold focus:outline-none"
+                                    />
+                                  </div>
+                                  <HiOutlineRefresh
+                                    className="w-7 h-7 cursor-pointer"
+                                    onClick={handleTryAgain}
+                                  />
+                                </div>
+                                <div className="flex flex-col items-start justify-start">
+                                  {isSubmitted && isBot && (
+                                    <>
+                                      <span className="text-primary-red text-[14px] mt-1">
+                                        Verification failed, try again
+                                      </span>
+                                    </>
+                                  )}
+
+                                  <button
+                                    type="submit"
+                                    className="bg-primary-red text-white rounded-2xl px-3.5 py-1 mt-2"
+                                  >
+                                    Submit
+                                  </button>
+                                </div>
+                              </form>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                      <div className="hidden md:block">
+                        <img
+                          src="/desktop/captcha.png"
+                          alt=""
+                          className="w-[250px] h-[250px]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
       <div className="mx-auto desktop:px-32 lg:px-20 px-5 ml-10 flex justify-between items-center desktop:text-xl text-sm text-white">
         <ul className="list-none flex py-8 gap-8 ">
           <li className="hover:text-underline">
